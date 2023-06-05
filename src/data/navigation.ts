@@ -137,39 +137,8 @@ const otherPageChildMenus: NavItemType[] = [
     id: ncNanoId(),
     href: "/about",
     name: "About",
-  },
-  {
-    id: ncNanoId(),
-    href: "/contact",
-    name: "Contact us",
-  },
-  {
-    id: ncNanoId(),
-    href: "/login",
-    name: "Login",
-  },
-  {
-    id: ncNanoId(),
-    href: "/signup",
-    name: "Signup",
-  },
-  {
-    id: ncNanoId(),
-    href: "/forgot-pass",
-    name: "Forgot Password",
-  },
-  {
-    id: ncNanoId(),
-    href: "/dashboard",
-    name: "Dashboard",
-    type: "dropdown",
-    children: dashboardChildMenus,
-  },
-  {
-    id: ncNanoId(),
-    href: "/subscription",
-    name: "Subscription",
-  },
+  }
+ 
 ];
 
 const archviePageChildrenMenus: NavItemType[] = [
@@ -395,8 +364,8 @@ export const NAVIGATION_DEMO: NavItemType[] = [
   },
   {
     id: ncNanoId(),
-    href: "#",
-    name: "Other pages",
+    href: "/contact",
+    name: "Contact",
     type: "dropdown",
     children: otherPageChildMenus,
   },
