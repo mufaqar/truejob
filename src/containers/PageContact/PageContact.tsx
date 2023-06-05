@@ -79,7 +79,7 @@ const PageContact: FC<PageContactProps> = ({ className = "" }) => {
 
                 <Textarea className="mt-1" rows={6} />
               </label>
-              <ButtonPrimary type="submit">Send Message</ButtonPrimary>
+              <ButtonPrimary type="submit">Send</ButtonPrimary>
             </form>
           </div>
         </div>
