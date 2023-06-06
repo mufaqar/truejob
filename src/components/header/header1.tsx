@@ -60,7 +60,7 @@ const Header1 = () => {
                 </div>
                 <SubMenu>
                   <Route to="/home/home1">home 1</Route>
-                  <Route to="/home/home2">home 2</Route>
+                  <Route to="/home/home2">home 02</Route>
                 </SubMenu>
               </li>
               <li className="group relative">
