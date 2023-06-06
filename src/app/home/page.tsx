@@ -102,7 +102,7 @@ const Home2 = () => {
           </section>
         </Layout>
       </div>
-      <Footer2/>
+      <Footer2 />
     </>
   );
 };
