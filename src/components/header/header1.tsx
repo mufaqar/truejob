@@ -34,24 +34,22 @@ const Header1 = () => {
     scrollTop >= "10" ? setHeaderClr(true) : setHeaderClr(false);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
-  }, [scrollTop]);
+  }, [scrollTop, isMobile]);
 
   return (
     <>
       <header
-        className={`right-0 left-0 top-0 shadow-md max-h-[64px] fixed w-full z-50 ${
-          headerClr ? "bg-black" : "bg-black/40"
-        }`}
+        className={`right-0 left-0 top-0 shadow-md max-h-[64px] fixed w-full z-50 ${headerClr ? "bg-black" : "bg-black/40"
+          }`}
       >
         <div className="container mx-auto flex py-2 justify-between items-center px-4 md:px-10">
           <Logo />
           <div className="flex text-white">
             <ul
-              className={`gap-7 mr-4 md:items-center w-full ${
-                isMobile
-                  ? "absolute top-[52px] flex flex-col gap-6 p-10 left-0 right-0 bg-black dark:bg-light-gray w-full"
-                  : "hidden md:flex"
-              }`}
+              className={`gap-7 mr-4 md:items-center w-full ${isMobile
+                ? "absolute top-[52px] flex flex-col gap-6 p-10 left-0 right-0 bg-black dark:bg-light-gray w-full"
+                : "hidden md:flex"
+                }`}
             >
               <li className="group relative">
                 <div className="flex items-center gap-2">
@@ -127,9 +125,8 @@ const Header1 = () => {
         </div>
       )}
       <section
-        className={`transition-all duration-300 fixed top-0 bottom-0 p-8 bg-[#090909] z-50 w-full md:w-[350px] ease-in-out ${
-          openSide ? "right-0" : "-right-[100%]"
-        }`}
+        className={`transition-all duration-300 fixed top-0 bottom-0 p-8 bg-[#090909] z-50 w-full md:w-[350px] ease-in-out ${openSide ? "right-0" : "-right-[100%]"
+          }`}
       >
         <SideSection />
       </section>

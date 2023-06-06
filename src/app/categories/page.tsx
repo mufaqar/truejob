@@ -1,6 +1,6 @@
 "use client"
 
-import Pagination from "@/components/Pagination/pagination";
+// import Pagination from "@/components/Pagination/pagination";
 import { categoriesDate } from "@/const/categories";
 import Image from "next/image";
 import Link from "next/link";
@@ -37,7 +37,7 @@ const CategoriesPage = () => {
           );
         })}
       </section>
-      <Pagination data={categoriesDate} PaginatedData={PaginatedData} perpage={12} />
+      {/* <Pagination data={categoriesDate} PaginatedData={PaginatedData} perpage={12} /> */}
     </div>
   );
 };
