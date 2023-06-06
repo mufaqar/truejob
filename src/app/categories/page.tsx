@@ -37,7 +37,7 @@ const CategoriesPage = () => {
           );
         })}
       </section>
-      <Pagination data={categoriesDate} PaginatedData={PaginatedData} perpage={12}/>
+      <Pagination data={categoriesDate} PaginatedData={PaginatedData} perpage={12} />
     </div>
   );
 };

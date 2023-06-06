@@ -1,7 +1,7 @@
 "use client";
 
 import Layout from "@/components/Layout/Layout";
-//import Pagination from "@/components/Pagination/pagination";
+
 import Slider from "@/components/Slider/Slider";
 import { SideBarHeading } from "@/components/aside";
 import Footer1 from "@/components/footer";
@@ -134,7 +134,7 @@ const Blog = () => {
               }
             })}
           </div>
-          {/* <Pagination data={PostMokeData.slice(5)} PaginatedData={PaginatedData} /> */}
+
         </section>
       </Layout>
       <Footer1 />
