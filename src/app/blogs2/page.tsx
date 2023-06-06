@@ -1,7 +1,7 @@
 "use client";
 
 import Layout from "@/components/Layout/Layout";
-import Pagination from "@/components/Pagination/pagination";
+//import Pagination from "@/components/Pagination/pagination";
 import Slider from "@/components/Slider/Slider";
 import { SideBarHeading } from "@/components/aside";
 import Footer1 from "@/components/footer";
@@ -23,24 +23,24 @@ import {
 const Blog2 = () => {
 
   const [pData, setPData] = useState<any>()
-  const PaginatedData =(res:any) => {
+  const PaginatedData = (res: any) => {
     setPData(res)
   }
-  
+
 
   return (
     <>
       <Header2 />
-      
+
       <PageBanner
-          title="Blogs"
-          subTitle="Lorem ipsum dolor sit amet consectetur adipisicing elit"
-          image="/assets/images/contat.jpg"
-          rounded={true}
-        />
+        title="Blogs"
+        subTitle="Lorem ipsum dolor sit amet consectetur adipisicing elit"
+        image="/assets/images/contat.jpg"
+        rounded={true}
+      />
       <Layout>
         <section className="my-24">
-          
+
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {PostMokeData.slice(1, 5).map((item, idx) => {
               return (
@@ -96,7 +96,7 @@ const Blog2 = () => {
         <div className="pt-[1px] bg-border" />
         <section className="my-24">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-8">
-            {pData?.map((post:any, idx:number) => {
+            {pData?.map((post: any, idx: number) => {
               if (idx === 3) {
                 return (
                   <div
@@ -127,19 +127,19 @@ const Blog2 = () => {
                         </span>
                       </div>
                       <Link href={`blogs/${post?.title}`} className="flex justify-center">
-                       <Button variants="primary" size="medium">View More</Button>
+                        <Button variants="primary" size="medium">View More</Button>
                       </Link>
                     </div>
                   </div>
                 );
               } else {
                 return (
-                  <PostDesign post={post} idx={idx} key={idx} rounded={true}/>
+                  <PostDesign post={post} idx={idx} key={idx} rounded={true} />
                 );
               }
             })}
           </div>
-          <Pagination data={PostMokeData.slice(5)} PaginatedData={PaginatedData} />
+
         </section>
       </Layout>
       <Footer1 />

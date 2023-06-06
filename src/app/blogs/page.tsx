@@ -22,10 +22,10 @@ import {
 const Blog = () => {
 
   const [pData, setPData] = useState<any>()
-  const PaginatedData =(res:any) => {
+  const PaginatedData = (res: any) => {
     setPData(res)
   }
-  
+
 
   return (
     <>
@@ -91,7 +91,7 @@ const Blog = () => {
         <div className="pt-[1px] bg-border" />
         <section className="my-24">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-8">
-            {pData?.map((post:any, idx:number) => {
+            {pData?.map((post: any, idx: number) => {
               if (idx === 3) {
                 return (
                   <div
@@ -122,7 +122,7 @@ const Blog = () => {
                         </span>
                       </div>
                       <Link href={`blogs/${post?.title}`} className="flex justify-center">
-                       <Button variants="primary" size="medium">View More</Button>
+                        <Button variants="primary" size="medium">View More</Button>
                       </Link>
                     </div>
                   </div>
@@ -134,7 +134,7 @@ const Blog = () => {
               }
             })}
           </div>
-          <Pagination data={PostMokeData.slice(5)} PaginatedData={PaginatedData} />
+          {/* <Pagination data={PostMokeData.slice(5)} PaginatedData={PaginatedData} /> */}
         </section>
       </Layout>
       <Footer1 />
