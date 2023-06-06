@@ -1,23 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import logoImg from "images/logo.png";
-import logoLightImg from "images/logo-light.png";
-import LogoSvg from "./LogoSvg";
+import Image from "next/image";
+import Link from "next/link";
+import React, { useEffect } from "react";
 
-export interface LogoProps {
-  img?: string;
-  imgLight?: string;
-}
+const Logo = () => {
 
-const Logo: React.FC<LogoProps> = ({
-  img = logoImg,
-  imgLight = logoLightImg,
-}) => {
   return (
-    <Link to="/" className="ttnc-logo inline-block text-primary-6000">
-      {/* THIS USE FOR MY MULTI DEMO */}
-      {/* IF YOU ARE MY CLIENT. PLESE DELETE THIS CODE AND YOU YOUR IMAGE PNG BY BELLOW CODE */}
-      <LogoSvg />
+    <Link href="/" className="w-36 md:w-52">
+      <Image src="/assets/images/logo-white.png" alt="logo" width={160} height={60} className="invert dark:invert-0 mx-auto"/>
+      {/* <Image src="/assets/images/black-logo.png" alt="logo" width={150} height={60}/> */}
     </Link>
   );
 };
