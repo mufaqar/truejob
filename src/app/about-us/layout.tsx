@@ -2,10 +2,9 @@
 
 import Layout from "@/components/Layout/Layout";
 import Footer1 from "@/components/footer";
-import Header1 from "@/components/header/header1";
+import Header2 from "@/components/header/header2";
 import PageBanner from "@/components/page-banner/banner";
 import React from "react";
-
 export default function ConatctLayout({
   children,
 }: {
@@ -14,7 +13,7 @@ export default function ConatctLayout({
   return (
     <html lang="en">
       <body>
-        <Header1 />
+        <Header2 />
         <PageBanner
           title="About Us"
           subTitle="Lorem ipsum dolor sit amet consectetur adipisicing elit"
@@ -23,7 +22,7 @@ export default function ConatctLayout({
           buttonLink="#"
         />
         {children}
-        <Footer1/>
+        <Footer1 />
       </body>
     </html>
   );
