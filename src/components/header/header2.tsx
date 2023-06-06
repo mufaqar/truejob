@@ -72,11 +72,10 @@ const Header2 = () => {
         </div>
         <div className="bg-light-gray md:py-4 mt-10 flex justify-center z-50">
           <ul
-            className={`gap-7 mr-4 md:items-center z-10 ${
-              isMobile
+            className={`gap-7 mr-4 md:items-center z-10 ${isMobile
                 ? "absolute top-[52px] flex flex-col gap-6 p-10 left-0 right-0 bg-light-gray w-full"
                 : "hidden md:flex"
-            }`}
+              }`}
           >
             <li className="group relative w-full">
               <div className="flex items-center gap-2">
@@ -101,9 +100,9 @@ const Header2 = () => {
                 <Route to="/blogs">Blogs 1</Route>
                 <Route to="/blogs2">Blogs 2</Route>
                 <Route to="/blogs/single-post">Single Post 1</Route>
-                <Route to="/blogs2/single-post">Single Post 2</Route>
+
                 <Route to="/category/Electronics">Filter Posts</Route>
-                <Route to="/404">404</Route>
+
               </SubMenu>
             </li>
             <li className="w-full">
@@ -131,9 +130,8 @@ const Header2 = () => {
         </div>
       )}
       <section
-        className={`transition-all duration-300 fixed top-0 bottom-0 p-8 bg-[#090909] z-50 w-full md:w-[350px] ease-in-out ${
-          openSide ? "right-0" : "-right-[100%]"
-        }`}
+        className={`transition-all duration-300 fixed top-0 bottom-0 p-8 bg-[#090909] z-50 w-full md:w-[350px] ease-in-out ${openSide ? "right-0" : "-right-[100%]"
+          }`}
       >
         <SideSection />
       </section>
