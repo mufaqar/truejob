@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('./preloader.css');
+
 /* fonts  */
 @font-face {
     font-family: lato;
@@ -158,3 +160,18 @@ body {
 .sideInfo img{
     margin: inherit !important;
 }
+
+#loading-screen {
+  background-color: #262626;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+}
+#loading-screen .img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+  }

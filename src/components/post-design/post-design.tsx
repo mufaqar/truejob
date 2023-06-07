@@ -3,6 +3,7 @@ import React from "react";
 import { GetWordStr } from "../../utils";
 import { AiOutlineShareAlt } from "react-icons/ai";
 import Link from "next/link";
+import dateFormat from "dateformat";
 
 const PostDesign = ({ post, layout, home, rounded }: any) => {
   const {date, excerpt, featuredImage, slug, title, categories, comments} = post
@@ -42,7 +43,7 @@ const PostDesign = ({ post, layout, home, rounded }: any) => {
       >
         <div className={`${layout === 3 && "flex flex-col-reverse"}`}>
           <p className="capitalize text-light-blue text-sm">
-            By Danial Alam - <span className="uppercase">22 December</span>
+            By Danial Alam - <span className="uppercase"> {dateFormat(date, "mmmm d, yyyy" )} </span>
           </p>
           <h2
             className={`text-[18px] font-medium capitalize font-poppins ${
@@ -55,7 +56,7 @@ const PostDesign = ({ post, layout, home, rounded }: any) => {
           </h2>
         </div>
         {layout !== 3 && (
-          <p className="mt-3 text-text font-normal">{GetWordStr(excerpt, 16)}</p>
+          <div className="mt-3 text-text font-normal" dangerouslySetInnerHTML={{__html: GetWordStr(excerpt, 16)}}/>
         )}
       </div>
     </div>

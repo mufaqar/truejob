@@ -15,6 +15,7 @@ import Footer2 from "@/components/footer/Footer2";
 import { BsArrowRight } from "react-icons/bs";
 import { useQuery } from "@apollo/client";
 import { AllCategories, AllPosts, PostsByCategory } from "../../config/queries";
+import Loader from "@/components/preLoader/loader";
 
 const Home2 = () => {
   
@@ -22,17 +23,17 @@ const Home2 = () => {
   const categoriresRes = useQuery(AllCategories);
   console.log("🚀 ~ file: page.tsx:23 ~ Home2 ~ categoriresRes:", data)
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader/>
   if (error) return <p>Error: {error.message}</p>;
 
 
   return (
     <>
       <Header2 />
-      <Slider2 data={PostMokeData.slice(0, 4)} />
+      <Slider2 data={data?.posts?.nodes?.slice(0, 4)} />
       <div className="my-16">
         <Layout>
-          <PostDesign2 />
+          <PostDesign2 data={data?.posts?.nodes}/>
           <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
             Top trending Categories
           </h2>
@@ -65,7 +66,7 @@ const Home2 = () => {
             Latest Articles 🎈
           </h2>
           <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-20">
-            {PostMokeData.slice(0, 6).map((post, idx) => {
+            {data?.posts?.nodes.slice(0, 6).map((post:any, idx:number) => {
               return (
                 <PostDesign post={post} idx={idx} key={idx} rounded={true} />
               );
