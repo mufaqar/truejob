@@ -24,6 +24,7 @@ import {
   AiOutlineClockCircle,
   AiOutlineEye,
 } from "react-icons/ai";
+import Loader from "@/components/preLoader/loader";
 
 
 const Blog = () => {
@@ -40,7 +41,7 @@ const Blog = () => {
   });
   console.log("🚀 ~ file: page.tsx:35 ~ Blog ~ data:", data)
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader/>;
   if (error) return <p>Error: {error.message}</p>;
 
 

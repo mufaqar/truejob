@@ -9,6 +9,7 @@ import Footer1 from "@/components/footer";
 import Header2 from "@/components/header/header2";
 import PageBanner from "@/components/page-banner/banner";
 import PostDesign from "@/components/post-design/post-design";
+import Loader from "@/components/preLoader/loader";
 import Button from "@/components/ui/button";
 import { AllPosts } from "@/config/queries";
 import { PostMokeData } from "@/const/post";
@@ -33,7 +34,7 @@ const Blog2 = () => {
   const { loading, error, data } = useQuery(AllPosts);
   console.log("🚀 ~ file: page.tsx:33 ~ Blog ~ data:", data)
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader/>;
   if (error) return <p>Error: {error.message}</p>;
 
 

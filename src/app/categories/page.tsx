@@ -8,6 +8,7 @@ import React, { useState } from "react";
 import { AllCategories } from "@/config/queries";
 import { useQuery } from "@apollo/client";
 import Pagination from "@/components/Pagination/Pagination";
+import Loader from "@/components/preLoader/loader";
 
 const CategoriesPage = () => {
   const [pCategories, setPCategories] = useState<any>();
@@ -19,7 +20,7 @@ const CategoriesPage = () => {
   const {loading, error, data} = useQuery(AllCategories);
   console.log("🚀 ~ file: page.tsx:23 ~ Home2 ~ categoriresRes:", data)
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader/>;
   if (error) return <p>Error: {error.message}</p>;
 
 
