@@ -25,7 +25,7 @@ const PageBanner = ({
   return (
     <>
       <div
-        className={`h-[450px] bg-cover bg-no-repeat bg-center relative ${rounded && 'container mt-40 px-4 md:px-10 mx-auto rounded-[60px]'}`}
+        className={`h-[420px] bg-cover bg-no-repeat bg-center relative ${rounded && 'container mt-40 px-4 md:px-10 mx-auto rounded-[60px]'}`}
         style={{ backgroundImage: `url(${image})` }}
       >
         <div className={` absolute top-0 p-4 flex flex-col justify-center text-white items-center right-0 bottom-0 left-0 bg-black/30 ${rounded && 'container px-4 md:px-10 mx-auto rounded-[60px]'}`}>

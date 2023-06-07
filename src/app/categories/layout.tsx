@@ -4,6 +4,7 @@ import Layout from "@/components/Layout/Layout";
 import Footer1 from "@/components/footer";
 import Header1 from "@/components/header/header1";
 import PageBanner from "@/components/page-banner/banner";
+
 import React from "react";
 
 export default function ConatctLayout({
@@ -11,6 +12,9 @@ export default function ConatctLayout({
 }: {
   children: React.ReactNode;
 }) {
+
+  
+ 
   return (
     <html lang="en">
       <body>

@@ -1,7 +1,7 @@
 "use client";
 
 import { PostMokeData } from "@/const/post";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider2 from "@/components/Slider/Slider2";
 import Header2 from "@/components/header/header2";
 import PostDesign2 from "@/components/post-design/post-design-2";
@@ -13,8 +13,19 @@ import PostDesign from "@/components/post-design/post-design";
 import VideosGallery from "@/components/videos-gallery/videos";
 import Footer2 from "@/components/footer/Footer2";
 import { BsArrowRight } from "react-icons/bs";
+import { useQuery } from "@apollo/client";
+import { AllCategories, AllPosts, PostsByCategory } from "../../config/queries";
 
 const Home2 = () => {
+  
+  const { loading, error, data } = useQuery(AllPosts);
+  const categoriresRes = useQuery(AllCategories);
+  console.log("🚀 ~ file: page.tsx:23 ~ Home2 ~ categoriresRes:", data)
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+
   return (
     <>
       <Header2 />
@@ -26,24 +37,25 @@ const Home2 = () => {
             Top trending Categories
           </h2>
           <section className="mt-16 flex justify-center flex-wrap gap-8">
-            {categoriesDate?.map((item: any, idx: number) => {
+            {categoriresRes?.data?.categories?.nodes?.map((item: any, idx: number) => {
+              const {name, slug, postCategoryFields:{image}} = item
               return (
                 <Link
-                  href={`category/${item?.name}`}
+                  href={`category/${slug}`}
                   className="flex flex-col group items-center"
                   key={idx}
                 >
                   <figure className="overflow-hidden rounded-3xl shadow-xl border-[3px] border-light-gray">
                     <Image
-                      src={`/assets/images/${item?.image}`}
-                      alt={item?.name}
+                      src={image?.mediaItemUrl}
+                      alt={name}
                       width={300}
                       height={300}
                       className=" transition-all duration-300  ease-in-out object-cover hover:scale-110 w-32 h-32 sm:w-40 sm:h-40"
                     />
                   </figure>
                   <h4 className="text-center font-normal bg-yellow p-1 px-3 rounded-full  mt-3 capitalize text-black">
-                    {item?.name}
+                    {name}
                   </h4>
                 </Link>
               );

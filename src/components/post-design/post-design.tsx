@@ -5,6 +5,7 @@ import { AiOutlineShareAlt } from "react-icons/ai";
 import Link from "next/link";
 
 const PostDesign = ({ post, layout, home, rounded }: any) => {
+  const {date, excerpt, featuredImage, slug, title, categories, comments} = post
   return (
     <div
       className={`group overflow-hidden bg-light-gray shadow-md dark:shadow-lg
@@ -13,12 +14,12 @@ const PostDesign = ({ post, layout, home, rounded }: any) => {
       ${layout === 3 && "bg-transparent !shadow-none"}
       `}
     > 
-      <Link href={`/blogs/${post.title}`}>
+      <Link href={`/blogs/${slug}`}>
       <figure
         className={`overflow-hidden relative ${layout === 2 && "md:w-full"}`}
       >
         <Image
-          src={post?.img}
+          src={featuredImage?.node?.mediaItemUrl}
           alt=""
           width={700}
           height={700}
@@ -50,11 +51,11 @@ const PostDesign = ({ post, layout, home, rounded }: any) => {
                 : " text-pure leading-7 mt-2"
             }`}
           >
-            {post.title}
+            {title}
           </h2>
         </div>
         {layout !== 3 && (
-          <p className="mt-3 text-text font-normal">{GetWordStr(post?.body, 16)}</p>
+          <p className="mt-3 text-text font-normal">{GetWordStr(excerpt, 16)}</p>
         )}
       </div>
     </div>
