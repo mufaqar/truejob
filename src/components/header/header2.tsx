@@ -73,62 +73,64 @@ const Header2 = () => {
         <div className="bg-light-gray md:py-4 mt-10 flex justify-center z-50">
           <ul
             className={`gap-7 mr-4 md:items-center z-10 ${isMobile
-                ? "absolute top-[52px] flex flex-col gap-6 p-10 left-0 right-0 bg-light-gray w-full"
-                : "hidden md:flex"
+              ? "absolute top-[52px] flex flex-col gap-6 p-10 left-0 right-0 bg-light-gray w-full"
+              : "hidden md:flex"
               }`}
           >
-            <li className="group relative ">
+            <li className="group relative w-full">
               <div className="flex items-center gap-2">
-                <Link href="#" className="uppercase dark:text-white text-black ">
+                <Link href="/" className="uppercase dark:text-white text-black ">
                   Home
                 </Link>
-                <SlArrowDown />
+
               </div>
-              <SubMenu>
-                <Route to="/home/home1">home 1</Route>
-                <Route to="/home/home2">home 2</Route>
-              </SubMenu>
+
             </li>
-            <li className="group relative ">
+            <li className="group relative">
               <div className="flex items-center gap-2">
-                <Link href="#" className="uppercase dark:text-white text-black ">
-                  Pages
+                <Link href="/category/scholarship" className="uppercase text-black">
+                  Scholarship
                 </Link>
                 <SlArrowDown />
               </div>
               <SubMenu>
-                <Route to="/blogs">Blogs 1</Route>
-                <Route to="/blogs2">Blogs 2</Route>
-                <Route to="/blogs/single-post">Single Post 1</Route>
-
-                <Route to="/category/Electronics">Filter Posts</Route>
-
+                <Route to="/">Scholarship in Australia</Route>
+                <Route to="/">Scholarship in China</Route>
+                <Route to="/">Scholarship in Koria</Route>
               </SubMenu>
             </li>
-            <li className="">
-              <Link href="/about-us" className="uppercase dark:text-white text-black ">
-                About Us
-              </Link>
+
+
+            <li className="group relative w-full">
+              <div className="flex items-center gap-2">
+                <Link href="#" className="uppercase dark:text-white text-black ">
+                  Categories
+                </Link>
+                <SlArrowDown />
+              </div>
+              <SubMenu>
+                <Route to="/category/local-jobs">Local Jobs</Route>
+                <Route to="/category/remote-jobs">Remote Jobs</Route>
+                <Route to="/category/scholarship">Scholarship</Route>
+              </SubMenu>
+
             </li>
-            <li className="">
-              <Link href="/Categories" className="uppercase dark:text-white text-black ">
-                Categories
-              </Link>
-            </li>
-            <li className="">
+
+            <li className="w-full">
               <Link href="/contact-us" className="uppercase dark:text-white text-black ">
-                Contact Us
+                Contact
               </Link>
             </li>
           </ul>
         </div>
-      </header>
+      </header >
 
       {searchOpen && (
         <div className="fixed top-0 z-50 right-0 bottom-0 left-0 bg-black/40 dark:bg-white/30 ">
           <SearchBox />
         </div>
-      )}
+      )
+      }
       <section
         className={`transition-all duration-300 fixed top-0 bottom-0 p-8 bg-[#090909] z-50 w-full md:w-[350px] ease-in-out ${openSide ? "right-0" : "-right-[100%]"
           }`}
