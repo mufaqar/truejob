@@ -16,12 +16,18 @@ import { BsArrowRight } from "react-icons/bs";
 import { useQuery } from "@apollo/client";
 import { AllCategories, AllPosts, PostsByCategory } from "../../config/queries";
 import Loader from "@/components/preLoader/loader";
+import Button from "@/components/ui/button";
 
 const Home2 = () => {
   
   const { loading, error, data } = useQuery(AllPosts);
   const categoriresRes = useQuery(AllCategories);
-  console.log("🚀 ~ file: page.tsx:23 ~ Home2 ~ categoriresRes:", data)
+  const scholorshipPosts = useQuery(PostsByCategory , {
+    variables: {
+      slug: 'scholarship',
+    },
+  });
+  console.log("🚀 ~ file: page.tsx:29 ~ Home2 ~ scholorshipPosts:", scholorshipPosts)
 
   if (loading) return <Loader/>
   if (error) return <p>Error: {error.message}</p>;
@@ -72,12 +78,20 @@ const Home2 = () => {
               );
             })}
           </section>
+
           <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
-            🎬 The Videos
+            Latest Scholarship 🎈
           </h2>
-          <section className="mt-20 p-4 md:p-10 bg-light-gray rounded-[40px]">
-            <VideosGallery />
+          <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-20">
+            {scholorshipPosts?.data?.category?.posts?.nodes.slice(0, 3).map((post:any, idx:number) => {
+              return (
+                <PostDesign post={post} idx={idx} key={idx} rounded={true} />
+              );
+            })}
           </section>
+            <Link href="/category/scholorship" className="mt-10 flex justify-center"><Button variants="primary" size="medium" rounded={true}>More scholorships </Button></Link>
+          
+          
           <section className="mt-20">
             <div className="grid grid-cols-1 items-center gap-10 px-10 mt-10 lg:grid-cols-2 ">
               <div className="mt-20 ">
