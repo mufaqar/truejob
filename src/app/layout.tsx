@@ -10,12 +10,6 @@ import { ApolloProvider } from "@apollo/client";
 const inter = Inter({ subsets: ["latin"] });
 import apolloClient from '../config/client'
 
-export const metadata = {
-  title: 'GoodWorks ',
-  description: 'Simply Sync',
-}
-
-
 export default function RootLayout({
   children,
 }: {
