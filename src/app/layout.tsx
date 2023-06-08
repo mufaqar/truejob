@@ -9,7 +9,6 @@ import "slick-carousel/slick/slick-theme.css";
 import { ApolloProvider } from "@apollo/client";
 const inter = Inter({ subsets: ["latin"] });
 import apolloClient from '../config/client'
-
 export default function RootLayout({
   children,
 }: {
