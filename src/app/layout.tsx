@@ -10,6 +10,12 @@ import { ApolloProvider } from "@apollo/client";
 const inter = Inter({ subsets: ["latin"] });
 import apolloClient from '../config/client'
 
+export const metadata = {
+  title: 'GoodWorks ',
+  description: 'Simply Sync',
+}
+
+
 export default function RootLayout({
   children,
 }: {
@@ -19,12 +25,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={`dark:bg-dark-gray ${inter.className}`} >
         <ApolloProvider client={apolloClient}>
-        <SettingsProvider>
-          <ThemeProvider enableSystem={false} attribute="class">{children}</ThemeProvider>
-        </SettingsProvider>
+          <SettingsProvider>
+            <ThemeProvider enableSystem={false} attribute="class">{children}</ThemeProvider>
+          </SettingsProvider>
         </ApolloProvider>
       </body>
     </html>
   );
 }
+
 
