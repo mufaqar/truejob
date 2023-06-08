@@ -77,7 +77,7 @@ const Header2 = () => {
               : "hidden md:flex"
               }`}
           >
-            <li className="group relative w-full">
+            <li className="group relative ">
               <div className="flex items-center gap-2">
                 <Link href="/" className="uppercase dark:text-white text-black ">
                   Home
@@ -88,7 +88,7 @@ const Header2 = () => {
             </li>
             <li className="group relative">
               <div className="flex items-center gap-2">
-                <Link href="/category/scholarship" className="uppercase text-black">
+                <Link href="/category/scholarship" className="uppercase dark:text-white text-black">
                   Scholarship
                 </Link>
                 <SlArrowDown />
@@ -101,7 +101,7 @@ const Header2 = () => {
             </li>
 
 
-            <li className="group relative w-full">
+            <li className="group relative ">
               <div className="flex items-center gap-2">
                 <Link href="#" className="uppercase dark:text-white text-black ">
                   Categories
@@ -116,7 +116,7 @@ const Header2 = () => {
 
             </li>
 
-            <li className="w-full">
+            <li className="">
               <Link href="/contact-us" className="uppercase dark:text-white text-black ">
                 Contact
               </Link>
