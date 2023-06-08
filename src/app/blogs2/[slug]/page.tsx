@@ -7,8 +7,13 @@ import Header2 from "@/components/header/header2";
 import Insta from "@/components/insta";
 import PageBanner from "@/components/page-banner/banner";
 import PostDesign2 from "@/components/post-design/post-design-2";
+import Loader from "@/components/preLoader/loader";
+import { AllPosts, SinglePost } from "@/config/queries";
+import { GetWordStr } from "@/utils";
+import { useQuery } from "@apollo/client";
 import Image from "next/image";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import React from "react";
 import {
   FaFacebookF,
@@ -19,15 +24,36 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
+import dateFormat from "dateformat";
+
+
 
 const Slug = () => {
+
+
+  const { slug } = useParams();
+  const { loading, error, data } = useQuery(SinglePost , {
+    variables: {
+      slug: slug,
+    },
+  });
+
+  const getallPosts = useQuery(AllPosts);
+
+  if (loading) return <Loader/>;
+  if (error) return <p>Error: {error.message}</p>;
+
+
+  const {title, featuredImage:{node:{altText,mediaItemUrl}}, excerpt, date, comments, categories, content} = data?.post
+
+
   return (
     <>
     <Header2/>
       <PageBanner
-        title="Lorem ipsum dolor sit amet consectetur"
-        subTitle="Lorem ipsum dolor sit amet consectetur adipisicing elit"
-        image="/assets/images/Cars.jpg"
+        title={title}
+        subTitle={GetWordStr(excerpt, 25)}
+        image={mediaItemUrl}
         rounded={true}
       />
       <Layout>
@@ -36,40 +62,14 @@ const Slug = () => {
             <div className="flex items-center justify-start gap-2">
               <div className="p-[5px] bg-light-blue group-hover:bg-light-blue" />
               <h2 className="capitalize text-sm text-gray-400 group-hover:text-light-blue cursor-pointer ">
-                Technology
+                {categories.nodes[0].name}
               </h2>
-            </div>
-            <h2 className="text-xl md:text-2xl capitalize mt-2 font-oswald font-bold">{`Lorem ipsum dolor sit amet consectetur`}</h2>
-            
-            <p className="mt-8 text-text leading-8 tracking-wide">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-              repudiandae aliquid, atque veritatis, dolor, cumque dolores quo
-              obcaecati harum laudantium reprehenderit temporibus numquam
-              perspiciatis doloremque! Ratione reiciendis necessitatibus cumque
-              ducimus. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Blanditiis non sit, minus inventore nostrum, sapiente, corporis
-              assumenda delectus ipsum repellat facilis omnis voluptatibus nam
-              provident nihil culpa laborum alias illo.
-            </p>
-            <p className="mt-6 text-text leading-8 tracking-wide">
-              Ratione reiciendis necessitatibus cumque ducimus. Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Blanditiis non sit,
-              minus inventore nostrum, sapiente, corporis assumenda delectus
-              ipsum repellat facilis omnis voluptatibus nam provident nihil
-              culpa laborum alias illo.
-            </p>
-            <p className="mt-6 text-text leading-8 tracking-wide">
-              Corporis assumenda delectus ipsum repellat facilis omnis
-              voluptatibus nam provident nihil culpa laborum alias illo. Lorem
-              ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-              debitis, fuga corrupti autem similique reiciendis placeat,
-              inventore dolorem nemo distinctio dignissimos. Quae, aut?
-              Distinctio numquam hic fuga ut, blanditiis doloremque? Lorem
-              ipsum, dolor sit amet consectetur adipisicing elit. Tempore
-              doloremque officia voluptates id dolore aspernatur! Temporibus ad
-              id, non perferendis labore earum expedita sunt consequatur
-              reiciendis, et corporis officia! Minus.
-            </p>
+            </div>            
+            <div className="mt-8 text-text leading-8 tracking-wide siglePost" dangerouslySetInnerHTML={{
+              __html: content
+            }} />
+              
+
             <div className="bg-light-gray flex flex-col md:flex-row justify-between p-4 mt-7 gap-3 md:gap-0 md:items-center">
               <p className="uppercase text-sm font-bold text-light-blue">
                 Keep Reading
@@ -153,12 +153,12 @@ const Slug = () => {
               </div>
             </div>
             <SideBarHeading long={true}> Related Post </SideBarHeading>
-            <section className="my-12"><PostDesign2 /></section>
+            <section className="my-12"><PostDesign2 data={getallPosts?.data?.posts?.nodes}/></section>
             <SideBarHeading long={true}> Comments </SideBarHeading>
             {
-              [1,2,3].map((item,idx)=>{
+              comments?.nodes?.map((item:any,idx:number)=>{
                 return(
-                  <CommentDesign key={idx} id={idx} reply={idx === 1 && true}/>
+                  <CommentDesign key={idx} id={idx} item={item} length={comments?.nodes.length}/>
                 )
               })
             }
@@ -176,10 +176,10 @@ const Slug = () => {
 
 export default Slug;
 
-const CommentDesign = ({ reply, id }: any) => {
+const CommentDesign = ({ reply, id, item, length }: any) => {
   return (
     <section>
-      <div className={`flex gap-5 mb-8 first:mt-10 w-full ${reply && "pl-12"}`}>
+      <div className={`flex gap-5 mb-8 first:mt-10 w-full ${id%2 === 1 && "pl-12"}`}>
         <figure>
           <Image
             src="/assets/images/avatar.png"
@@ -189,24 +189,18 @@ const CommentDesign = ({ reply, id }: any) => {
             className="rounded-full"
           />
         </figure>
-        <div className={`border-b-[1px] w-full ${id===2 ? 'border-transparent' : 'border-border'}  pb-8`}>
+        <div className={`border-b-[1px] w-full ${length === id+1 ? 'border-transparent' : 'border-border'}  pb-8`}>
           <div className="flex justify-between ">
             <div>
               <h6 className="uppercase font-poppins">MARIE John </h6>
               <p className="text-gray-400 text-sm my-2">
-                January 21, 2016 01.54 am
+                {dateFormat(item.date, "dddd, mmmm dS, yyyy, h:MM:ss TT")}
               </p>
             </div>
-            <div className="text-light-blue flex item-center gap-2 hover:text-yellow cursor-pointer">
-              <FaReply size={18} />
-              <span className="text-sm">Reply</span>
-            </div>
           </div>
-          <p className="text-sm font-light leading-6">
-            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-            consectetur, adipisci velit, sed quia non numquam eius modi tempora
-            incidunt ut labore.
-          </p>
+          <div className="text-sm font-light leading-6" dangerouslySetInnerHTML={{
+              __html: item?.content
+            }}/>
         </div>
       </div>
     </section>

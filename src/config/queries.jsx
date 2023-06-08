@@ -92,3 +92,39 @@ export const PostsByCategory = gql`
     }
   }
 `;
+
+export const SinglePost = gql`
+  query SinglePost($slug: ID!) {
+    post(
+      id: $slug
+      idType: URI
+    ) {
+      date
+      excerpt
+      content
+      featuredImage {
+        node {
+          mediaItemUrl
+          altText
+        }
+      }
+      seo {
+        fullHead
+      }
+      title
+      slug
+      categories {
+        nodes {
+          slug
+          name
+        }
+      }
+      comments {
+        nodes {
+          content
+          date
+        }
+      }
+    }
+  }
+`;
