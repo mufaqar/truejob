@@ -125,6 +125,12 @@ export const SinglePost = gql`
           date
         }
       }
+      postFields {
+        faqs {
+          answer
+          question
+        }
+      }
     }
   }
 `;

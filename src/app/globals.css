@@ -186,6 +186,10 @@ body {
     color: #181818;
 }
 
+.dark .siglePost .toc_title{
+    color: #fff;
+}
+
 .siglePost h5, .siglePost h4 {
     font-size: 1.2rem;
     font-weight: 500;
@@ -215,4 +219,3 @@ body {
     padding: 3px 8px;
     display: inline-block;
 }
-
