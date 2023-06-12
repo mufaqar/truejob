@@ -1,7 +1,7 @@
 "use client";
 
 import Footer1 from "@/components/footer";
-import Header1 from "@/components/header/header1";
+import Header2 from "@/components/header/header2";
 import PageBanner from "@/components/page-banner/banner";
 import React from "react";
 
@@ -13,13 +13,14 @@ export default function ConatctLayout({
   return (
     <html lang="en">
       <body>
-        <Header1 />
+        <Header2 />
         <PageBanner
           title="Contact Us"
           subTitle="Lorem ipsum dolor sit amet consectetur adipisicing elit"
           image="/assets/images/contactus.jpg"
           buttontext="By this time"
           buttonLink="#"
+          rounded={true}
         />
         {children}
         <Footer1/>

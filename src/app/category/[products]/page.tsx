@@ -4,7 +4,6 @@ import Layout from "@/components/Layout/Layout";
 
 import { SideBarHeading } from "@/components/aside";
 import Footer1 from "@/components/footer";
-import Header1 from "@/components/header/header1";
 import PageBanner from "@/components/page-banner/banner";
 import PostDesign from "@/components/post-design/post-design";
 import Button from "@/components/ui/button";
@@ -25,6 +24,8 @@ import {
   AiOutlineEye,
 } from "react-icons/ai";
 import Loader from "@/components/preLoader/loader";
+import Header2 from "@/components/header/header2";
+import { useRouter } from 'next/navigation'
 
 
 const Blog = () => {
@@ -39,28 +40,24 @@ const Blog = () => {
       slug: products,
     },
   });
-  console.log("🚀 ~ file: page.tsx:35 ~ Blog ~ data:", data)
 
   if (loading) return <Loader/>;
   if (error) return <p>Error: {error.message}</p>;
 
-
-  
-
-  const findcategory = categoriesDate?.find((item) => item.name.includes(products.slice(0, 4)))
+  const router = useRouter()
+  console.log("🚀 ~ file: page.tsx:48 ~ Blog ~ router:", router)
 
   return (
     <>
-      <Header1 />
+      <Header2 />
       <PageBanner
         title={data?.category?.name}
         image={data?.category?.postCategoryFields?.bannerImage?.mediaItemUrl}
+        rounded={true}
       />
       <Layout>
         <section className="my-24">
-          <SideBarHeading className="max-w-[18rem] mx-auto mb-12">
-            Latest Post
-          </SideBarHeading>
+          
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {data?.category?.posts?.nodes.slice(0, 4).map((item:any, idx:number) => {
               const {date, featuredImage, excerpt, title, slug} = item
@@ -102,11 +99,11 @@ const Blog = () => {
                   <p className="mt-3 text-center font-poppins uppercase font-light text-gray-400">
                     {dateFormat(date, "dddd, mmmm dS, yyyy")}
                   </p>
-                  <Link href={slug}>
-                    <h2 className="text-center font-poppins text-lg">
+                  
+                    <h2 className="text-center font-poppins cursor-pointer text-lg" onClick={()=>router.push(`/blogs/${slug}`)}>
                       {title}
                     </h2>
-                  </Link>
+                  
                 </div>
               );
             })}

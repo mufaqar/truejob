@@ -20,6 +20,7 @@ export default function ConatctLayout({
           image="/assets/images/contat.jpg"
           buttontext="By this time"
           buttonLink="#"
+          rounded={true}
         />
         {children}
         <Footer1 />

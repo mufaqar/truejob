@@ -34,7 +34,6 @@ const Slug = () => {
       slug: slug,
     },
   });
-  console.log("🚀 ~ file: page.tsx:41 ~ Slug ~ data:", data);
 
   const getallPosts = useQuery(AllPosts);
 
