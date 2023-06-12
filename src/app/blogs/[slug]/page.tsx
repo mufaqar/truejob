@@ -10,11 +10,11 @@ import PostDesign2 from "@/components/post-design/post-design-2";
 import Loader from "@/components/preLoader/loader";
 import { AllPosts, SinglePost } from "@/config/queries";
 import { GetWordStr } from "@/utils";
-import { useQuery } from "@apollo/client";
+import { gql, useQuery } from "@apollo/client";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 import {
   FaFacebookF,
   FaLinkedinIn,
@@ -25,31 +25,58 @@ import {
 } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
 import dateFormat from "dateformat";
-
-
+import { useMutation } from "@apollo/client";
 
 const Slug = () => {
-
-
   const { slug } = useParams();
-  const { loading, error, data } = useQuery(SinglePost , {
+  const { loading, error, data } = useQuery(SinglePost, {
     variables: {
       slug: slug,
     },
   });
+  console.log("🚀 ~ file: page.tsx:41 ~ Slug ~ data:", data);
 
   const getallPosts = useQuery(AllPosts);
 
-  if (loading) return <Loader/>;
+  if (loading) return <Loader />;
   if (error) return <p>Error: {error.message}</p>;
 
+  const {
+    title,
+    featuredImage: {
+      node: { altText, mediaItemUrl },
+    },
+    excerpt,
+    date,
+    comments,
+    categories,
+    postFields: { faqs },
+    content,
+  } = data?.post;
 
-  const {title, featuredImage:{node:{altText,mediaItemUrl}}, excerpt, date, comments, categories, content} = data?.post
+  const CREATE_COMMENT_MUTATION = gql`
+    mutation CreateComment($author: String!, $content: String!, $postId: Int!) {
+      createComment(
+        input: { author: $author, content: $content, postId: $postId }
+      ) {
+        id
+        author
+        content
+        postId
+      }
+    }
+  `;
 
+  const handleSubmit = async () => {
+    const p = useMutation(CREATE_COMMENT_MUTATION, {
+      variables: { author: "123", content: "123", postId: 5 },
+    });
+    console.log("🚀 ~ file: page.tsx:75 ~ handleSubmit ~ p:", p);
+  };
 
   return (
     <>
-    <Header2/>
+      <Header2 />
       <PageBanner
         title={title}
         subTitle={GetWordStr(excerpt, 25)}
@@ -64,11 +91,14 @@ const Slug = () => {
               <h2 className="capitalize text-sm text-gray-400 group-hover:text-light-blue cursor-pointer ">
                 {categories.nodes[0].name}
               </h2>
-            </div>            
-            <div className="mt-8 text-text leading-8 tracking-wide siglePost" dangerouslySetInnerHTML={{
-              __html: content
-            }} />
-              
+            </div>
+            <div
+              className="mt-8 text-text leading-8 tracking-wide siglePost"
+              dangerouslySetInnerHTML={{
+                __html: content,
+              }}
+            />
+            {faqs?.length > 0 && <FaqsList data={faqs} />}
 
             <div className="bg-light-gray flex flex-col md:flex-row justify-between p-4 mt-7 gap-3 md:gap-0 md:items-center">
               <p className="uppercase text-sm font-bold text-light-blue">
@@ -77,11 +107,15 @@ const Slug = () => {
               <div className="flex item-center gap-3 md:gap-6 flex-col md:flex-row">
                 <div className="text-gray-400 text-lg flex item-center gap-2">
                   <SlCalender />
-                  <span className="text-xs mt-[2px]">April 20, 2023</span>
+                  <span className="text-xs mt-[2px]">
+                    {dateFormat(date, " mmmm dS, yyyy")}
+                  </span>
                 </div>
                 <div className="text-gray-400 text-lg flex item-center gap-2">
                   <FaRegCommentAlt />
-                  <span className="text-xs">4 Comments</span>
+                  <span className="text-xs">
+                    {comments?.nodes.length} Comments
+                  </span>
                 </div>
                 <ul className="flex items-center gap-4 text-dark-gray dark:text-white">
                   <li className="hover:text-yellow text-lg">
@@ -153,18 +187,24 @@ const Slug = () => {
               </div>
             </div>
             <SideBarHeading long={true}> Related Post </SideBarHeading>
-            <section className="my-12"><PostDesign2 data={getallPosts?.data?.posts?.nodes}/></section>
+            <section className="my-12">
+              <PostDesign2 data={getallPosts?.data?.posts?.nodes} />
+            </section>
             <SideBarHeading long={true}> Comments </SideBarHeading>
-            {
-              comments?.nodes?.map((item:any,idx:number)=>{
-                return(
-                  <CommentDesign key={idx} id={idx} item={item} length={comments?.nodes.length}/>
-                )
-              })
-            }
-            
+            {comments?.nodes?.map((item: any, idx: number) => {
+              return (
+                <CommentDesign
+                  key={idx}
+                  id={idx}
+                  item={item}
+                  length={comments?.nodes.length}
+                />
+              );
+            })}
+
             <SideBarHeading long={true}> Comment </SideBarHeading>
             <CommentForm />
+            <button onClick={handleSubmit}>button</button>
           </section>
         </section>
       </Layout>
@@ -179,7 +219,11 @@ export default Slug;
 const CommentDesign = ({ reply, id, item, length }: any) => {
   return (
     <section>
-      <div className={`flex gap-5 mb-8 first:mt-10 w-full ${id%2 === 1 && "pl-12"}`}>
+      <div
+        className={`flex gap-5 mb-8 first:mt-10 w-full ${
+          id % 2 === 1 && "pl-12"
+        }`}
+      >
         <figure>
           <Image
             src="/assets/images/avatar.png"
@@ -189,7 +233,11 @@ const CommentDesign = ({ reply, id, item, length }: any) => {
             className="rounded-full"
           />
         </figure>
-        <div className={`border-b-[1px] w-full ${length === id+1 ? 'border-transparent' : 'border-border'}  pb-8`}>
+        <div
+          className={`border-b-[1px] w-full ${
+            length === id + 1 ? "border-transparent" : "border-border"
+          }  pb-8`}
+        >
           <div className="flex justify-between ">
             <div>
               <h6 className="uppercase font-poppins">MARIE John </h6>
@@ -198,9 +246,12 @@ const CommentDesign = ({ reply, id, item, length }: any) => {
               </p>
             </div>
           </div>
-          <div className="text-sm font-light leading-6" dangerouslySetInnerHTML={{
-              __html: item?.content
-            }}/>
+          <div
+            className="text-sm font-light leading-6"
+            dangerouslySetInnerHTML={{
+              __html: item?.content,
+            }}
+          />
         </div>
       </div>
     </section>
@@ -237,5 +288,56 @@ const CommentForm = () => {
         className="bg-yellow uppercase text-black w-full mt-4 p-3 hover:bg-light-blue cursor-pointer"
       />
     </form>
+  );
+};
+
+const FaqsList = ({ data }: any) => {
+  const [openFaq, setOpenFaq] = useState(null);
+  const handleFaq = (idx: any) => {
+    if (idx === openFaq) return setOpenFaq(null);
+    setOpenFaq(idx);
+  };
+
+  return (
+    <>
+      {data?.map((faq: any, idx: number) => {
+        return (
+          <div className="border mb-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800">
+            <h2 id="accordion-collapse-heading-1">
+              <button
+                type="button"
+                className={`flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 ${openFaq === idx && 'bg-light-gray rounded-tr-xl rounded-tl-xl'}`}
+                onClick={() => handleFaq(idx)}
+              >
+                <span>{faq?.question}</span>
+                <svg
+                  data-accordion-icon
+                  className="w-6 h-6 rotate-180 shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </button>
+            </h2>
+            <div
+              id="accordion-collapse-body-1"
+              className={openFaq === idx ? 'block' : 'hidden'}
+            >
+              <div className="p-5">
+                <p className="mb-2 text-gray-500 dark:text-gray-400">
+                  {faq?.answer}
+                </p>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </>
   );
 };
