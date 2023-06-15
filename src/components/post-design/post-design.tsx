@@ -45,6 +45,7 @@ const PostDesign = ({ post, layout, home, rounded }: any) => {
           <p className="capitalize text-light-blue text-sm">
             By Danial Alam - <span className="uppercase"> {dateFormat(date, "mmmm d, yyyy" )} </span>
           </p>
+          <Link href={`/blogs/${slug}`}>
           <h2
             className={`text-[18px] font-medium capitalize font-poppins ${
               layout === 3
@@ -53,7 +54,7 @@ const PostDesign = ({ post, layout, home, rounded }: any) => {
             }`}
           >
             {title}
-          </h2>
+          </h2></Link>
         </div>
         {layout !== 3 && (
           <div className="mt-3 text-text font-normal" dangerouslySetInnerHTML={{__html: GetWordStr(excerpt, 16)}}/>
