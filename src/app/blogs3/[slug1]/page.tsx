@@ -185,11 +185,11 @@ const Slug = () => {
           </section>
 
           <Aside
-            aboutAuthor={true}
+            navigaiton={true}
             social={true}
             newsletter={true}
             latestPost={PostMokeData}
-            latestCategories={PostMokeData}
+            tags={PostMokeData}
             advertisement={true}
           />
         </section>
