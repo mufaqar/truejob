@@ -25,7 +25,6 @@ import {
 } from "react-icons/ai";
 import Loader from "@/components/preLoader/loader";
 import Header2 from "@/components/header/header2";
-import { useRouter } from 'next/navigation'
 
 
 const Blog = () => {
@@ -45,7 +44,9 @@ const Blog = () => {
   if (loading) return <Loader/>;
   if (error) return <p>Error: {error.message}</p>;
 
-  const router = useRouter()
+  const changeRoute = (path:any) => {
+    window.location.href = path
+  }
 
   return (
     <>
@@ -99,7 +100,7 @@ const Blog = () => {
                     {dateFormat(date, "dddd, mmmm dS, yyyy")}
                   </p>
                   
-                    <h2 className="text-center font-poppins cursor-pointer text-lg" onClick={()=>router.push(`/blogs/${slug}`)}>
+                    <h2 className="text-center font-poppins cursor-pointer text-lg" onClick={()=>changeRoute(`/blogs/${slug}`)}>
                       {title}
                     </h2>
                   
