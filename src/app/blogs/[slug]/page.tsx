@@ -25,8 +25,6 @@ import {
 } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
 import dateFormat from "dateformat";
-import { useMutation } from "@apollo/client";
-import axios from "axios";
 import { PostMokeData } from "@/const/post";
 
 const Slug = () => {
@@ -69,12 +67,7 @@ const Slug = () => {
     }
   `;
 
-  const handleSubmit = async () => {
-    const p = useMutation(CREATE_COMMENT_MUTATION, {
-      variables: { author: "123", content: "123", postId: 5 },
-    });
-  };
-
+  
   return (
     <>
       <PageBanner
@@ -207,7 +200,6 @@ const Slug = () => {
 
             <SideBarHeading long={true}> Comment </SideBarHeading>
             <CommentForm />
-            <button onClick={handleSubmit}>button</button>
           </section>
           <Aside
             navigaiton={true}
@@ -313,9 +305,9 @@ const FaqsList = ({ data }: any) => {
 
   return (
     <>
-      {data?.map((faq: any, idx: number) => {
+      {data?.map((faq:any, idx:number) => {
         return (
-          <div className="border mb-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800">
+          <div key={idx} className="border mb-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800">
             <h2 id="accordion-collapse-heading-1">
               <button
                 type="button"

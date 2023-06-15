@@ -2,21 +2,15 @@
 
 import Layout from "@/components/Layout/Layout";
 
-import { SideBarHeading } from "@/components/aside";
 import Footer1 from "@/components/footer";
 import PageBanner from "@/components/page-banner/banner";
 import PostDesign from "@/components/post-design/post-design";
 import Button from "@/components/ui/button";
 import { PostsByCategory } from "@/config/queries";
-import { categoriesDate } from "@/const/categories";
-import { PostMokeData } from "@/const/post";
 import { useQuery } from "@apollo/client";
 import Link from "next/link";
 import { useParams } from 'next/navigation';
 import dateFormat from "dateformat";
-
-
-
 import React, { useState } from "react";
 import {
   AiOutlinePlusCircle,
@@ -25,7 +19,7 @@ import {
 } from "react-icons/ai";
 import Loader from "@/components/preLoader/loader";
 import Header2 from "@/components/header/header2";
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/router'
 
 
 const Blog = () => {
@@ -45,7 +39,6 @@ const Blog = () => {
   if (error) return <p>Error: {error.message}</p>;
 
   const router = useRouter()
-  console.log("🚀 ~ file: page.tsx:48 ~ Blog ~ router:", router)
 
   return (
     <>
