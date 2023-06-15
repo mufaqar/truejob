@@ -2,8 +2,6 @@
 
 import Layout from "@/components/Layout/Layout";
 import Aside, { SideBarHeading } from "@/components/aside";
-import Footer2 from "@/components/footer/Footer2";
-import Header2 from "@/components/header/header2";
 import Insta from "@/components/insta";
 import PageBanner from "@/components/page-banner/banner";
 import PostDesign2 from "@/components/post-design/post-design-2";
@@ -26,6 +24,12 @@ import {
 import { SlCalender } from "react-icons/sl";
 import dateFormat from "dateformat";
 import { PostMokeData } from "@/const/post";
+
+
+
+
+
+
 
 const Slug = () => {
   const { slug } = useParams();
@@ -54,18 +58,7 @@ const Slug = () => {
     tags
   } = data?.post;
 
-  const CREATE_COMMENT_MUTATION = gql`
-    mutation CreateComment($author: String!, $content: String!, $postId: Int!) {
-      createComment(
-        input: { author: $author, content: $content, postId: $postId }
-      ) {
-        id
-        author
-        content
-        postId
-      }
-    }
-  `;
+ 
 
   
   return (

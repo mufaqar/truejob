@@ -19,7 +19,7 @@ import {
 } from "react-icons/ai";
 import Loader from "@/components/preLoader/loader";
 import Header2 from "@/components/header/header2";
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 
 
 const Blog = () => {
