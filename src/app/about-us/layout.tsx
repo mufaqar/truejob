@@ -5,12 +5,11 @@ import PageBanner from "@/components/page-banner/banner";
 import { AboutUsSeoFields } from "@/utils/seoMeta";
 import { Metadata } from "next";
 import React from "react";
-import { NextSeo } from 'next-seo';
 
 
-// export const metadata: Metadata = {
-//   ...AboutUsSeoFields
-// };
+export const metadata: Metadata = {
+  ...AboutUsSeoFields
+};
 
 
 export default function ConatctLayout({
@@ -20,10 +19,7 @@ export default function ConatctLayout({
 }) {
   return (
     <html lang="en">
-      <NextSeo
-      title="Simple Usage Example"
-      description="A short description goes here."
-    />
+      
       <body>
         <Header2 />
         <PageBanner
