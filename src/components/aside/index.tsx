@@ -11,31 +11,32 @@ import {
 } from "react-icons/fa";
 import Input from "../controlls/input";
 import {FiCalendar} from 'react-icons/fi'
+import { useRouter } from 'next/navigation'
 
 interface ISidebar {
-  aboutAuthor: boolean;
+  navigaiton: any;
   social: boolean;
   newsletter: boolean;
   latestPost: any;
-  latestCategories: any;
+  tags: any;
   advertisement: boolean;
 }
 
 const Aside = ({
-  aboutAuthor,
+  navigaiton,
   social,
   newsletter,
   latestPost,
-  latestCategories,
+  tags,
   advertisement,
 }: ISidebar) => {
   return (
-    <aside className="lg:w-[27%] mt-10 md:mt-0 h-full bg-light-gray py-10">
-      {aboutAuthor && <AboutAuthorSection />}
+    <aside className="lg:w-[30%] mt-10 md:mt-0 h-full bg-light-gray py-10">
+      {navigaiton && <NavigationSection />}
       {social && <SocialSection />}
       {newsletter && <NewsLetterSection />}
       {latestPost.length > 0 && <LatestPostSection posts={latestPost} />}
-      {latestCategories && <LatestCategories posts={latestCategories} />}
+      {tags?.length > 0 && <LatestCategories posts={tags} />}
       {advertisement && <Advertisement />}
     </aside>
   );
@@ -84,20 +85,10 @@ const SocialSection = () => {
   );
 };
 
-const AboutAuthorSection = () => {
+const NavigationSection = () => {
   return (
     <div className="px-7">
-      <SideBarHeading> About author</SideBarHeading>
-      <Image
-        src="/assets/images/author.jpeg"
-        alt="author"
-        width={600}
-        height={600}
-        className="w-full mt-4 object-cover h-[150px]"
-      />
-      <p className="text-center text-sm text-text mt-3">
-        Hi! Im Marie dummy text of the printing and typesetting
-      </p>
+      <SideBarHeading>Socials</SideBarHeading>
     </div>
   );
 };
@@ -170,31 +161,20 @@ const LatestPostSection = ({ posts }: any) => {
 };
 
 const LatestCategories = ({ posts }: any) => {
-  const categories = posts.reduce((acc: any, product: any) => {
-    if (!acc.includes(product.categories)) {
-      acc.push(product.categories);
-    }
-    return acc;
-  }, []);
+  const router = useRouter()
   return (
     <>
       <div className="mt-10 px-7">
-        <SideBarHeading> latest Categories </SideBarHeading>
-        <div className="mt-8 flex flex-col gap-4">
-          {categories.slice(0, 7).map((p: any, idx: number) => {
-            const item = posts.filter((item: any) => item.categories === p);
+        <SideBarHeading> Tags </SideBarHeading>
+        <div className="mt-8 flex gap-2 flex-wrap">
+          {posts?.map((p:any, idx:number) => {
             return (
               <div
-                className="flex gap-2 group justify-between border-b-[1px] border-border last:border-transparent pb-3 group"
+                className="flex border border-border rounded-full group justify-between text-sm hover:bg-yellow hover:border-transparent hover:text-black text-gray-400 capitalize cursor-pointer p-2 "
                 key={idx}
+                onClick={()=>router.push(`tag/${p?.slug}`)}
               >
-                <div className="flex items-center justify-center gap-2">
-                  <div className="p-[5px] bg-yellow group-hover:bg-light-blue" />
-                  <h2 className="capitalize text-sm text-gray-400 group-hover:text-light-blue cursor-pointer ">
-                    {p}
-                  </h2>
-                </div>
-                <div className="text-sm group-hover:text-light-blue font-oswald">({item.length})</div>
+                {p?.name}
               </div>
             );
           })}

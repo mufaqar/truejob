@@ -28,6 +28,12 @@ export const AllPosts = gql`
             content
           }
         }
+        tags {
+          nodes {
+            slug
+            name
+          }
+        }
       }
     }
   }
@@ -95,10 +101,7 @@ export const PostsByCategory = gql`
 
 export const SinglePost = gql`
   query SinglePost($slug: ID!) {
-    post(
-      id: $slug
-      idType: URI
-    ) {
+    post(id: $slug, idType: URI) {
       date
       excerpt
       content
@@ -129,6 +132,38 @@ export const SinglePost = gql`
         faqs {
           answer
           question
+        }
+      }
+      tags {
+        nodes {
+          slug
+          name
+        }
+      }
+    }
+  }
+`;
+
+export const PostByTags = gql`
+  query PostByTags($slug: ID!) {
+    tag(id: $slug, idType: SLUG) {
+      posts {
+        nodes {
+          title
+          slug
+          date
+          featuredImage {
+            node {
+              mediaItemUrl
+            }
+          }
+          excerpt
+        }
+      }
+      name
+      postTagFields {
+        bannerImage {
+          mediaItemUrl
         }
       }
     }

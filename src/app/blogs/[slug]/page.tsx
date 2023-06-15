@@ -1,7 +1,7 @@
 "use client";
 
 import Layout from "@/components/Layout/Layout";
-import { SideBarHeading } from "@/components/aside";
+import Aside, { SideBarHeading } from "@/components/aside";
 import Footer2 from "@/components/footer/Footer2";
 import Header2 from "@/components/header/header2";
 import Insta from "@/components/insta";
@@ -27,6 +27,7 @@ import { SlCalender } from "react-icons/sl";
 import dateFormat from "dateformat";
 import { useMutation } from "@apollo/client";
 import axios from "axios";
+import { PostMokeData } from "@/const/post";
 
 const Slug = () => {
   const { slug } = useParams();
@@ -52,6 +53,7 @@ const Slug = () => {
     categories,
     postFields: { faqs },
     content,
+    tags
   } = data?.post;
 
   const CREATE_COMMENT_MUTATION = gql`
@@ -71,12 +73,10 @@ const Slug = () => {
     const p = useMutation(CREATE_COMMENT_MUTATION, {
       variables: { author: "123", content: "123", postId: 5 },
     });
-    console.log("🚀 ~ file: page.tsx:75 ~ handleSubmit ~ p:", p);
   };
 
   return (
     <>
-      <Header2 />
       <PageBanner
         title={title}
         subTitle={GetWordStr(excerpt, 25)}
@@ -85,19 +85,22 @@ const Slug = () => {
       />
       <Layout>
         <section className="lg:flex gap-10 my-10">
-          <section>
+          <section className="lg:w-[70%]">
             <div className="flex items-center justify-start gap-2">
               <div className="p-[5px] bg-light-blue group-hover:bg-light-blue" />
               <h2 className="capitalize text-sm text-gray-400 group-hover:text-light-blue cursor-pointer ">
                 {categories.nodes[0].name}
               </h2>
             </div>
+            <section className="content">
             <div
-              className="mt-8 text-text leading-8 tracking-wide siglePost"
+              className="mt-8 text-text leading-8 tracking-wide siglePost "
               dangerouslySetInnerHTML={{
                 __html: content,
               }}
             />
+            </section>
+            
             {faqs?.length > 0 && <FaqsList data={faqs} />}
 
             <div className="bg-light-gray flex flex-col md:flex-row justify-between p-4 mt-7 gap-3 md:gap-0 md:items-center">
@@ -206,10 +209,18 @@ const Slug = () => {
             <CommentForm />
             <button onClick={handleSubmit}>button</button>
           </section>
+          <Aside
+            navigaiton={true}
+            social={true}
+            newsletter={true}
+            latestPost={PostMokeData}
+            tags={tags?.nodes}
+            advertisement={true}
+          />
         </section>
       </Layout>
       <Insta />
-      <Footer2 />
+     
     </>
   );
 };

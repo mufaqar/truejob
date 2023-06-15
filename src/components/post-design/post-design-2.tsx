@@ -12,7 +12,7 @@ import {
 const PostDesign2 = ({data}:any) => {
    
   return (
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 ">
+    <div className="grid sm:grid-cols-2 lg:grid-cols-2  gap-4 ">
       {data?.slice(1, 5).map((item:any, idx:number) => {
         const {date, excerpt, featuredImage, slug, title, categories, comments} = item
         return (
