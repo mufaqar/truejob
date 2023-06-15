@@ -18,7 +18,7 @@ import { AllCategories, AllPosts, PostsByCategory } from "../../config/queries";
 import Loader from "@/components/preLoader/loader";
 import Button from "@/components/ui/button";
 
-const Home2 = () => {
+const Home = () => {
   
   const { loading, error, data } = useQuery(AllPosts);
   const categoriresRes = useQuery(AllCategories);
@@ -152,4 +152,4 @@ const Home2 = () => {
   );
 };
 
-export default Home2;
+export default Home;
