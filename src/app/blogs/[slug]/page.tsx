@@ -177,7 +177,7 @@ const Slug = () => {
             </div>
             <SideBarHeading long={true}> Related Post </SideBarHeading>
             <section className="my-12">
-              <PostDesign2 data={getallPosts?.data?.posts?.nodes} />
+              <PostDesign2 data={getallPosts?.data?.posts?.nodes} lgpost={2}/>
             </section>
             <SideBarHeading long={true}> Comments </SideBarHeading>
             {comments?.nodes?.map((item: any, idx: number) => {

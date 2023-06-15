@@ -44,7 +44,7 @@ const Home = () => {
       <Slider2 data={data?.posts?.nodes?.slice(0, 4)} />
       <div className="my-16">
         <Layout>
-          <PostDesign2 data={data?.posts?.nodes}/>
+          <PostDesign2 data={data?.posts?.nodes} lgpost={4}/>
           <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
             Top trending Categories
           </h2>
