@@ -26,6 +26,7 @@ import {
 import { SlCalender } from "react-icons/sl";
 import dateFormat from "dateformat";
 import { useMutation } from "@apollo/client";
+import axios from "axios";
 
 const Slug = () => {
   const { slug } = useParams();
@@ -258,6 +259,7 @@ const CommentDesign = ({ reply, id, item, length }: any) => {
 };
 
 const CommentForm = () => {
+
   return (
     <form className="mt-12">
       <textarea
@@ -286,6 +288,7 @@ const CommentForm = () => {
         value="submit"
         className="bg-yellow uppercase text-black w-full mt-4 p-3 hover:bg-light-blue cursor-pointer"
       />
+      
     </form>
   );
 };

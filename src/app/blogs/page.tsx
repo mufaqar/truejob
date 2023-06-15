@@ -14,6 +14,7 @@ import Button from "@/components/ui/button";
 import { AllPosts } from "@/config/queries";
 import { PostMokeData } from "@/const/post";
 import { useQuery } from "@apollo/client";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -32,23 +33,13 @@ const Blog2 = () => {
   }
 
   const { loading, error, data } = useQuery(AllPosts);
-  console.log("🚀 ~ file: page.tsx:33 ~ Blog ~ data:", data)
 
   if (loading) return <Loader/>;
   if (error) return <p>Error: {error.message}</p>;
 
-
-
   return (
     <>
-      <Header2 />
-
-      <PageBanner
-        title="Blogs"
-        subTitle="Lorem ipsum dolor sit amet consectetur adipisicing elit"
-        image="/assets/images/contat.jpg"
-        rounded={true}
-      />
+      
       <Layout>
         <section className="my-24">
 
@@ -155,7 +146,7 @@ const Blog2 = () => {
           <Pagination data={data?.posts?.nodes} PaginatedData={PaginatedData} perpage={12} />
         </section>
       </Layout>
-      <Footer1 />
+
     </>
   );
 };

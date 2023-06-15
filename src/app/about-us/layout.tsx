@@ -1,10 +1,17 @@
-"use client";
 
-import Layout from "@/components/Layout/Layout";
 import Footer1 from "@/components/footer";
 import Header2 from "@/components/header/header2";
 import PageBanner from "@/components/page-banner/banner";
+import { AboutUsSeoFields } from "@/utils/seoMeta";
+import { Metadata } from "next";
 import React from "react";
+
+
+export const metadata: Metadata = {
+  ...AboutUsSeoFields
+};
+
+
 export default function ConatctLayout({
   children,
 }: {
@@ -12,6 +19,7 @@ export default function ConatctLayout({
 }) {
   return (
     <html lang="en">
+      
       <body>
         <Header2 />
         <PageBanner

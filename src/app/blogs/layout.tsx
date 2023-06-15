@@ -1,18 +1,15 @@
-
-import Layout from "@/components/Layout/Layout";
 import Footer1 from "@/components/footer";
-import Header1 from "@/components/header/header1";
+import Header2 from "@/components/header/header2";
 import PageBanner from "@/components/page-banner/banner";
-import { CategoriesSeoFields } from "@/utils/seoMeta";
+import { BlogsSeoFields } from "@/utils/seoMeta";
 import { Metadata } from "next";
-
 import React from "react";
 
 export const metadata: Metadata = {
-  ...CategoriesSeoFields
+  ...BlogsSeoFields,
 };
 
-export default function CategoriesLayout({
+export default function BlogsLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -20,13 +17,15 @@ export default function CategoriesLayout({
   return (
     <html lang="en">
       <body>
-        <Header1 />
+        <Header2 />
         <PageBanner
-          title="Categories"
+          title="Blogs"
+          subTitle="Lorem ipsum dolor sit amet consectetur adipisicing elit"
           image="/assets/images/contat.jpg"
+          rounded={true}
         />
-        <Layout>{children}</Layout>
-        <Footer1/>
+        {children}
+        <Footer1 />
       </body>
     </html>
   );
