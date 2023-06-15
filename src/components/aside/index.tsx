@@ -35,7 +35,7 @@ const Aside = ({
       {navigaiton && <NavigationSection />}
       {social && <SocialSection />}
       {newsletter && <NewsLetterSection />}
-      {latestPost.length > 0 && <LatestPostSection posts={latestPost} />}
+      {latestPost?.length > 0 && <LatestPostSection posts={latestPost} />}
       {tags?.length > 0 && <LatestCategories posts={tags} />}
       {advertisement && <Advertisement />}
     </aside>
@@ -136,13 +136,13 @@ const LatestPostSection = ({ posts }: any) => {
     <div className="mt-10 px-7">
       <SideBarHeading> latest posts </SideBarHeading>
       <div className="mt-8 flex flex-col gap-4">
-        {posts.slice(0, 5).map((p: any, idx: number) => {
+        {posts.slice(0, 5).map((p:any, idx:number) => {
           return (
             <div className="flex gap-4 items-center group " key={idx}>
               <figure className="h-24 min-w-[6rem] overflow-hidden">
               <img
-                src={p?.img}
-                alt="feature"
+                src={p?.featuredImage?.node?.mediaItemUrl}
+                alt={p?.featuredImage?.node?.altText}
                 className="h-24 _img object-cover group-hover:scale-110 group-hover:rotate-6 transition-all duration-200"
               />
               </figure>

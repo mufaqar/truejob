@@ -198,7 +198,7 @@ const Slug = () => {
             navigaiton={true}
             social={true}
             newsletter={true}
-            latestPost={PostMokeData}
+            latestPost={getallPosts?.data?.posts?.nodes}
             tags={tags?.nodes}
             advertisement={true}
           />

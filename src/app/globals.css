@@ -220,4 +220,6 @@ body {
     display: inline-block;
 }
 
-
+.toc_list li ul{
+    display: none !important;
+}
