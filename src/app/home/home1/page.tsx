@@ -39,14 +39,14 @@ const Home1 = () => {
             </div>
           </section>
 
-          <Aside
-            aboutAuthor={true}
+          {/* <Aside
+            navigaiton={true}
             social={true}
             newsletter={true}
             latestPost={PostMokeData}
-            latestCategories={PostMokeData}
+            tag={PostMokeData}
             advertisement={true}
-          />
+          /> */}
         </section>
       </Layout>
     </>
