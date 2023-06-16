@@ -23,13 +23,13 @@ const SliderComponent2 = ({ data }: any) => {
   return (
     <>
       
-      <section className="mt-[82.5px] overflow-hidden h-scrren relative  blogs">
+      <section className="mt-[82.5px] overflow-hidden md:h-scrren relative  blogs">
         <div className="">
         <Slider ref={slider} {...settings}>
         {data.map((item: any, idx: number) => {
           const {date, excerpt, featuredImage, slug, title, categories, comments} = item
           return (
-            <div className={`relative h-screen`} key={idx}>
+            <div className={`relative h-[400px] md:h-screen`} key={idx}>
               <img
                 src={featuredImage?.node?.mediaItemUrl}
                 alt={featuredImage?.node?.altText}
