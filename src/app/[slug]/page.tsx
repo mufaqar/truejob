@@ -23,6 +23,8 @@ import {
 } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
 import dateFormat from "dateformat";
+import NotFoundPage from "../not-found";
+import { useRouter } from 'next/navigation'
 
 
 const Slug = () => {
@@ -37,6 +39,9 @@ const Slug = () => {
 
   if (loading) return <Loader />;
   if (error) return <p>Error: {error.message}</p>;
+  if(!data?.post) return <NotFoundPage/>
+
+  const router = useRouter()
 
   const {
     title,
@@ -58,10 +63,9 @@ const Slug = () => {
   return (
     <>
       <PageBanner
-        title={title}
-        subTitle={GetWordStr(excerpt, 25)}
         image={mediaItemUrl}
-        rounded={true}
+        className="mt-[82px]"
+        full={true}
       />
       <Layout>
         <section className="lg:flex gap-10 my-10">
@@ -72,9 +76,13 @@ const Slug = () => {
                 {categories.nodes[0].name}
               </h2>
             </div>
+            <h1 className="text-xl md:text-4xl pt-3 text-yellow font-bold font-poppins capitalize">
+            {title}
+          </h1>
+            <div className="pt-[1px] bg-border my-6"/>
             <section className="content">
             <div
-              className="mt-8 text-text leading-8 tracking-wide siglePost "
+              className="mt-8 text-text leading-8 tracking-wide text-justify siglePost "
               dangerouslySetInnerHTML={{
                 __html: content,
               }}
@@ -82,6 +90,19 @@ const Slug = () => {
             </section>
             
             {faqs?.length > 0 && <FaqsList data={faqs} />}
+            <div className="mt-8 flex gap-2 flex-wrap">
+          {tags?.nodes?.map((p:any, idx:number) => {
+            return (
+              <div
+                className="flex border border-border rounded-full group justify-between text-sm hover:bg-yellow hover:border-transparent hover:text-black text-gray-400 capitalize cursor-pointer p-2 "
+                key={idx}
+                onClick={()=>router.push(`tag/${p?.slug}`)}
+              >
+                {p?.name}
+              </div>
+            );
+          })}
+        </div>
 
             <div className="bg-light-gray flex flex-col md:flex-row justify-between p-4 mt-7 gap-3 md:gap-0 md:items-center">
               <p className="uppercase text-sm font-bold text-light-blue">

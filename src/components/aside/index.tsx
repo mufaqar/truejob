@@ -36,7 +36,7 @@ const Aside = ({
       {social && <SocialSection />}
       {newsletter && <NewsLetterSection />}
       {latestPost?.length > 0 && <LatestPostSection posts={latestPost} />}
-      {tags?.length > 0 && <LatestCategories posts={tags} />}
+      {/* {tags?.length > 0 && <LatestCategories posts={tags} />} */}
       {advertisement && <Advertisement />}
     </aside>
   );

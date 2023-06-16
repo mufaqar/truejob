@@ -46,7 +46,7 @@ const SliderComponent2 = ({ data }: any) => {
                   <span>by ELLIOT ALDERSON</span>
                   <span>{comments?.nodes?.length} Comments</span>
                 </div>
-                <Link href={`blogs/${slug}`}><Button variants="outlined" size="medium" rounded={true}>View More <CgArrowLongRight size={28}/></Button></Link>
+                <Link href={slug}><Button variants="outlined" size="medium" rounded={true}>View More <CgArrowLongRight size={28}/></Button></Link>
               </div>
 
             </div>

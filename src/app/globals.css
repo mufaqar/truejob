@@ -219,7 +219,14 @@ body {
     padding: 3px 8px;
     display: inline-block;
 }
-
+.siglePost strong, .siglePost h6{
+    font-weight: 700;
+    color: #111;
+}
+.dark .siglePost strong, .dark .siglePost h6{
+    color: #fff;
+    font-weight: 700;
+}
 .toc_list li ul{
     display: none !important;
 }
