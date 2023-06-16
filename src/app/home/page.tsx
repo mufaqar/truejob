@@ -1,16 +1,13 @@
 "use client";
 
-import { PostMokeData } from "@/const/post";
 import React, { useEffect, useState } from "react";
 import Slider2 from "@/components/Slider/Slider2";
 import Header2 from "@/components/header/header2";
 import PostDesign2 from "@/components/post-design/post-design-2";
 import Layout from "@/components/Layout/Layout";
 import Image from "next/image";
-import { categoriesDate } from "@/const/categories";
 import Link from "next/link";
 import PostDesign from "@/components/post-design/post-design";
-import VideosGallery from "@/components/videos-gallery/videos";
 import Footer2 from "@/components/footer/Footer2";
 import { BsArrowRight } from "react-icons/bs";
 import { useQuery } from "@apollo/client";

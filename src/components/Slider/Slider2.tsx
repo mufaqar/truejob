@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import Button from "../ui/button";
 import {IoIosArrowForward, IoIosArrowBack} from 'react-icons/io'
 import {CgArrowLongRight} from 'react-icons/cg'
-import Layout from "../Layout/Layout";
 import dateFormat from "dateformat";
 import Link from "next/link";
 

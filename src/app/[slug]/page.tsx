@@ -28,6 +28,8 @@ import { useRouter } from 'next/navigation'
 
 
 const Slug = () => {
+  const router = useRouter()
+
   const { slug } = useParams();
   const { loading, error, data } = useQuery(SinglePost, {
     variables: {
@@ -41,7 +43,6 @@ const Slug = () => {
   if (error) return <p>Error: {error.message}</p>;
   if(!data?.post) return <NotFoundPage/>
 
-  const router = useRouter()
 
   const {
     title,
