@@ -8,7 +8,7 @@ import PostDesign2 from "@/components/post-design/post-design-2";
 import Loader from "@/components/preLoader/loader";
 import { AllPosts, SinglePost } from "@/config/queries";
 import { GetWordStr } from "@/utils";
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -23,12 +23,6 @@ import {
 } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
 import dateFormat from "dateformat";
-import { PostMokeData } from "@/const/post";
-
-
-
-
-
 
 
 const Slug = () => {

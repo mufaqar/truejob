@@ -1,12 +1,13 @@
 import Footer2 from "@/components/footer/Footer2";
 import Header2 from "@/components/header/header2";
-import { BlogsSeoFields } from "@/utils/seoMeta";
-import { Metadata } from "next";
+import { SinglePost } from "@/config/queries";
+import { useQuery } from "@apollo/client";
 import React from "react";
 
-export const metadata: Metadata = {
-  ...BlogsSeoFields,
-};
+export async function generateMetadata({ params }: any) {
+  console.log("generateMetadata: props", params);
+  return {};
+}
 
 export default function BlogsLayout({
   children,
