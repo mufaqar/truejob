@@ -1,22 +1,14 @@
 import Footer2 from "@/components/footer/Footer2";
 import Header2 from "@/components/header/header2";
-import { SinglePost } from "@/config/queries";
-import { useQuery } from "@apollo/client";
 import React from "react";
 
-const q = `query SinglePost($slug: ID!) {
-  post(id: $slug, idType: URI) {
-    excerpt
-    featuredImage {
-      node {
-        mediaItemUrl
-        altText
-      }
-    }
-    title
-    slug
+const q = `
+  query PostByTags($slug: ID!) {
+  tag(id: $slug, idType: SLUG) {
+    name
   }
-}`;
+}
+`;
 
 export async function generateMetadata({ params }: any) {
   console.log("generateMetadata: props", params);
@@ -29,18 +21,17 @@ export async function generateMetadata({ params }: any) {
     body: JSON.stringify({
       query: q,
       variables: {
-        slug: params?.slug,
+        slug: params?.products,
       },
     }),
   };
   const data = await fetch(url, options).then((response) => response.json());
-
   return {
-    title: data.data.post.title,
+    title: data.data.tag.name,
   };
 }
 
-export default function BlogsLayout({
+export default function CategoryLayout({
   children,
 }: {
   children: React.ReactNode;

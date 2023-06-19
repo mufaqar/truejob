@@ -44,7 +44,7 @@ const Blog = () => {
 
   return (
     <>
-      <Header2 />
+    
       <PageBanner
         title={data?.category?.name}
         image={data?.category?.postCategoryFields?.bannerImage?.mediaItemUrl}
@@ -153,7 +153,7 @@ const Blog = () => {
 
         </section>
       </Layout>
-      <Footer1 />
+     
     </>
   );
 };

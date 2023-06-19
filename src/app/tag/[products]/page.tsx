@@ -50,7 +50,7 @@ const Blog = () => {
 
   return (
     <>
-      <Header2 />
+      
       <PageBanner
         title={data?.tag?.name}
         image={data?.tag?.postTagFields?.bannerImage?.mediaItemUrl}
@@ -158,7 +158,7 @@ const Blog = () => {
 
         </section>
       </Layout>
-      <Footer1 />
+  
     </>
   );
 };
