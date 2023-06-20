@@ -46,12 +46,10 @@ export default function BlogsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
+   <>
         <Header2 />
         {children}
         <Footer2 />
-      </body>
-    </html>
+        </>
   );
 }

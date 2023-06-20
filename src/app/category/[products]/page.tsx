@@ -1,8 +1,6 @@
 "use client";
 
 import Layout from "@/components/Layout/Layout";
-
-import Footer1 from "@/components/footer";
 import PageBanner from "@/components/page-banner/banner";
 import PostDesign from "@/components/post-design/post-design";
 import Button from "@/components/ui/button";
@@ -18,7 +16,6 @@ import {
   AiOutlineEye,
 } from "react-icons/ai";
 import Loader from "@/components/preLoader/loader";
-import Header2 from "@/components/header/header2";
 import { useRouter } from 'next/navigation'
 
 
@@ -44,7 +41,6 @@ const Blog = () => {
 
   return (
     <>
-    
       <PageBanner
         title={data?.category?.name}
         image={data?.category?.postCategoryFields?.bannerImage?.mediaItemUrl}

@@ -18,8 +18,7 @@ export default function CategoriesLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
+    <>
         <Header1 />
         <PageBanner
           title="Categories"
@@ -27,7 +26,6 @@ export default function CategoriesLayout({
         />
         <Layout>{children}</Layout>
         <Footer1/>
-      </body>
-    </html>
+        </>
   );
 }
