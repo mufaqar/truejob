@@ -16,17 +16,17 @@ import { Helmet } from 'react-helmet';
 export default function Home() {
   const { loading, error, data } = useQuery(AllPosts);
   const categoriresRes = useQuery(AllCategories);
-  const scholorshipPosts = useQuery(PostsByCategory , {
+  const scholorshipPosts = useQuery(PostsByCategory, {
     variables: {
       slug: 'scholarship',
     },
   });
-  const RemoteJobs = useQuery(PostsByCategory , {
+  const RemoteJobs = useQuery(PostsByCategory, {
     variables: {
       slug: 'remote-jobs',
     },
   });
-  if (loading) return <Loader/>
+  if (loading) return <Loader />
   if (error) return <p>Error: {error.message}</p>;
 
   return (
@@ -37,13 +37,13 @@ export default function Home() {
       <Slider2 data={data?.posts?.nodes?.slice(0, 4)} />
       <div className="my-16">
         <Layout>
-          <PostDesign2 data={data?.posts?.nodes} lgpost={4}/>
+          <PostDesign2 data={data?.posts?.nodes} lgpost={4} />
           <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
             Top trending Categories
           </h2>
           <section className="mt-16 flex justify-center flex-wrap gap-8">
             {categoriresRes?.data?.categories?.nodes?.map((item: any, idx: number) => {
-              const {name, slug, postCategoryFields:{image}} = item
+              const { name, slug, postCategoryFields: { image } } = item
               return (
                 <Link
                   href={`category/${slug}`}
@@ -70,7 +70,7 @@ export default function Home() {
             Latest Articles 🎈
           </h2>
           <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-20">
-            {data?.posts?.nodes.slice(0, 6).map((post:any, idx:number) => {
+            {data?.posts?.nodes.slice(0, 6).map((post: any, idx: number) => {
               return (
                 <PostDesign post={post} idx={idx} key={idx} rounded={true} />
               );
@@ -81,26 +81,40 @@ export default function Home() {
             Latest Scholarship 🎈
           </h2>
           <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-20">
-            {scholorshipPosts?.data?.category?.posts?.nodes.slice(0, 3).map((post:any, idx:number) => {
+            {scholorshipPosts?.data?.category?.posts?.nodes.slice(0, 3).map((post: any, idx: number) => {
               return (
                 <PostDesign post={post} idx={idx} key={idx} rounded={true} />
               );
             })}
           </section>
           <Link href="/category/scholorship" className="mt-10 flex justify-center"><Button variants="primary" size="medium" rounded={true}>More scholorships </Button></Link>
-          
+
           <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
             Remote Jobs 🎈
           </h2>
           <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-20">
-            {RemoteJobs?.data?.category?.posts?.nodes.slice(0, 3).map((post:any, idx:number) => {
+            {RemoteJobs?.data?.category?.posts?.nodes.slice(0, 3).map((post: any, idx: number) => {
               return (
                 <PostDesign post={post} idx={idx} key={idx} rounded={true} />
               );
             })}
           </section>
           <Link href="/category/remote-jobs" className="mt-10 flex justify-center"><Button variants="primary" size="medium" rounded={true}>More scholorships </Button></Link>
-          
+
+
+          <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
+            Newspapper Job Ads 🎈
+          </h2>
+          <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-20">
+            {RemoteJobs?.data?.category?.posts?.nodes.slice(0, 3).map((post: any, idx: number) => {
+              return (
+                <PostDesign post={post} idx={idx} key={idx} rounded={true} />
+              );
+            })}
+          </section>
+          <Link href="/category/remote-jobs" className="mt-10 flex justify-center"><Button variants="primary" size="medium" rounded={true}>More scholorships </Button></Link>
+
+
           <section className="mt-20">
             <div className="grid grid-cols-1 items-center gap-10 px-10 mt-10 lg:grid-cols-2 ">
               <div className="mt-20 ">
@@ -138,7 +152,7 @@ export default function Home() {
           </section>
         </Layout>
       </div>
-     
+
     </>
   )
 }

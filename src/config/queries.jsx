@@ -39,6 +39,8 @@ export const AllPosts = gql`
   }
 `;
 
+
+
 export const AllCategories = gql`
   query AllCategories {
     categories {
