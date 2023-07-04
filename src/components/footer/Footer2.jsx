@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from '../Logo/Logo';
+import Link from 'next/link';
 
 const Footer2 = () => {
   return (
@@ -13,24 +14,24 @@ const Footer2 = () => {
               </h2>
               <ul className="text-gray-500 dark:text-gray-400">
                 <li className="mb-4">
-                  <a href="/about-us" className=" hover:underline">
+                  <Link href="/about-us" className=" hover:underline">
                     Programming & Tech
-                  </a>
+                  </Link>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
+                  <Link href="#" className="hover:underline">
                     Graphics & Design
-                  </a>
+                  </Link>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
+                  <Link href="#" className="hover:underline">
                     Digital Marketing
-                  </a>
+                  </Link>
                 </li>
                 <li className="mb-4">
-                  <a href="/blog" className="hover:underline">
+                  <Link href="/blog" className="hover:underline">
                     Writing & Translation
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -40,24 +41,24 @@ const Footer2 = () => {
               </h2>
               <ul className="text-gray-500 dark:text-gray-400">
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
+                  <Link href="#" className="hover:underline">
                     Freelancing Job
-                  </a>
+                  </Link>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
+                  <Link href="#" className="hover:underline">
                     Full time Jobs
-                  </a>
+                  </Link>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
+                  <Link href="#" className="hover:underline">
                     Part Time Jobs
-                  </a>
+                  </Link>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
+                  <Link href="#" className="hover:underline">
                     Fresh Jobs
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -67,24 +68,36 @@ const Footer2 = () => {
               </h2>
               <ul className="text-gray-500 dark:text-gray-400">
                 <li className="mb-4">
-                  <a href="/category/scholarship" className="hover:underline">
+                  <Link
+                    href="/category/scholarship"
+                    className="hover:underline"
+                  >
                     International
-                  </a>
+                  </Link>
                 </li>
                 <li className="mb-4">
-                  <a href="/category/scholarship" className="hover:underline">
+                  <Link
+                    href="/category/scholarship"
+                    className="hover:underline"
+                  >
                     National
-                  </a>
+                  </Link>
                 </li>
                 <li className="mb-4">
-                  <a href="/category/scholarship" className="hover:underline">
+                  <Link
+                    href="/category/scholarship"
+                    className="hover:underline"
+                  >
                     Scholarship for Foreigners
-                  </a>
+                  </Link>
                 </li>
                 <li className="mb-4">
-                  <a href="/category/scholarship" className="hover:underline">
+                  <Link
+                    href="/category/scholarship"
+                    className="hover:underline"
+                  >
                     Support Programs
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -94,24 +107,24 @@ const Footer2 = () => {
               </h2>
               <ul className="text-gray-500 dark:text-gray-400">
                 <li className="mb-4">
-                  <a href="#" className=" hover:underline">
+                  <Link href="#" className=" hover:underline">
                     Govt Jobs
-                  </a>
+                  </Link>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
+                  <Link href="#" className="hover:underline">
                     Private Jobs
-                  </a>
+                  </Link>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
+                  <Link href="#" className="hover:underline">
                     Jobs By Cities
-                  </a>
+                  </Link>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
+                  <Link href="#" className="hover:underline">
                     Jobs By Departments
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -121,24 +134,24 @@ const Footer2 = () => {
               </h2>
               <ul className="text-gray-500 dark:text-gray-400">
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
+                  <Link href="#" className="hover:underline">
                     Online surveys
-                  </a>
+                  </Link>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
+                  <Link href="#" className="hover:underline">
                     E-commerece
-                  </a>
+                  </Link>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
+                  <Link href="#" className="hover:underline">
                     Affliate Marketing
-                  </a>
+                  </Link>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
+                  <Link href="#" className="hover:underline">
                     Online tutoring or teaching
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -148,9 +161,9 @@ const Footer2 = () => {
             <Logo />
             <span className="block text-sm text-center text-gray-500 dark:text-gray-400 mt-4">
               © 2023
-              <a href="/" className="hover:underline">
+              <Link href="/" className="hover:underline">
                 TrueJob
-              </a>
+              </Link>
               . All Rights Reserved.
             </span>
           </div>
