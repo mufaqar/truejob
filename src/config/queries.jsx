@@ -171,3 +171,53 @@ export const PostByTags = gql`
     }
   }
 `;
+
+
+export const AllJobs = gql`
+query AllJobs {
+  jobs {
+    nodes {
+      slug
+      seo {
+        fullHead
+      }
+      title
+      featuredImage {
+        node {
+          mediaItemUrl
+        }
+      }
+    }
+  }
+}`
+
+export const SingleJob = gql`
+  query SingleJob($slug: ID!) {
+    job(id: $slug, idType: URI) {
+      seo {
+        fullHead
+      }
+      excerpt
+      title
+      slug
+      featuredImage {
+        node {
+          mediaItemUrl
+        }
+      }
+      postFields {
+        faqs {
+          answer
+          question
+        }
+      }
+      date
+      content
+      categories {
+        nodes {
+          slug
+          name
+        }
+      }
+    }
+  }`

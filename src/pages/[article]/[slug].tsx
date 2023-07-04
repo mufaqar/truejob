@@ -4,11 +4,11 @@ import Insta from "@/components/insta";
 import PageBanner from "@/components/page-banner/banner";
 import PostDesign2 from "@/components/post-design/post-design-2";
 import Loader from "@/components/preLoader/loader";
-import { AllPosts, SinglePost } from "@/config/queries";
+import { AllJobs, AllPosts, SingleJob, SinglePost } from "@/config/queries";
 import { useQuery } from "@apollo/client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   FaFacebookF,
   FaLinkedinIn,
@@ -26,21 +26,36 @@ import MetaTags from "../../utils/MetaTags";
 
 const Slug = () => {
   const router = useRouter()
-
-  const { slug } = router.query;
-  const { loading, error, data } = useQuery(SinglePost, {
-    variables: {
-      slug: slug,
-    },
-  });
+  const { slug, article } = router.query;
+  
+  
+    if(article === 'job'){
+      var { loading, error, data }:any = useQuery(SingleJob, {
+        variables: {
+          slug: slug,
+        },
+      });
+    }else{
+      var { loading, error, data }:any = useQuery(SinglePost, {
+        variables: {
+          slug: slug,
+        },
+      });
+    }
 
   const getallPosts = useQuery(AllPosts);
 
   if (loading) return <Loader />;
   if (error) return <p>Error: {error.message}</p>;
-  if (!data?.post) return <NotFoundPage />
+  if(article === 'job'){
+    if (!data?.job) return <NotFoundPage />
+  }else{
+    if (!data?.post) return <NotFoundPage />
+  }
 
-  const metaObjects = MetaTags(data?.post?.seo.fullHead);
+  const metaObjects = MetaTags(data?.post?.seo.fullHead || data?.job?.seo.fullHead);
+
+  const Fetcheddata = data?.post || data.job
 
   const {
     title,
@@ -49,11 +64,11 @@ const Slug = () => {
     date,
     comments,
     categories,
-    postFields: { faqs },
+    postFields,
     content,
     tags,
     seo
-  } = data?.post;
+  } = Fetcheddata
 
 
   return (
@@ -77,7 +92,7 @@ const Slug = () => {
             <div className="flex items-center justify-start gap-2">
               <div className="p-[5px] bg-light-blue group-hover:bg-light-blue" />
               <h2 className="capitalize text-sm text-gray-400 group-hover:text-light-blue cursor-pointer ">
-                {categories.nodes[0].name}
+                {categories?.nodes[0]?.name}
               </h2>
             </div>
             <h1 className="text-xl md:text-4xl pt-3 text-yellow font-bold font-poppins capitalize">
@@ -93,7 +108,7 @@ const Slug = () => {
               />
             </section>
 
-            {faqs?.length > 0 && <FaqsList data={faqs} />}
+            {postFields?.faqs?.length > 0 && <FaqsList data={postFields?.faqs} />}
             <div className="mt-8 flex gap-2 flex-wrap">
               {tags?.nodes?.map((p: any, idx: number) => {
                 return (
@@ -196,7 +211,7 @@ const Slug = () => {
             </div>
             <SideBarHeading long={true}> Related Post </SideBarHeading>
             <section className="my-12">
-              <PostDesign2 data={getallPosts?.data?.posts?.nodes} lgpost={2} />
+              <PostDesign2 data={getallPosts?.data?.posts?.nodes} lgpost={2} to="post" />
             </section>
             <SideBarHeading long={true}> Comments </SideBarHeading>
             {comments?.nodes?.map((item: any, idx: number) => {

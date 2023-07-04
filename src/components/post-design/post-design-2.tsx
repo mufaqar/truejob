@@ -4,8 +4,8 @@ import Link from "next/link";
 import React from "react";
 import dateFormat from "dateformat";
 
-const PostDesign2 = ({ data, lgpost }: any) => {
-  console.log("🚀 ~ file: post-design-2.tsx:8 ~ PostDesign2 ~ data:", data)
+const PostDesign2 = ({ data, lgpost, to }: any) => {
+
   return (
     <div className={`grid sm:grid-cols-2 lg:grid-cols-${lgpost} gap-4`}>
       {data?.slice(1, 5).map((item: any, idx: number) => {
@@ -34,7 +34,7 @@ const PostDesign2 = ({ data, lgpost }: any) => {
                 <p className="text-yellow rounded-3xl font-poppins uppercase font-light ">
                   {categories?.nodes[0]?.name}
                 </p>
-                <Link href={`/${slug}`}>
+                <Link href={`/${to}/${slug}`}>
                   <h2 className="pb-4 group-hover:text-light-blue font-poppins text-lg min-h-[75px]">
                     {GetWordStr(title, 7)} ...
                   </h2>
