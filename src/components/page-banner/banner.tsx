@@ -8,7 +8,7 @@ import Link from "next/link";
 interface IPageBanner {
   title?: string;
   subTitle?: string;
-  image: string;
+  image: any;
   buttontext?: string;
   buttonLink?: string | number | any;
   rounded?: boolean;

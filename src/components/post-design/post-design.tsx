@@ -55,7 +55,7 @@ const PostDesign = ({ post, layout, home, rounded }: any) => {
               {dateFormat(date, "mmmm d, yyyy")}
             </span>
           </p>
-          <Link href={slug}>
+          <Link href={`/${slug}`}>
             <h2
               className={`text-[18px] font-medium capitalize font-poppins ${
                 layout === 3 ? " mb-3 leading-6" : " text-pure leading-7 mt-2"

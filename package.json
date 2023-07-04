@@ -1,5 +1,5 @@
 {
-  "name": "next13.4",
+  "name": "truejobs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -20,12 +20,13 @@
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.1",
     "graphql": "^16.6.0",
-    "next": "13.4.1",
+    "next": "13.2.3",
     "next-seo": "^6.0.0",
     "next-themes": "^0.2.1",
     "postcss": "8.4.23",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-helmet": "^6.1.0",
     "react-icons": "^4.8.0",
     "react-modal": "^3.16.1",
     "react-paginate": "^8.2.0",
@@ -38,6 +39,7 @@
   "devDependencies": {
     "@types/dateformat": "^5.0.0",
     "@types/google-map-react": "^2.1.7",
+    "@types/react-helmet": "^6.1.6",
     "@types/react-slick": "^0.23.10"
   }
 }
