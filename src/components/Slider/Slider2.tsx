@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import Button from "../ui/button";
 import {IoIosArrowForward, IoIosArrowBack} from 'react-icons/io'
 import {CgArrowLongRight} from 'react-icons/cg'
-import Layout from "../Layout/Layout";
 import dateFormat from "dateformat";
 import Link from "next/link";
 
@@ -23,21 +22,21 @@ const SliderComponent2 = ({ data }: any) => {
   return (
     <>
       
-      <section className=" mt-10 md:mt-36 container overflow-hidden px-4 h-[400px] md:px-10 mx-auto relative md:h-[600px] blogs">
-        <div className="rounded-[60px] overflow-hidden ">
+      <section className="mt-[82.5px] overflow-hidden md:h-scrren relative blogs">
+        <div className="">
         <Slider ref={slider} {...settings}>
         {data.map((item: any, idx: number) => {
-          const {date, excerpt, featuredImage, slug, title, categories, comments} = item
+          const {date, featuredImage, slug, title, comments} = item
           return (
-            <div className={`relative h-[400px] md:h-[600px] rounded-[60px] overflow-hidden `} key={idx}>
+            <div className={`relative h-[400px] md:h-screen`} key={idx}>
               <img
                 src={featuredImage?.node?.mediaItemUrl}
                 alt={featuredImage?.node?.altText}
                 className="h-full w-full object-cover"
               />
               <div className="bg-black/40 absolute inset-0" />
-              <div className="absolute max-w-[700px] p-4 w-full top-1/2 flex px-16  md:px-0 flex-col justify-start right-1/2 items-start transform -translate-y-1/2 translate-x-1/2">
-                <span className="bg-yellow text-black py-1 px-3 rounded-2xl uppercase">{categories?.nodes[0]?.name}</span>
+              <div className="absolute max-w-[700px] bg-white/30  w-full top-1/2 flex rounded-3xl p-6 flex-col justify-start right-1/2 items-start transform -translate-y-1/2 translate-x-1/2">
+                {/* <span className="bg-yellow text-black py-1 px-3 rounded-2xl uppercase">{categories?.nodes[0]?.name}</span> */}
                 <h1 className="text-3xl mt-4 font-serif leading-[40px] md:leading-[50px] lg:leading-[55px] md:text-4xl lg:text-[48px] capitalize text-left text-white">
                   {title}
                 </h1>
@@ -46,7 +45,7 @@ const SliderComponent2 = ({ data }: any) => {
                   <span>by ELLIOT ALDERSON</span>
                   <span>{comments?.nodes?.length} Comments</span>
                 </div>
-                <Link href={`blogs/${slug}`}><Button variants="outlined" size="medium" rounded={true}>View More <CgArrowLongRight size={28}/></Button></Link>
+                <Link href={slug}><Button variants="outlined" size="medium" rounded={true}>View More <CgArrowLongRight size={28}/></Button></Link>
               </div>
 
             </div>
