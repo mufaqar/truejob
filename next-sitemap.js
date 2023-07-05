@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const query = `
   query AllPosts {
-    posts {
+    posts(first: 100000)  {
       nodes {
         date
         slug
@@ -13,7 +13,7 @@ const query = `
 
 const jobsQuery = `
   query AllJobs {
-    jobs {
+    jobs(first: 100000)  {
       nodes {
         slug
         date
