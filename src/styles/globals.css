@@ -71,7 +71,7 @@ html{
     :root {
         --dark-gray: #181818;
         --light-gray: #F3F4F6;
-        --yellow: #FFF054;
+        --yellow: #f77829;
         --pure: #393939;
         --light-blue: #05ADAF;
         --text: #979797;
@@ -81,7 +81,7 @@ html{
     :root[class="dark"] {
         --dark-gray: #181818;
         --light-gray: #262626;
-        --yellow: #FFF054;
+        --yellow: #f77829;
         --pure: #fff;
         --light-blue: #05ADAF;
         --text: #B8B8B8;

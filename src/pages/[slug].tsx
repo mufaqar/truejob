@@ -187,7 +187,7 @@ const Slug = () => {
           />
         </section>
       </Layout>
-      <Insta />
+  
 
     </>
   );

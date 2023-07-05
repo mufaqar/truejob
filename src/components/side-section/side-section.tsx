@@ -20,23 +20,20 @@ const SideSection = () => {
         <Logo />
       </div>
       <p className="text-text mt-6">
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book.
+      TrueJob is a leading blog curated by Mufaqar, offering valuable insights, resources, and guidance in the fields of technology, career development, and professional growth. Stay informed and inspired as TrueJob delivers high-quality content to help you navigate the ever-changing job market and enhance your skills.
       </p>
-      <ul className="mt-6 font-poppins uppercase mb-6">
+      <ul className="mt-6 font-poppins  mb-6">
         <li className="flex items-center gap-1 text-text">
           <span>
             <AiOutlinePhone size={25} />
           </span>
-          +123 456 7890
+           +92 302 6006 280
         </li>
         <li className="flex items-center gap-1 text-text mt-1">
           <span>
             <BsEnvelopeAt size={20} />
           </span>
-          info@email.com
+            hello@truejob.online
         </li>
       </ul>
       <div>

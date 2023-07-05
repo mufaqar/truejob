@@ -94,7 +94,7 @@ const ContactUs = () => {
         <GoogleMap />
       </Layout>
 
-      <Insta />
+   
     </>
   );
 };
