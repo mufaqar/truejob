@@ -12,7 +12,7 @@ import React, { useEffect, useState } from "react";
 import {
   FaFacebookF,
   FaLinkedinIn,
-  FaPinterestP,
+  FaBehance,
   FaRegCommentAlt,
   FaTwitter,
 } from "react-icons/fa";
@@ -23,6 +23,7 @@ import { useRouter } from "next/router";
 import { Helmet } from 'react-helmet';
 import { capitalizedFirstLetter } from "@/utils";
 import MetaTags from "../../utils/MetaTags";
+import Bio from "@/components/bio";
 
 const Slug = () => {
   const router = useRouter()
@@ -146,56 +147,15 @@ const Slug = () => {
                   </li>
                   <li className="hover:text-yellow text-lg">
                     <Link href="#">
-                      <FaPinterestP />
+                      <FaBehance />
                     </Link>
                   </li>
                 </ul>
               </div>
             </div>
             <div className="my-10 sm:flex items-center gap-6 justify-start">
-              <div className="w-40">
-                <Image
-                  src="/assets/images/Cars.jpg"
-                  alt="profile"
-                  width={200}
-                  height={200}
-                  className="w-40 h-40 rounded-full"
-                  style={{ minWidth: "10rem" }}
-                />
-              </div>
-              <div>
-                <h4 className="text-lg text-dark-gray dark:text-gray-200 mt-6 sm:mt-0">
-                  Expert design
-                </h4>
-                <p className="mt-3 mb-2 text-gray-400">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id
-                  laudantium veritatis quae cum excepturi fugit quisquam
-                  voluptatibus. Veniam inventore, necessitatibus iusto quo
-                  adipisci laboriosam, fugit omnis esse nam deserunt incidunt!
-                </p>
-                <ul className="flex items-center gap-4 text-light-blue mt-4">
-                  <li className="hover:text-yellow text-lg">
-                    <Link href="#">
-                      <FaFacebookF />
-                    </Link>
-                  </li>
-                  <li className="hover:text-yellow text-lg">
-                    <Link href="#">
-                      <FaTwitter />
-                    </Link>
-                  </li>
-                  <li className="hover:text-yellow text-lg">
-                    <Link href="#">
-                      <FaLinkedinIn />
-                    </Link>
-                  </li>
-                  <li className="hover:text-yellow text-lg">
-                    <Link href="#">
-                      <FaPinterestP />
-                    </Link>
-                  </li>
-                </ul>
-              </div>
+             <Bio />
+
             </div>
             <SideBarHeading long={true}> Related Post </SideBarHeading>
             <section className="my-12">

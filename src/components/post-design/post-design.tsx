@@ -50,7 +50,7 @@ const PostDesign = ({ post, layout, home, rounded, to }: any) => {
       >
         <div className={`${layout === 3 && "flex flex-col-reverse"}`}>
           <p className="capitalize text-light-blue text-sm">
-            By Danial Alam -
+            By Mufaqar -
             <span className="uppercase">
               {dateFormat(date, "mmmm d, yyyy")}
             </span>
