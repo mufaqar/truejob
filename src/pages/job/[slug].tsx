@@ -26,10 +26,9 @@ import MetaTags from "../../utils/MetaTags";
 
 const Slug = () => {
   const router = useRouter()
-  const { slug, article } = router.query;
+  const { slug } = router.query;
 
-    var { loading, error, data }: any = useQuery(
-      article === 'job' ? SingleJob : SinglePost,
+    var { loading, error, data }: any = useQuery(SingleJob,
       {
         variables: {
           slug: slug,
@@ -42,15 +41,9 @@ const Slug = () => {
 
   if (loading) return <Loader />;
   if (error) return <p>Error: {error.message}</p>;
-  if(article === 'job'){
-    if (!data?.job) return <NotFoundPage />
-  }else{
-    if (!data?.post) return <NotFoundPage />
-  }
+  if (!data?.job) return <NotFoundPage />
 
-  const metaObjects = MetaTags(data?.post?.seo.fullHead || data?.job?.seo.fullHead);
-
-  const Fetcheddata = data?.post || data.job
+  const metaObjects = MetaTags(data?.job?.seo.fullHead);
 
   const {
     title,
@@ -63,7 +56,7 @@ const Slug = () => {
     content,
     tags,
     seo
-  } = Fetcheddata
+  } = data?.job
 
 
   return (
@@ -206,7 +199,7 @@ const Slug = () => {
             </div>
             <SideBarHeading long={true}> Related Post </SideBarHeading>
             <section className="my-12">
-              <PostDesign2 data={getallPosts?.data?.posts?.nodes} lgpost={2} to="post" />
+              <PostDesign2 data={getallPosts?.data?.posts?.nodes} lgpost={2} />
             </section>
             <SideBarHeading long={true}> Comments </SideBarHeading>
             {comments?.nodes?.map((item: any, idx: number) => {

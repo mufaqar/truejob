@@ -70,7 +70,7 @@ async function generateSitemap() {
         .map(
           (item) => `
         <url>
-          <loc>${SITE_URI}/post/${item.slug}</loc>
+          <loc>${SITE_URI}/${item.slug}</loc>
           <lastmod>${item.date}</lastmod>
           <priority>0.80</priority>
         </url>

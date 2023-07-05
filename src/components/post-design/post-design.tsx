@@ -16,7 +16,7 @@ const PostDesign = ({ post, layout, home, rounded, to }: any) => {
       ${layout === 3 && "bg-transparent !shadow-none"}
       `}
     >
-      <Link href={`${to}/${slug}`}>
+      <Link href={`${to ? to : ''}/${slug}`}>
         <figure
           className={`overflow-hidden relative ${layout === 2 && "md:w-full"}`}
         >
@@ -55,7 +55,7 @@ const PostDesign = ({ post, layout, home, rounded, to }: any) => {
               {dateFormat(date, "mmmm d, yyyy")}
             </span>
           </p>
-          <Link href={`${to}/${slug}`}>
+          <Link href={`${to ? to : ''}/${slug}`}>
             <h2
               className={`text-[18px] font-medium capitalize font-poppins ${
                 layout === 3 ? " mb-3 leading-6" : " text-pure leading-7 mt-2"

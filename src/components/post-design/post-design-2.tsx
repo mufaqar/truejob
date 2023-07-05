@@ -34,7 +34,7 @@ const PostDesign2 = ({ data, lgpost, to }: any) => {
                 <p className="text-yellow rounded-3xl font-poppins uppercase font-light ">
                   {categories?.nodes[0]?.name}
                 </p>
-                <Link href={`/${to}/${slug}`}>
+                <Link href={`${to ? to : ''}/${slug}`}>
                   <h2 className="pb-4 group-hover:text-light-blue font-poppins text-lg min-h-[75px]">
                     {GetWordStr(title, 7)} ...
                   </h2>

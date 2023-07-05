@@ -38,7 +38,7 @@ export default function Home() {
       <Slider2 data={data?.posts?.nodes?.slice(0, 4)} />
       <div className="my-16">
         <Layout>
-          <PostDesign2 data={data?.posts?.nodes} lgpost={4} to="post"/>
+          <PostDesign2 data={data?.posts?.nodes} lgpost={4} />
           <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
             Top trending Categories
           </h2>
@@ -73,7 +73,7 @@ export default function Home() {
           <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-20">
             {data?.posts?.nodes.slice(0, 6).map((post: any, idx: number) => {
               return (
-                <PostDesign post={post} idx={idx} key={idx} rounded={true} to="post"/>
+                <PostDesign post={post} idx={idx} key={idx} rounded={true} />
               );
             })}
           </section>
@@ -84,7 +84,7 @@ export default function Home() {
           <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-20">
             {scholorshipPosts?.data?.category?.posts?.nodes.slice(0, 3).map((post: any, idx: number) => {
               return (
-                <PostDesign post={post} idx={idx} key={idx} rounded={true} to="post"/>
+                <PostDesign post={post} idx={idx} key={idx} rounded={true} />
               );
             })}
           </section>
@@ -96,7 +96,7 @@ export default function Home() {
           <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-20">
             {RemoteJobs?.data?.category?.posts?.nodes.slice(0, 3).map((post: any, idx: number) => {
               return (
-                <PostDesign post={post} idx={idx} key={idx} rounded={true} to="post"/>
+                <PostDesign post={post} idx={idx} key={idx} rounded={true} />
               );
             })}
           </section>
