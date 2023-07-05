@@ -73,7 +73,8 @@ const Slug = () => {
       <PageBanner
         image={featuredImage?.node?.mediaItemUrl}
         className="mt-[82px]"
-        full={true}
+        full={false}
+        rounded = {true}
       />
 
       <Layout>
