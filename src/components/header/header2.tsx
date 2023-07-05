@@ -110,7 +110,7 @@ const Header2 = () => {
                 <SlArrowDown />
               </div>
               <SubMenu>
-                <Route to="/ind-out-how-you-can-get-more-web-developer-jobs">Get More Web Developer Jobs</Route>
+                <Route to="/you-can-get-more-web-developer-jobs">Get More Web Developer Jobs</Route>
                 <Route to="/content-writing-jobs-as-a-freelancer">World Of Content Writing Jobs</Route>
                 <Route to="/graphic-design-jobs-as-a-freelancer">Graphic Design Jobs</Route>
                 <Route to="/top-15-freelancing-jobs-in-2023">Freelancing Jobs Are Most In Demand</Route>
