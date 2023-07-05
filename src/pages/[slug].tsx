@@ -78,9 +78,8 @@ const Slug = () => {
       /> */}
 
       <figure className="relative container mx-auto">
-          <div className={` absolute top-0 p-4 flex flex-col justify-center text-white items-center right-0 bottom-0 left-0 rounded-[20px]  bg-black/10 `} > </div>
-       
-      <img src={featuredImage?.node?.mediaItemUrl} alt="abc" className=" mt-20 rounded-[20px] " />
+          <div className={` absolute top-0 p-4 flex flex-col justify-center text-white items-center right-0 bottom-0 left-0 rounded-[20px]  bg-black/10 `} > </div>       
+          <img src={featuredImage?.node?.mediaItemUrl} alt="Feature Image" className=" mt-20 rounded-[20px] " />
       </figure>
       <Layout>
         <section className="lg:flex gap-10 my-10">
