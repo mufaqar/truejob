@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useContext, useEffect, useState } from "react";
 import Logo from "../Logo/Logo";
 import Link from "next/link";
@@ -89,14 +88,20 @@ const Header2 = () => {
             <li className="group relative">
               <div className="flex items-center gap-2">
                 <Link href="/category/scholarship" className="uppercase dark:text-white text-black">
-                  Scholarship
+                  Scholarships
                 </Link>
                 <SlArrowDown />
               </div>
               <SubMenu>
-                <Route to="/">Scholarship in Australia</Route>
-                <Route to="/">Scholarship in China</Route>
-                <Route to="/">Scholarship in Koria</Route>
+                <Route to="/scholarship-in-australia">Scholarship in Australia</Route>
+                <Route to="/win-a-netherlands-scholarship">Scholarship in Netherlands</Route>
+                <Route to="/win-scholarships-in-france-in-2023">Win Scholarships In France</Route>
+                <Route to="/get-a-turkey-scholarship-from-pakistan">Turkey Scholarship From Pakistan</Route>
+                <Route to="/get-china-scholarships-from-pakistan">China Scholarships From Pakistan</Route>
+                <Route to="/get-scholarships-in-united-kingdom">Get Scholarships In United Kingdom</Route>
+                <Route to="/top-23-scholarship-countries-for-2023">Top 23 Scholarship Countries Of 2023</Route>
+                <Route to="/eligibility-criteria-for-a-scholarship">Eligibility Criteria For Scholarships</Route>
+                <Route to="/understanding-scholarship-requirements">Scholarship Requirements</Route>
               </SubMenu>
             </li>
 
