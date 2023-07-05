@@ -15,10 +15,9 @@ const ContactUs = () => {
       </Helmet>
       <PageBanner
         title="Contact Us"
-        subTitle="Lorem ipsum dolor sit amet consectetur adipisicing elit"
+        subTitle="Connect with TrueJob for Scholarship Opportunities, Remote Jobs, and ePaper Job Listings"
         image="/assets/images/contactus.jpg"
-        buttontext="By this time"
-        buttonLink="#"
+       
         rounded={true}
       />
       <Layout>

@@ -123,16 +123,15 @@ export default function Home() {
                   Join our newsletter
                 </h1>
                 <p className="text-xl font-medium">
-                  Read and share new perspectives on just about any topic.
-                  Everyone’s welcome.
+                Explore and Exchange Diverse Perspectives on a Wide Range of Topics. Embrace an Inclusive Community for Thoughtful Discussions.
                 </p>
                 <div className="flex items-center mt-6">
                   <h5 className="px-4 py-2 bg-yellow rounded-3xl">1</h5>
-                  <p className="px-8">Get more discount</p>
+                  <p className="px-8">Get more Jobs Ideas</p>
                 </div>
                 <div className="flex items-center mt-4">
                   <h5 className="px-4 py-2 bg-light-blue rounded-3xl">2</h5>
-                  <p className="px-8">Get premium magazines</p>
+                  <p className="px-8">Access Valuable Tips for Enhancing Your Skill Set</p>
                 </div>
                 <div className="mt-10 w-72">
                   <div className="relative h-12 w-full max-w-[400px] lg:w-[400px] border border-border rounded-full">

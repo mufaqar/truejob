@@ -14,22 +14,22 @@ const Footer2 = () => {
               </h2>
               <ul className="text-gray-500 dark:text-gray-400">
                 <li className="mb-4">
-                  <Link href="/about-us" className=" hover:underline">
+                  <Link href="/find-out-how-you-can-get-more-web-developer-jobs" className=" hover:underline">
                     Programming & Tech
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="#" className="hover:underline">
+                  <Link href="/graphic-design-jobs-as-a-freelancer" className="hover:underline">
                     Graphics & Design
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="#" className="hover:underline">
+                  <Link href="/top-15-freelancing-jobs-in-2023#SEO_Consulting" className="hover:underline">
                     Digital Marketing
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="/blog" className="hover:underline">
+                  <Link href="/content-writing-jobs-as-a-freelancer" className="hover:underline">
                     Writing & Translation
                   </Link>
                 </li>
@@ -41,22 +41,22 @@ const Footer2 = () => {
               </h2>
               <ul className="text-gray-500 dark:text-gray-400">
                 <li className="mb-4">
-                  <Link href="#" className="hover:underline">
+                  <Link href="/top-15-freelancing-jobs-in-2023" className="hover:underline">
                     Freelancing Job
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="#" className="hover:underline">
+                  <Link href="/paper-jobs" className="hover:underline">
                     Full time Jobs
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="#" className="hover:underline">
+                  <Link href="/category/remote-jobs" className="hover:underline">
                     Part Time Jobs
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="#" className="hover:underline">
+                  <Link href="/top-15-freelancing-jobs-in-2023#SEO_Consulting" className="hover:underline">
                     Fresh Jobs
                   </Link>
                 </li>
@@ -64,7 +64,7 @@ const Footer2 = () => {
             </div>
             <div>
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                SCHOLARSHIPS
+              scholarships
               </h2>
               <ul className="text-gray-500 dark:text-gray-400">
                 <li className="mb-4">
@@ -107,22 +107,22 @@ const Footer2 = () => {
               </h2>
               <ul className="text-gray-500 dark:text-gray-400">
                 <li className="mb-4">
-                  <Link href="#" className=" hover:underline">
+                  <Link href="/local-govt-jobs-data-entry-skilled" className=" hover:underline">
                     Govt Jobs
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="#" className="hover:underline">
+                  <Link href="/paper-jobs" className="hover:underline">
                     Private Jobs
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="#" className="hover:underline">
+                  <Link href="/paper-jobs" className="hover:underline">
                     Jobs By Cities
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="#" className="hover:underline">
+                  <Link href="/paper-jobs" className="hover:underline">
                     Jobs By Departments
                   </Link>
                 </li>
@@ -134,22 +134,22 @@ const Footer2 = () => {
               </h2>
               <ul className="text-gray-500 dark:text-gray-400">
                 <li className="mb-4">
-                  <Link href="#" className="hover:underline">
+                  <Link href="/" className="hover:underline">
                     Online surveys
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="#" className="hover:underline">
+                  <Link href="/" className="hover:underline">
                     E-commerece
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="#" className="hover:underline">
+                  <Link href="/" className="hover:underline">
                     Affliate Marketing
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="#" className="hover:underline">
+                  <Link href="/" className="hover:underline">
                     Online tutoring or teaching
                   </Link>
                 </li>

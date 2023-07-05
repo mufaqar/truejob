@@ -1,10 +1,7 @@
 "use client";
-
 import React from "react";
-import Header1 from "../header/header1";
 import Button from "../ui/button";
 import Link from "next/link";
-
 interface IPageBanner {
   title?: string;
   subTitle?: string;
