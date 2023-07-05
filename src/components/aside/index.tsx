@@ -50,31 +50,26 @@ const SocialSection = () => {
       <div className="pt-[1px] bg-border my-6 mt-10 " />
         <div className="flex text-2xl px-7 justify-between">
           <Link
-            href="#"
+            href="https://www.facebook.com/sharer/sharer.php?u=https://www.truejob.online/"
             className="hover:text-yellow hover:scale-110 transition-all duration-200 ease-in-out"
           >
             <FaFacebookF size={20}/>
           </Link>
+          
           <Link
-            href="#"
-            className="hover:text-yellow hover:scale-110 transition-all duration-200 ease-in-out"
-          >
-            <FaInstagram size={20}/>
-          </Link>
-          <Link
-            href="#"
+            href="https://twitter.com/intent/tweet?url=https://www.truejob.online/&text="
             className="hover:text-yellow hover:scale-110 transition-all duration-200 ease-in-out"
           >
             <FaTwitter size={20}/>
           </Link>
           <Link
-            href="#"
+            href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.truejob.online/"
             className="hover:text-yellow hover:scale-110 transition-all duration-200 ease-in-out"
           >
             <FaLinkedinIn size={20}/>
           </Link>
           <Link
-            href="#"
+            href="https://pinterest.com/pin/create/button/?url=https://www.truejob.online/&media=&description="
             className="hover:text-yellow hover:scale-110 transition-all duration-200 ease-in-out"
           >
             <FaPinterestP size={20}/>
@@ -115,7 +110,7 @@ const NewsLetterSection = () => {
       <SideBarHeading> Subscribe Newsletter </SideBarHeading>
       <section className="bg-yellow p-4 py-6 mt-6">
         <p className="text-dark-gray mb-4 text-center ">
-          Lorem ipsum dolor, sit amet consectetur adipisicing.
+        Read and share new perspectives on just about any topic.
         </p>
         <Input
           searchValue={searchValue}
