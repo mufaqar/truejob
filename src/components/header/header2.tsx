@@ -41,7 +41,7 @@ const Header2 = () => {
 
   return (
     <>
-      <header className={`max-h-[64px] w-full md:mt-16 z-[100]`}>
+      <header className={`max-h-[60px] w-full md:mt-5 z-[100]`}>
         <div className="container mx-auto flex py-2 justify-between items-center px-4 md:px-10">
           <Socials />
           <Logo />
@@ -69,7 +69,7 @@ const Header2 = () => {
             </div>
           </div>
         </div>
-        <div className="bg-light-gray md:py-4 mt-10 flex justify-center z-50">
+        <div className="bg-light-gray md:py-4 mt-5 flex justify-center z-50">
           <ul
             className={`gap-7 mr-4 md:items-center z-10 ${isMobile
               ? "absolute top-[52px] flex flex-col gap-6 p-10 left-0 right-0 bg-light-gray w-full"
