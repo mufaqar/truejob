@@ -25,11 +25,13 @@ const PageBanner = ({
 }: IPageBanner) => {
   return (
     <>
+
+    
       <div
-        className={`${full ? 'h-[300px] md:h-[100vh]' : 'h-[420px]'}  bg-cover bg-no-repeat bg-center relative ${rounded && 'container mt-20 px-4 md:px-10 mx-auto rounded-[20px]'} ${className}`}
+        className={`${full ? 'h-[300px] md:h-[350px]' : 'h-[420px]'}  bg-contain bg-no-repeat bg-center relative ${rounded && 'container mt-20 px-4 md:px-10 mx-auto rounded-[20px]'} ${className}`}
         style={{ backgroundImage: `url(${image})` }}
       >
-        <div className={` absolute top-0 p-4 flex flex-col justify-center text-white items-center right-0 bottom-0 left-0 bg-black/30 ${rounded && 'container px-4 md:px-10 mx-auto rounded-[20px]'}`}>
+        <div className={` absolute top-0 p-4 flex flex-col justify-center text-white items-center right-0 bottom-0 left-0 bg-black/10 ${rounded && 'container px-4 md:px-10 mx-auto rounded-[20px]'}`}>
           <h1 className="text-xl md:text-4xl pt-10 text-yellow font-bold font-poppins text-center capitalize">
             {title}
           </h1>
