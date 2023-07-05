@@ -27,21 +27,16 @@ import MetaTags from "../../utils/MetaTags";
 const Slug = () => {
   const router = useRouter()
   const { slug, article } = router.query;
-  
-  
-    if(article === 'job'){
-      var { loading, error, data }:any = useQuery(SingleJob, {
+
+    var { loading, error, data }: any = useQuery(
+      article === 'job' ? SingleJob : SinglePost,
+      {
         variables: {
           slug: slug,
         },
-      });
-    }else{
-      var { loading, error, data }:any = useQuery(SinglePost, {
-        variables: {
-          slug: slug,
-        },
-      });
-    }
+      }
+    );
+    
 
   const getallPosts = useQuery(AllPosts);
 
