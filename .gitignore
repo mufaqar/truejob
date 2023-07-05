@@ -19,7 +19,7 @@
 # misc
 .DS_Store
 *.pem
-
+sitemap.xml
 # debug
 npm-debug.log*
 yarn-debug.log*
