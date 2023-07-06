@@ -19,7 +19,7 @@ export default function Home() {
   const categoriresRes = useQuery(AllCategories);
   const scholorshipPosts = useQuery(PostsByCategory, {
     variables: {
-      slug: 'scholarship',
+      slug: 'scholarships',
     },
   });
   const RemoteJobs = useQuery(PostsByCategory, {
@@ -80,7 +80,7 @@ export default function Home() {
           </section>
 
           <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
-            Latest Scholarship 🎈
+            Latest Scholarships 🎈
           </h2>
           <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-20">
             {scholorshipPosts?.data?.category?.posts?.nodes.slice(0, 3).map((post: any, idx: number) => {
@@ -89,7 +89,7 @@ export default function Home() {
               );
             })}
           </section>
-          <Link href="/category/scholorship" className="mt-10 flex justify-center"><Button variants="primary" size="medium" rounded={true}>More scholorships </Button></Link>
+          <Link href="/category/scholorships" className="mt-10 flex justify-center"><Button variants="primary" size="medium" rounded={true}>More scholorships </Button></Link>
 
           <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
             Remote Jobs 🎈
