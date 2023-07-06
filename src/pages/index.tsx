@@ -27,6 +27,17 @@ export default function Home() {
       slug: 'remote-jobs',
     },
   });
+  const EarnMoneyOnline = useQuery(PostsByCategory, {
+    variables: {
+      slug: 'earn-money-online',
+    },
+  });
+  const LatestNews = useQuery(PostsByCategory, {
+    variables: {
+      slug: 'latest-news',
+    },
+  });
+
   const GetAllJobs = useQuery(AllJobs);
   if (loading) return <Loader />
   if (error) return <p>Error: {error.message}</p>;
@@ -103,12 +114,24 @@ export default function Home() {
           </section>
           <Link href="/category/remote-jobs" className="mt-10 flex justify-center"><Button variants="primary" size="medium" rounded={true}>More scholorships </Button></Link>
 
+          <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
+            Earn Money Online🎈
+          </h2>
+          <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-20">
+            {EarnMoneyOnline?.data?.category?.posts?.nodes.slice(0, 3).map((post: any, idx: number) => {
+              return (
+                <PostDesign post={post} idx={idx} key={idx} rounded={true} />
+              );
+            })}
+          </section>
+          <Link href="/category/earn-money-online" className="mt-10 flex justify-center"><Button variants="primary" size="medium" rounded={true}>Load More </Button></Link>
+
 
           <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
             Newspapper Job Ads 🎈
           </h2>
           <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-20">
-            {GetAllJobs?.data?.jobs?.nodes.slice(0, 6).map((post: any, idx: number) => {
+            {GetAllJobs?.data?.jobs?.nodes.slice(0, 3).map((post: any, idx: number) => {
               return (
                 <PostDesign post={post} idx={idx} key={idx} rounded={true} to="job" />
               );
