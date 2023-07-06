@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { useQuery } from '@apollo/client';
 import { AllCategories, AllJobs, AllPosts, PostsByCategory } from "../config/queries";
-import Slider2 from "@/components/Slider/Slider2";
+//import Slider2 from "@/components/Slider/SliderComponent";
 import PostDesign2 from "@/components/post-design/post-design-2";
 import Layout from "@/components/Layout/Layout";
 import Link from "next/link";
@@ -11,6 +11,7 @@ import Loader from "@/components/preLoader/loader";
 import Button from "@/components/ui/button";
 import Head from 'next/head';
 import { Helmet } from 'react-helmet';
+import SliderComponent from '@/components/Slider/Slider';
 
 
 export default function Home() {
@@ -35,7 +36,7 @@ export default function Home() {
       <Helmet>
         <title>Home</title>
       </Helmet>
-      <Slider2 data={data?.posts?.nodes?.slice(0, 4)} />
+      <SliderComponent data={data?.posts?.nodes?.slice(0, 4)} />
       <div className="my-16">
         <Layout>
           <PostDesign2 data={data?.posts?.nodes} lgpost={4} />
