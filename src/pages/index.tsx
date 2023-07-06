@@ -54,9 +54,9 @@ export default function Home() {
                      Top trending Jobs Articles
               </h1>
           <PostDesign2 data={data?.posts?.nodes} lgpost={4} />
-          <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
-            Top trending Categories
-          </h2>
+            <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
+              Top trending Categories
+            </h2>
           <section className="mt-16 flex justify-center flex-wrap gap-8">
             {categoriresRes?.data?.categories?.nodes?.map((item: any, idx: number) => {
               const { name, slug, postCategoryFields: { image } } = item
