@@ -23,7 +23,7 @@ const SliderComponent = ({ data }: any) => {
 
   return (
     <>
-      <section className="h-[420px] relative overflow-hidden 2xl:h-[800px] blogs container mx-auto rounded-3xl mt-20">
+      <section className="h-[420px] relative overflow-hidden blogs container mx-auto rounded-3xl mt-20">
       <Slider ref={slider} {...settings}>
         {data.map((item: any, idx: number) => {
            const {date, featuredImage, slug, title, comments, categories , postFields} = item
