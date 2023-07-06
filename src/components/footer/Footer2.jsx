@@ -69,34 +69,34 @@ const Footer2 = () => {
               <ul className="text-gray-500 dark:text-gray-400">
                 <li className="mb-4">
                   <Link
-                    href="/category/scholarship"
+                    href="/win-scholarships-in-usa-in-2023"
                     className="hover:underline"
                   >
-                    International
+                   Scholarships In USA
                   </Link>
                 </li>
                 <li className="mb-4">
                   <Link
-                    href="/category/scholarship"
+                    href="/scholarship-in-australia"
                     className="hover:underline"
                   >
-                    National
+                    Scholarship In Australia
                   </Link>
                 </li>
                 <li className="mb-4">
                   <Link
-                    href="/category/scholarship"
+                    href="/win-scholarships-in-france-in-2023"
                     className="hover:underline"
                   >
-                    Scholarship for Foreigners
+                   Scholarships In France
                   </Link>
                 </li>
                 <li className="mb-4">
                   <Link
-                    href="/category/scholarship"
+                    href="/eligibility-criteria-for-a-scholarship"
                     className="hover:underline"
                   >
-                    Support Programs
+                   Criteria For Scholarships
                   </Link>
                 </li>
               </ul>
