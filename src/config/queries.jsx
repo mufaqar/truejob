@@ -34,6 +34,12 @@ export const AllPosts = gql`
             name
           }
         }
+        postFields {          
+          banner {
+            altText
+            mediaItemUrl
+          }
+        }
       }
     }
   }

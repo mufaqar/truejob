@@ -184,18 +184,9 @@ const LatestCategories = ({ posts }: any) => {
 const Advertisement = () => {
   return (
     <div className="px-7">
-      <div
-        className="p-5 w-full mt-12 bg-cover bg-no-repeat"
-        style={{ backgroundImage: `url("/assets/images/ads.png")` }}
-      >
-        <h2 className="text-center text-lg font-light text-white mb-32">
-        Best Selling Blog & Magazine 
-        Wp Theme Of This Year
-        </h2>
-        <button className="uppercase bg-yellow font-oswald font-normal text-black  w-full hover:bg-black hover:text-yellow p-3">
-          Purchase Now
-        </button>
-      </div>
+      <Link href='/win-scholarships-in-usa-in-2023' >
+      <img src="/assets/images/win-scholarships.jpg" alt="" className="mt-8"/>
+      </Link>
     </div>
   );
 };

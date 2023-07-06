@@ -23,31 +23,25 @@ const SliderComponent = ({ data }: any) => {
 
   return (
     <>
-      <section className="h-[500px] relative overflow-hidden 2xl:h-[800px] blogs container mx-auto rounded-3xl mt-20">
+      <section className="h-[420px] relative overflow-hidden 2xl:h-[800px] blogs container mx-auto rounded-3xl mt-20">
       <Slider ref={slider} {...settings}>
         {data.map((item: any, idx: number) => {
-           const {date, featuredImage, slug, title, comments, categories} = item
+           const {date, featuredImage, slug, title, comments, categories , postFields} = item
+           console.log(item)
           return (
-            <div className={`h-[500px] relative 2xl:h-[800px] `} key={idx}>
+            <div className={`h-[420px] relative 2xl:h-[800px] `} key={idx}>
+               <Link className="" href={slug}>
               <img
-                 src={featuredImage?.node?.mediaItemUrl}
+                 src={postFields?.banner?.mediaItemUrl.length > 10 ? postFields?.banner?.mediaItemUrl : featuredImage?.node?.mediaItemUrl}
                  alt={featuredImage?.node?.altText}
                 className="h-full w-full object-cover"
               />
-              <div className="bg-black/30 absolute inset-0" />
+              </Link>
+              <div className="bg-black/10 absolute inset-0" />           
               <div className="absolute max-w-[700px] px-16 md:px-0 p-4 w-full top-1/2 flex flex-col justify-center right-1/2 items-center transform -translate-y-1/2 translate-x-1/2">
-                <span className="bg-yellow text-black py-[2px] px-4 rounded-2xl uppercase">{categories?.nodes[0]?.name}</span>
-                <h1 className="text-3xl mt-4 font-poppins leading-[40px] md:leading-[50px] lg:leading-[55px] md:text-4xl lg:text-[48px] capitalize text-center text-white">
-                  {item.title}
-                </h1>
-                <div className="uppercase text-xs text-center md:text-sm text-white items-center justify-center my-5 mb-8 font-light flex gap-4 md:gap-10">
-                  <span>{dateFormat(date, "mmmm d, yyyy")} by</span>
-                  <span>Mufqar Islam</span>
-                  <span>{comments.nodes?.length} Comments</span>
-                </div>
-                <Link href={slug}>
-                <Button variants="secondary" size="medium">View More <CgArrowLongRight size={28}/></Button></Link>
-              </div>
+               </div>
+              <Link className="bg-yellow text-white py-[2px] px-6 rounded-2xl uppercase absolute left-1/2 bottom-20 transform -translate-x-1/2" href={slug}>
+               Read More </Link>
 
             </div>
           );

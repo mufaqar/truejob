@@ -4,9 +4,9 @@ export const GetWordStr = (str, count) =>{
 
 //captalized first letter of each words
 export const capitalizedFirstLetter = (str) =>{
-     let words = str.split(" ");
-     let capitalizedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
-     let result = capitalizedWords.join(" ");
+     let words = str?.split(" ");
+     let capitalizedWords = words?.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+     let result = capitalizedWords?.join(" ");
      return result
 
 }
