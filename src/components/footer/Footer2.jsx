@@ -149,7 +149,7 @@ const Footer2 = () => {
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="/" className="hover:underline">
+                  <Link href="/online-teaching-jobs-in-pakistan" className="hover:underline">
                     Online tutoring or teaching
                   </Link>
                 </li>
