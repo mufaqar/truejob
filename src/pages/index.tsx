@@ -45,7 +45,10 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Home</title>
+        <title>Discover Scholarships, Remote Jobs & ePaper Listings - Find Your TrueJob Today</title>
+        <meta name="title" content="Discover Scholarships, Remote Jobs & ePaper Listings - Find Your TrueJob Today"></meta>
+        <meta name="description" content="Discover a wide range of scholarship opportunities, remote jobs, and ePaper job listings. Find your perfect TrueJob today and kickstart your career." />
+        <meta name="keywords" content="scholarship , remote jobs ,  ePaper job ads"></meta>
       </Helmet>
       <SliderComponent data={data?.posts?.nodes?.slice(0, 4)} />
       <div className="my-16">
