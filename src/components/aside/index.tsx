@@ -133,7 +133,8 @@ const LatestPostSection = ({ posts }: any) => {
       <div className="mt-8 flex flex-col gap-4">
         {posts.slice(0, 5).map((p:any, idx:number) => {
           return (
-            <div className="flex gap-4 items-center group " key={idx}>
+            <Link href={p?.slug} className="flex gap-4 items-center group " key={idx}>
+
               <figure className="h-24 min-w-[6rem] overflow-hidden">
               <img
                 src={p?.featuredImage?.node?.mediaItemUrl}
@@ -147,7 +148,7 @@ const LatestPostSection = ({ posts }: any) => {
                 </h2>
                 <span className="text-light-blue flex item-center gap-1 mt-2 text-sm"> <FiCalendar size={17}/> <span className="-mt-[2px]">22 DECEMBER</span></span>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>
