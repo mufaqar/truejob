@@ -135,6 +135,10 @@ export const SinglePost = gql`
           answer
           question
         }
+        banner {
+          altText
+          mediaItemUrl
+        }
       }
       tags {
         nodes {
