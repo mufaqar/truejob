@@ -50,6 +50,9 @@ export default function Home() {
       <SliderComponent data={data?.posts?.nodes?.slice(0, 4)} />
       <div className="my-16">
         <Layout>
+        <h1 className="text-3xl mt-20 uppercase text-center font-oswald">
+        Top trending Jobs Articles
+          </h1>
           <PostDesign2 data={data?.posts?.nodes} lgpost={4} />
           <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
             Top trending Categories
@@ -100,7 +103,7 @@ export default function Home() {
               );
             })}
           </section>
-          <Link href="/category/scholorships" className="mt-10 flex justify-center"><Button variants="primary" size="medium" rounded={true}>More scholorships </Button></Link>
+          <Link href="/category/scholorships" className="mt-10 flex justify-center"><Button variants="primary" size="medium" rounded={true}>More articles </Button></Link>
 
           <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
             Remote Jobs 🎈
@@ -112,7 +115,7 @@ export default function Home() {
               );
             })}
           </section>
-          <Link href="/category/remote-jobs" className="mt-10 flex justify-center"><Button variants="primary" size="medium" rounded={true}>More scholorships </Button></Link>
+          <Link href="/category/remote-jobs" className="mt-10 flex justify-center"><Button variants="primary" size="medium" rounded={true}>More Remote Jobs </Button></Link>
 
           <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
             Earn Money Online🎈
@@ -137,7 +140,7 @@ export default function Home() {
               );
             })}
           </section>
-          <Link href="/category/remote-jobs" className="mt-10 flex justify-center"><Button variants="primary" size="medium" rounded={true}>More scholorships </Button></Link>
+          <Link href="/category/remote-jobs" className="mt-10 flex justify-center"><Button variants="primary" size="medium" rounded={true}>More Newspapper Job Ads </Button></Link>
 
 
           <section className="mt-20">
