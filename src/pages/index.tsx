@@ -106,17 +106,7 @@ export default function Home() {
                 </Link>
               );
             })}
-          </section>
-          <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
-            Latest Articles 🎈
-          </h2>
-          <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-20">
-            {data?.posts?.nodes.slice(0, 6).map((post: any, idx: number) => {
-              return (
-                <PostDesign post={post} idx={idx} key={idx} rounded={true} />
-              );
-            })}
-          </section>
+          </section>        
 
           <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
             Latest Scholarships 🎈
@@ -128,7 +118,7 @@ export default function Home() {
               );
             })}
           </section>
-          <Link href="/category/scholorships" className="mt-10 flex justify-center"><Button variants="primary" size="medium" rounded={true}>More articles </Button></Link>
+          <Link href="/category/scholorships" className="mt-10 flex justify-center"><Button variants="primary" size="medium" rounded={true}>More Scholarships </Button></Link>
 
           <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
             Remote Jobs 🎈
@@ -152,7 +142,7 @@ export default function Home() {
               );
             })}
           </section>
-          <Link href="/category/earn-money-online" className="mt-10 flex justify-center"><Button variants="primary" size="medium" rounded={true}>Load More </Button></Link>
+          <Link href="/category/earn-money-online" className="mt-10 flex justify-center"><Button variants="primary" size="medium" rounded={true}>More About Money Online </Button></Link>
 
 
           <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
