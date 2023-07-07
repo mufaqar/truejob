@@ -116,6 +116,13 @@ const Header2 = () => {
                 <Route to="/top-15-freelancing-jobs-in-2023">Freelancing Jobs Are Most In Demand</Route>
               </SubMenu>
             </li>
+            
+            <li className="">
+              <Link href="/category/earn-money-online" className="uppercase dark:text-white text-black ">
+              EARN MONEY ONLINE
+              </Link>
+              </li>
+
             <li className="">
               <Link href="/paper-jobs" className="uppercase dark:text-white text-black ">
                 Paper Job Ads
