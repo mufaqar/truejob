@@ -70,10 +70,12 @@ const Slug = () => {
       </Helmet>
 
       <PageBanner
-        image={featuredImage?.node?.mediaItemUrl}
-        className="mt-[82px]"
-        full={true}
-      />
+          title="Newspapper Job Ads"
+          subTitle="Daily Newspaper Ads for Getting Jobs. These advertisements encompass a wide range of job openings in both the private and public sectors."
+          image="/assets/images/contat.jpg"
+       
+          rounded={true}
+        />
 
       <Layout>
         <section className="lg:flex gap-10 my-10">
@@ -89,6 +91,11 @@ const Slug = () => {
             </h1>
             <div className="pt-[1px] bg-border my-6" />
             <section className="content">
+            <img
+                src={featuredImage?.node?.mediaItemUrl}
+                className="mt-[82px]"
+                full={true}
+              />
               <div
                 className="mt-8 text-text leading-8 tracking-wide text-justify siglePost "
                 dangerouslySetInnerHTML={{
@@ -131,22 +138,22 @@ const Slug = () => {
                 </div>
                 <ul className="flex items-center gap-4 text-dark-gray dark:text-white">
                   <li className="hover:text-yellow text-lg">
-                    <Link href="#">
+                    <Link href="https://www.facebook.com/sharer/sharer.php?u=https://www.truejob.online">
                       <FaFacebookF />
                     </Link>
                   </li>
                   <li className="hover:text-yellow text-lg">
-                    <Link href="#">
+                    <Link href="https://twitter.com/intent/tweet?url=https://www.truejob.online/&text=">
                       <FaTwitter />
                     </Link>
                   </li>
                   <li className="hover:text-yellow text-lg">
-                    <Link href="#">
+                    <Link href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.truejob.online/">
                       <FaLinkedinIn />
                     </Link>
                   </li>
                   <li className="hover:text-yellow text-lg">
-                    <Link href="#">
+                    <Link href="https://pinterest.com/pin/create/button/?url=https://www.truejob.online/&media=&description=">
                       <FaBehance />
                     </Link>
                   </li>

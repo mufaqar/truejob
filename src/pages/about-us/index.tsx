@@ -14,8 +14,7 @@ const Page = () => {
           title="About Us"
           subTitle="Lorem ipsum dolor sit amet consectetur adipisicing elit"
           image="/assets/images/contat.jpg"
-          buttontext="By this time"
-          buttonLink="#"
+       
           rounded={true}
         />
       <Layout>
