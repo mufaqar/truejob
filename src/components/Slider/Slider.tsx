@@ -29,12 +29,12 @@ const SliderComponent = ({ data }: any) => {
            const {date, featuredImage, slug, title, comments, categories , postFields} = item
            console.log(item)
           return (
-            <div className={`h-[420px] relative 2xl:h-[800px] `} key={idx}>
+            <div className={`h-[420px] relative 2xl:h-[420px] `} key={idx}>
                <Link className="" href={slug}>
               <img
                  src={postFields?.banner?.mediaItemUrl.length > 10 ? postFields?.banner?.mediaItemUrl : featuredImage?.node?.mediaItemUrl}
                  alt={featuredImage?.node?.altText}
-                className="h-full w-full object-cover"
+                className="h-full w-full "
               />
               </Link>
               <div className="bg-black/10 absolute inset-0" />           
