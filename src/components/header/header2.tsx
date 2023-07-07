@@ -85,7 +85,7 @@ const Header2 = () => {
             </li>
             <li className="group relative">
               <div className="flex items-center gap-2">
-                <Link href="/category/scholarship" className="uppercase dark:text-white text-black">
+                <Link href="/category/scholarships" className="uppercase dark:text-white text-black">
                   Scholarships
                 </Link>
                 <SlArrowDown />
