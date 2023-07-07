@@ -11,8 +11,11 @@ const ContactUs = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Us</title>
-      </Helmet>
+      <title>Contact Us | True Jobs</title>
+        <meta name="description" content="Stay informed and inspired as TrueJob delivers high-quality content to help you navigate the ever-changing job market and enhance your skills." />
+        <meta name="keywords" content="contact us , job ads , govt job ,private jobs" />
+        <meta name="robots" content="index, follow" />  
+           </Helmet>
       <PageBanner
         title="Contact Us"
         subTitle="Connect with TrueJob for Scholarship Opportunities, Remote Jobs, and ePaper Job Listings"

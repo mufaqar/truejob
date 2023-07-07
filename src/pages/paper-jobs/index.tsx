@@ -33,8 +33,11 @@ export default function PaperJobs() {
 
   return (
     <>
-      <Helmet>
-        <title>Home</title>
+      <Helmet>       
+        <title>Newspapper Job Ads | True Jobs</title>
+        <meta name="description" content="Daily Newspaper Ads for Getting Jobs. These advertisements encompass a wide range of job openings in both the private and public sectors." />
+        <meta name="keywords" content="Newspapper , job ads , govt job ,private jobs" />
+        <meta name="robots" content="index, follow" />
       </Helmet>
       <PageBanner
         title=" Newspapper Job Ads"
