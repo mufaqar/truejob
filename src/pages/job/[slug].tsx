@@ -94,7 +94,7 @@ const Slug = () => {
             <img
                 src={featuredImage?.node?.mediaItemUrl}
                 className="mt-[82px]"
-                full={true}
+                alt="Feature Image"            
               />
               <div
                 className="mt-8 text-text leading-8 tracking-wide text-justify siglePost "
@@ -152,11 +152,7 @@ const Slug = () => {
                       <FaLinkedinIn />
                     </Link>
                   </li>
-                  <li className="hover:text-yellow text-lg">
-                    <Link href="https://pinterest.com/pin/create/button/?url=https://www.truejob.online/&media=&description=">
-                      <FaBehance />
-                    </Link>
-                  </li>
+                 
                 </ul>
               </div>
             </div>
