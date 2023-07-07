@@ -59,9 +59,9 @@ const ContactUs = () => {
             />
             <h4 className="text-xl mt-6 text-dark-gray">Say Hello</h4>
             <div className="p-[2px] w-32 bg-gray-100 my-5" />
-            <p>Telephone: 708.783.1124</p>
-            <p>Fax: 113.456.0789</p>
-            <p>hello@Junonia.com</p>
+            <p>Telephone: 302.6006.280</p>
+     
+            <p>hello@truejob.online</p>
           </div>
           <div className="flex flex-col text-gray-500 gap-1 items-center">
             <Image
@@ -73,7 +73,7 @@ const ContactUs = () => {
             <h4 className="text-xl mt-6 text-dark-gray">Location</h4>
             <div className="p-[2px] w-32 bg-gray-100 my-5" />
             <p className="max-w-[250px] text-center">
-              1170 Northeast Industrial Park Road Lahore, MS 39301
+             Suit 134 B AHS Multan Road Lahore
             </p>
           </div>
           <div className="flex flex-col text-gray-500  gap-1 items-center">
@@ -86,12 +86,11 @@ const ContactUs = () => {
             <h4 className="text-xl mt-6 text-dark-gray">Career</h4>
             <div className="p-[2px] w-32 bg-gray-100 my-5" />
             <p className="max-w-[250px] text-center">
-              Steelkilt here hissed out something, inaudible to all but the
-              Captain.
+              Please check our linkedined Job page
             </p>
           </div>
         </section>
-        <GoogleMap />
+
       </Layout>
 
    

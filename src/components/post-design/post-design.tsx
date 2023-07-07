@@ -31,15 +31,7 @@ const PostDesign = ({ post, layout, home, rounded, to }: any) => {
             ${layout === 3 && home ? "sm:h-[240px]" : "sm:h-[340px]"}
           `}
           />
-          {layout !== 3 && (
-            <div
-              className={`absolute top-8 left-0 bg-yellow p-1.5 cursor-pointer px-4 text-sm uppercase text-dark-gray flex items-center ${
-                rounded && "rounded-full shadow-xl left-4"
-              }`}
-            >
-              <AiOutlineShareAlt size={22} /> Share
-            </div>
-          )}
+         
         </figure>
       </Link>
       <div
