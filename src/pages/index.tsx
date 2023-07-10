@@ -13,9 +13,10 @@ import Head from 'next/head';
 import { Helmet } from 'react-helmet';
 import SliderComponent from '@/components/Slider/Slider';
 import apolloClient from '../config/client'
+import { GetStaticProps } from 'next'
 
 
-export default function Home({categories, allposts, scholorshipPosts, RemoteJobs, EarnMoneyOnline, LatestNews, alljobs}) {
+export default function Home({categories, allposts, scholorshipPosts, RemoteJobs, EarnMoneyOnline, LatestNews, alljobs}:any) {
 
 
   return (
@@ -178,7 +179,7 @@ export default function Home({categories, allposts, scholorshipPosts, RemoteJobs
 
 
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = () => {
   const response = await apolloClient.query({
     query: AllCategories,
   });
