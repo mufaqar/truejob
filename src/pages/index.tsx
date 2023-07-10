@@ -179,7 +179,7 @@ export default function Home({categories, allposts, scholorshipPosts, RemoteJobs
 
 
 
-export const getStaticProps: GetStaticProps = () => {
+export const getStaticProps: GetStaticProps = async () => {
   const response = await apolloClient.query({
     query: AllCategories,
   });
