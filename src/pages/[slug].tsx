@@ -25,27 +25,15 @@ import { Helmet } from 'react-helmet';
 import { capitalizedFirstLetter } from "@/utils";
 import MetaTags from "../utils/MetaTags";
 import Bio from "@/components/bio";
+import apolloClient from '../config/client'
+import { GetStaticProps } from 'next'
 
-const Slug = () => {
-  const router = useRouter()
-  const { slug } = router.query;
 
-    var { loading, error, data }: any = useQuery(SinglePost,
-      {
-        variables: {
-          slug: slug,
-        },
-      }
-    );
-    
 
-  const getallPosts = useQuery(AllPosts);
-
-  if (loading) return <Loader />;
-  if (error) return <p>Error: {error.message}</p>;
-  if (!data?.post) return <NotFoundPage />
+const Slug = ({SinglePostData, allposts}:any) => {
   
-  const metaObjects = MetaTags(data?.post?.seo.fullHead);
+  const router = useRouter()
+  const metaObjects = MetaTags(SinglePostData?.seo.fullHead);
 
   const {
     title,
@@ -58,7 +46,7 @@ const Slug = () => {
     content,
     tags,
     seo
-  } = data?.post
+  } = SinglePostData
 
 
   return (
@@ -165,7 +153,7 @@ const Slug = () => {
             </div>
             <SideBarHeading long={true}> Related Post </SideBarHeading>
             <section className="my-12">
-              <PostDesign2 data={getallPosts?.data?.posts?.nodes} lgpost={2}  />
+              <PostDesign2 data={allposts} lgpost={2}  />
             </section>
             <SideBarHeading long={true}> Comments </SideBarHeading>
             {comments?.nodes?.map((item: any, idx: number) => {
@@ -186,7 +174,7 @@ const Slug = () => {
             navigaiton={true}
             social={true}
             newsletter={true}
-            latestPost={getallPosts?.data?.posts?.nodes}
+            latestPost={allposts}
             tags={tags?.nodes}
             advertisement={true}
           />
@@ -325,3 +313,37 @@ const FaqsList = ({ data }: any) => {
     </>
   );
 };
+
+
+
+
+
+export const getStaticProps: GetStaticProps = async ({params}) => {  
+  const SinglePostResponse = await apolloClient.query({
+    query: SinglePost,
+    variables: {
+      slug: params.slug,
+    },
+  });
+  const postsResponse = await apolloClient.query({
+    query: AllPosts,
+  });
+
+  const SinglePostData = SinglePostResponse.data.post;
+  const allposts = postsResponse.data.posts.nodes;
+
+  return {
+    props: {
+      SinglePostData,
+      allposts
+    },
+  };
+}
+
+export async function getStaticPaths() {
+  const paths = [];
+  return {
+    paths,
+    fallback: 'blocking',
+  };
+}

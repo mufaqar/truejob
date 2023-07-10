@@ -1,6 +1,6 @@
 function MetaTags(metaString) {
      const parseMetaString = (metaString) => {
-       const metaTags = metaString.split(/<meta |\/>/).filter((tag) => tag !== '');
+       const metaTags = metaString?.split(/<meta |\/>/).filter((tag) => tag !== '');
    
        const metaObjects = metaTags.map((tag) => {
          const metaObject = {};

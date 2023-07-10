@@ -17,8 +17,6 @@ import { GetStaticProps } from 'next'
 
 
 export default function Home({categories, allposts, scholorshipPosts, RemoteJobs, EarnMoneyOnline, LatestNews, alljobs}:any) {
-
-
   return (
     <>
       <Helmet>      
