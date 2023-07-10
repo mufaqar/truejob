@@ -12,35 +12,11 @@ import Button from "@/components/ui/button";
 import Head from 'next/head';
 import { Helmet } from 'react-helmet';
 import SliderComponent from '@/components/Slider/Slider';
+import apolloClient from '../config/client'
 
 
-export default function Home() {
-  const { loading, error, data } = useQuery(AllPosts);
-  const categoriresRes = useQuery(AllCategories);
-  const scholorshipPosts = useQuery(PostsByCategory, {
-    variables: {
-      slug: 'scholarships',
-    },
-  });
-  const RemoteJobs = useQuery(PostsByCategory, {
-    variables: {
-      slug: 'remote-jobs',
-    },
-  });
-  const EarnMoneyOnline = useQuery(PostsByCategory, {
-    variables: {
-      slug: 'earn-money-online',
-    },
-  });
-  const LatestNews = useQuery(PostsByCategory, {
-    variables: {
-      slug: 'latest-news',
-    },
-  });
+export default function Home({categories, allposts, scholorshipPosts, RemoteJobs, EarnMoneyOnline, LatestNews, alljobs}) {
 
-  const GetAllJobs = useQuery(AllJobs);
-  if (loading) return <Loader />
-  if (error) return <p>Error: {error.message}</p>;
 
   return (
     <>
@@ -72,18 +48,18 @@ export default function Home() {
         <meta name="twitter:label2" content="Time to read" />
         <meta name="twitter:data2" content="Less than a 5 minute" />        
       </Helmet>
-      <SliderComponent data={data?.posts?.nodes?.slice(0, 4)} />
+      <SliderComponent data={allposts?.slice(0, 4)} />
       <div className="my-16">
         <Layout>
             <h1 className="text-3xl mb-16 uppercase text-center font-oswald">
                      Top trending Jobs Articles
               </h1>
-          <PostDesign2 data={data?.posts?.nodes} lgpost={4} />
+          <PostDesign2 data={allposts} lgpost={4} />
             <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
               Top trending Categories
             </h2>
           <section className="mt-16 flex justify-center flex-wrap gap-8">
-            {categoriresRes?.data?.categories?.nodes?.map((item: any, idx: number) => {
+            {categories.map((item: any, idx: number) => {
               const { name, slug, postCategoryFields: { image } } = item
               return (
                 <Link
@@ -112,7 +88,7 @@ export default function Home() {
             Latest Scholarships 🎈
           </h2>
           <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-20">
-            {scholorshipPosts?.data?.category?.posts?.nodes.slice(0, 3).map((post: any, idx: number) => {
+            {scholorshipPosts?.slice(0, 3).map((post: any, idx: number) => {
               return (
                 <PostDesign post={post} idx={idx} key={idx} rounded={true} />
               );
@@ -124,7 +100,7 @@ export default function Home() {
             Remote Jobs 🎈
           </h2>
           <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-20">
-            {RemoteJobs?.data?.category?.posts?.nodes.slice(0, 3).map((post: any, idx: number) => {
+            {RemoteJobs?.slice(0, 3).map((post: any, idx: number) => {
               return (
                 <PostDesign post={post} idx={idx} key={idx} rounded={true} />
               );
@@ -136,7 +112,7 @@ export default function Home() {
             Earn Money Online🎈
           </h2>
           <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-20">
-            {EarnMoneyOnline?.data?.category?.posts?.nodes.slice(0, 3).map((post: any, idx: number) => {
+            {EarnMoneyOnline?.slice(0, 3).map((post: any, idx: number) => {
               return (
                 <PostDesign post={post} idx={idx} key={idx} rounded={true} />
               );
@@ -149,7 +125,7 @@ export default function Home() {
             Newspapper Job Ads 🎈
           </h2>
           <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-20">
-            {GetAllJobs?.data?.jobs?.nodes.slice(0, 3).map((post: any, idx: number) => {
+            {alljobs?.slice(0, 3).map((post: any, idx: number) => {
               return (
                 <PostDesign post={post} idx={idx} key={idx} rounded={true} to="job" />
               );
@@ -197,4 +173,61 @@ export default function Home() {
 
     </>
   )
+}
+
+
+
+
+export async function getStaticProps() {
+  const response = await apolloClient.query({
+    query: AllCategories,
+  });
+  const jobsRes = await apolloClient.query({
+    query: AllJobs,
+  });
+  const postsResponse = await apolloClient.query({
+    query: AllPosts,
+  });
+  const scholorshipResponse = await apolloClient.query({
+    query: PostsByCategory,
+    variables: {
+      slug: 'scholarships',
+    },
+  });
+  const RemoteJobsRes = await apolloClient.query({
+    query: PostsByCategory,
+    variables: {
+      slug: 'remote-jobs',
+    },
+  });
+  const EarnMoneyOnlineRes = await apolloClient.query({
+    query: PostsByCategory,
+    variables: {
+      slug: 'earn-money-online',
+    },
+  });
+  const LatestNewsRes = await apolloClient.query({
+    query: PostsByCategory,
+    variables: {
+      slug: 'latest-news',
+    },
+  });
+  const categories = response.data.categories.nodes;
+  const alljobs = jobsRes.data?.jobs.nodes;
+  const allposts = postsResponse.data.posts.nodes;
+  const scholorshipPosts = scholorshipResponse?.data?.category?.posts?.nodes;
+  const RemoteJobs = RemoteJobsRes?.data?.category?.posts?.nodes;
+  const EarnMoneyOnline = EarnMoneyOnlineRes?.data?.category?.posts?.nodes;
+  const LatestNews = LatestNewsRes?.data?.category?.posts?.nodes;
+  return {
+    props: {
+      categories,
+      allposts,
+      scholorshipPosts,
+      RemoteJobs,
+      EarnMoneyOnline,
+      LatestNews,
+      alljobs
+    },
+  };
 }
