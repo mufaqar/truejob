@@ -26,7 +26,7 @@ import { capitalizedFirstLetter } from "@/utils";
 import MetaTags from "../utils/MetaTags";
 import Bio from "@/components/bio";
 import apolloClient from '../config/client'
-import { GetStaticProps } from 'next'
+import { GetStaticProps, GetStaticPaths } from 'next'
 
 
 
@@ -318,11 +318,12 @@ const FaqsList = ({ data }: any) => {
 
 
 
-export const getStaticProps: GetStaticProps = async ({params}) => {  
+export const getStaticProps: GetStaticProps = async (context) => {  
+  const slug = context.params?.slug
   const SinglePostResponse = await apolloClient.query({
     query: SinglePost,
     variables: {
-      slug: params.slug,
+      slug
     },
   });
   const postsResponse = await apolloClient.query({
@@ -340,8 +341,8 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
   };
 }
 
-export async function getStaticPaths() {
-  const paths = [];
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths:any = [];
   return {
     paths,
     fallback: 'blocking',
