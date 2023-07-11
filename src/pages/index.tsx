@@ -16,7 +16,7 @@ import apolloClient from '../config/client'
 import { GetStaticProps } from 'next'
 
 
-export default function Home({categories, allposts, scholorshipPosts, RemoteJobs, EarnMoneyOnline, LatestNews, alljobs}:any) {
+export default function Home({categories, allposts, scholorshipPosts, RemoteJobs, EarnMoneyOnline, alljobs}:any) {
   return (
     <>
       <Helmet>      
@@ -178,46 +178,38 @@ export default function Home({categories, allposts, scholorshipPosts, RemoteJobs
 
 
 export const getStaticProps: GetStaticProps = async () => {
-  const response = await apolloClient.query({
-    query: AllCategories,
-  });
-  const jobsRes = await apolloClient.query({
-    query: AllJobs,
-  });
-  const postsResponse = await apolloClient.query({
-    query: AllPosts,
-  });
-  const scholorshipResponse = await apolloClient.query({
+  const [categoriesResponse, jobsResponse, postsResponse, scholarshipResponse, remoteJobsResponse, earnMoneyOnlineResponse] = await Promise.all([
+  apolloClient.query({ query: AllCategories }),
+  apolloClient.query({ query: AllJobs }),
+  apolloClient.query({ query: AllPosts }),
+  apolloClient.query({
     query: PostsByCategory,
     variables: {
       slug: 'scholarships',
     },
-  });
-  const RemoteJobsRes = await apolloClient.query({
+  }),
+  apolloClient.query({
     query: PostsByCategory,
     variables: {
       slug: 'remote-jobs',
     },
-  });
-  const EarnMoneyOnlineRes = await apolloClient.query({
+  }),
+  apolloClient.query({
     query: PostsByCategory,
     variables: {
       slug: 'earn-money-online',
     },
-  });
-  const LatestNewsRes = await apolloClient.query({
-    query: PostsByCategory,
-    variables: {
-      slug: 'latest-news',
-    },
-  });
-  const categories = response.data.categories.nodes;
-  const alljobs = jobsRes.data?.jobs.nodes;
-  const allposts = postsResponse.data.posts.nodes;
-  const scholorshipPosts = scholorshipResponse?.data?.category?.posts?.nodes;
-  const RemoteJobs = RemoteJobsRes?.data?.category?.posts?.nodes;
-  const EarnMoneyOnline = EarnMoneyOnlineRes?.data?.category?.posts?.nodes;
-  const LatestNews = LatestNewsRes?.data?.category?.posts?.nodes;
+  }),
+  
+]);
+
+const categories = categoriesResponse.data.categories.nodes;
+const alljobs = jobsResponse.data?.jobs.nodes;
+const allposts = postsResponse.data.posts.nodes;
+const scholorshipPosts = scholarshipResponse?.data?.category?.posts?.nodes;
+const RemoteJobs = remoteJobsResponse?.data?.category?.posts?.nodes;
+const EarnMoneyOnline = earnMoneyOnlineResponse?.data?.category?.posts?.nodes;
+
   return {
     props: {
       categories,
@@ -225,7 +217,6 @@ export const getStaticProps: GetStaticProps = async () => {
       scholorshipPosts,
       RemoteJobs,
       EarnMoneyOnline,
-      LatestNews,
       alljobs
     },
   };
