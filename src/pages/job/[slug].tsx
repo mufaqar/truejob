@@ -30,7 +30,6 @@ const Slug = ({SingleJobData, allposts}:any) => {
   const {
     title,
     featuredImage,
-    excerpt,
     date,
     comments,
     categories,
