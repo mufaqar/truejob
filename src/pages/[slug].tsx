@@ -58,17 +58,10 @@ const Slug = ({SinglePostData, allposts}:any) => {
         ))}
       </Helmet>
 
-     {/* <PageBanner
-        image={postFields.banner.mediaItemUrl}
-        className="mt-[82px]"
-        full={true}
-        rounded = {true}
-      /> */}
-
-      <figure className="relative container mx-auto">
-          <div className={` absolute top-0 p-4 flex flex-col justify-center text-white items-center right-0 bottom-0 left-0 rounded-[20px]  bg-black/10 `} > </div>       
-          <img src={postFields?.banner?.mediaItemUrl.length > 10 ? postFields?.banner?.mediaItemUrl : featuredImage?.node?.mediaItemUrl} alt={postFields?.banner?.altText} className=" mt-20 rounded-[20px] " />
-      </figure>
+      <div className="relative container mx-auto">
+          <div className={` absolute top-0 p-4 flex flex-col justify-center text-white items-center right-0 bottom-0 left-0 md:rounded-[20px]  bg-black/10 `} > </div>       
+          <img src={postFields?.banner?.mediaItemUrl.length > 10 ? postFields?.banner?.mediaItemUrl : featuredImage?.node?.mediaItemUrl} alt={postFields?.banner?.altText} className=" md:mt-20 md:rounded-[20px] " />
+      </div>
       <Layout>
         <section className="lg:flex gap-10 my-10">
           <section className="lg:w-[70%]">
@@ -90,8 +83,13 @@ const Slug = ({SinglePostData, allposts}:any) => {
                 }}
               />
             </section>
-
-            {postFields?.faqs?.length > 0 && <FaqsList data={postFields?.faqs} />}
+            
+            {postFields?.faqs?.length > 0 && <>
+              <h1 className="text-xl md:text-4xl pt-3 mb-4 font-bold font-oswald underline capitalize">
+              Faq's
+            </h1>
+              <FaqsList data={postFields?.faqs} />
+            </>}
             <div className="mt-8 flex gap-2 flex-wrap">
               {tags?.nodes?.map((p: any, idx: number) => {
                 return (

@@ -156,10 +156,10 @@ const Footer2 = () => {
               </ul>
             </div>
           </div>
-          <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-          <div className="text-center flex flex-col justify-center items-center">
+          <hr className="my-4 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+          <div className="text-center flex flex-col md:flex-row justify-between items-center">
             <Logo />
-            <span className="block text-sm text-center text-gray-500 dark:text-gray-400 mt-4">
+            <span className="block text-sm text-center text-gray-500 dark:text-gray-400 md:mt-0 mt-4">
               © 2023
               <Link href="/" className="hover:underline">
                 TrueJob

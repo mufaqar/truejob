@@ -50,14 +50,14 @@ export default function Home({categories, allposts, scholorshipPosts, RemoteJobs
       <SliderComponent data={allposts?.slice(0, 4)} />
       <div className="my-16">
         <Layout>
-            <h1 className="text-3xl mb-16 uppercase text-center font-oswald">
+            <h1 className="text-3xl -mt-8 md:mt-0 mb-8 md:mb-16 uppercase text-center font-oswald">
                      Top trending Jobs Articles
               </h1>
           <PostDesign2 data={allposts} lgpost={4} />
-            <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
+            <h2 className="text-3xl mt-10 md:mt-20 uppercase text-center font-oswald">
               Top trending Categories
             </h2>
-          <section className="mt-16 flex justify-center flex-wrap gap-8">
+          <section className="mt-10 md:mt-16 flex justify-center flex-wrap gap-8">
             {categories.map((item: any, idx: number) => {
               const { name, slug, postCategoryFields: { image } } = item
               return (
@@ -83,10 +83,10 @@ export default function Home({categories, allposts, scholorshipPosts, RemoteJobs
             })}
           </section>        
 
-          <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
+          <h2 className="text-3xl mt-10 md:mt-20 uppercase text-center font-oswald">
             Latest Scholarships 🎈
           </h2>
-          <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-20">
+          <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-20">
             {scholorshipPosts?.slice(0, 3).map((post: any, idx: number) => {
               return (
                 <PostDesign post={post} idx={idx} key={idx} rounded={true} />
@@ -95,10 +95,10 @@ export default function Home({categories, allposts, scholorshipPosts, RemoteJobs
           </section>
           <Link href="/category/scholorships" className="mt-10 flex justify-center"><Button variants="primary" size="medium" rounded={true}>More Scholarships </Button></Link>
 
-          <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
+          <h2 className="text-3xl mt-10 md:mt-20 uppercase text-center font-oswald">
             Remote Jobs 🎈
           </h2>
-          <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-20">
+          <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-20">
             {RemoteJobs?.slice(0, 3).map((post: any, idx: number) => {
               return (
                 <PostDesign post={post} idx={idx} key={idx} rounded={true} />
@@ -107,10 +107,10 @@ export default function Home({categories, allposts, scholorshipPosts, RemoteJobs
           </section>
           <Link href="/category/remote-jobs" className="mt-10 flex justify-center"><Button variants="primary" size="medium" rounded={true}>More Remote Jobs </Button></Link>
 
-          <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
+          <h2 className="text-3xl mt-10 md:mt-20 uppercase text-center font-oswald">
             Earn Money Online🎈
           </h2>
-          <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-20">
+          <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-20">
             {EarnMoneyOnline?.slice(0, 3).map((post: any, idx: number) => {
               return (
                 <PostDesign post={post} idx={idx} key={idx} rounded={true} />
@@ -120,10 +120,10 @@ export default function Home({categories, allposts, scholorshipPosts, RemoteJobs
           <Link href="/category/earn-money-online" className="mt-10 flex justify-center"><Button variants="primary" size="medium" rounded={true}>More About Money Online </Button></Link>
 
 
-          <h2 className="text-3xl mt-20 uppercase text-center font-oswald">
+          <h2 className="text-3xl mt-10 md:mt-20 uppercase text-center font-oswald">
             Newspapper Job Ads 🎈
           </h2>
-          <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-20">
+          <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-20">
             {alljobs?.slice(0, 3).map((post: any, idx: number) => {
               return (
                 <PostDesign post={post} idx={idx} key={idx} rounded={true} to="job" />
@@ -131,28 +131,20 @@ export default function Home({categories, allposts, scholorshipPosts, RemoteJobs
             })}
           </section>
           <Link href="/category/remote-jobs" className="mt-10 flex justify-center"><Button variants="primary" size="medium" rounded={true}>More  Newspapper Job Ads </Button></Link>
-
-
-          <section className="mt-20">
-            <div className="grid grid-cols-1 items-center gap-10 px-10 mt-10 lg:grid-cols-2 ">
-              <div className="mt-20 ">
-                <h1 className="mb-10 text-5xl font-bold">
+        </Layout>
+      </div>
+      <section className="mt-20 py-16 bg-dark-gray">
+            <div className=" items-center gap-6 px-10 text-light-gray">
+              <div className="flex flex-col justify-center items-center">
+                <h1 className="mb-5 text-5xl font-bold text-center">
                   Join our newsletter
                 </h1>
-                <p className="text-xl font-medium">
+                <p className="text-xl font-medium text-center max-w-[700px]">
                 Explore and Exchange Diverse Perspectives on a Wide Range of Topics. Embrace an Inclusive Community for Thoughtful Discussions.
                 </p>
-                <div className="flex items-center mt-6">
-                  <h5 className="px-4 py-2 bg-yellow rounded-3xl">1</h5>
-                  <p className="px-8">Get more Jobs Ideas</p>
-                </div>
-                <div className="flex items-center mt-4">
-                  <h5 className="px-4 py-2 bg-light-blue rounded-3xl">2</h5>
-                  <p className="px-8">Access Valuable Tips for Enhancing Your Skill Set</p>
-                </div>
-                <div className="mt-10 w-72">
+                <div className="mt-5">
                   <div className="relative h-12 w-full max-w-[400px] lg:w-[400px] border border-border rounded-full">
-                    <div className="absolute right-0 flex p-1 w-10 h-10 rounded-full mr-1 mt-[3px] flex-col justify-center items-center bg-black active:scale-105 text-xl dark:bg-light-gray">
+                    <div className="absolute right-0 flex p-1 w-10 h-10 rounded-full mr-1 mt-[3px] flex-col justify-center items-center bg-yellow active:scale-105 text-xl dark:bg-light-gray">
                       <BsArrowRight color="white" />
                     </div>
                     <input
@@ -162,14 +154,8 @@ export default function Home({categories, allposts, scholorshipPosts, RemoteJobs
                   </div>
                 </div>
               </div>
-              <div>
-                <img src="/assets/images/subscribe.webp" alt="" />
-              </div>
             </div>
           </section>
-        </Layout>
-      </div>
-
     </>
   )
 }

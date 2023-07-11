@@ -48,12 +48,12 @@ const Header2 = () => {
           <div className="flex item-center gap-2">
             <BiSearch
               size={24}
-              className="mx-5 mt-1 cursor-pointer"
+              className="mx-5 mt-1 cursor-pointer hidden"
               onClick={() => setSearchOpen(true)}
             />
             <HiOutlineMenu
               size={24}
-              className="mr-5 mt-1 cursor-pointer"
+              className="mr-5 mt-1 cursor-pointer hidden md:block"
               onClick={() => setOpenSide(!openSide)}
             />
             <ThemeSwitch />
