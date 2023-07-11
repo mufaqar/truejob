@@ -3,25 +3,18 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { AllCategories } from "@/config/queries";
-import { useQuery } from "@apollo/client";
 import Pagination from "@/components/Pagination/Pagination";
-import Loader from "@/components/preLoader/loader";
 import PageBanner from "@/components/page-banner/banner";
 import { Helmet } from "react-helmet";
+import { GetStaticProps } from "next";
+import apolloClient from "@/config/client";
 
-const CategoriesPage = () => {
+const CategoriesPage = ({categoriesPost}:any) => {
+
   const [pCategories, setPCategories] = useState<any>();
-
   const PaginatedData = (res: any) => {
     setPCategories(res);
   };
-
-  const { loading, error, data } = useQuery(AllCategories);
-
-  if (loading) return <Loader />;
-  if (error) return <p>Error: {error.message}</p>;
-
-
 
   return (
     <>
@@ -58,10 +51,25 @@ const CategoriesPage = () => {
             );
           })}
         </section>
-        <Pagination data={data?.categories?.nodes} PaginatedData={PaginatedData} perpage={12} />
+        <Pagination data={categoriesPost} PaginatedData={PaginatedData} perpage={12} />
       </div>
     </>
   );
 };
 
 export default CategoriesPage;
+
+
+
+export const getStaticProps: GetStaticProps = async () => {  
+  const Response = await apolloClient.query({
+    query: AllCategories,
+  });
+
+  const categoriesPost = Response.data.categories.nodes;
+  return {
+    props: {
+      categoriesPost
+    },
+  };
+}
