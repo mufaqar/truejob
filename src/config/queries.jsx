@@ -107,6 +107,39 @@ export const PostsByCategory = gql`
   }
 `;
 
+export const GetAllPostByCategory = gql`
+  query GetAllPostByCategory($slug: [String]!) {
+    categories(where: { slug: $slug }) {
+      nodes {
+        name
+        postCategoryFields {
+          bannerImage {
+            mediaItemUrl
+          }
+        }
+        posts(first: 10000) {
+          nodes {
+            date
+        excerpt
+        featuredImage {
+          node {
+            mediaItemUrl
+            altText
+          }
+        }
+        seo {
+          fullHead
+        }
+        title
+        slug
+          }
+        }
+      }
+    }
+  }
+`;
+
+
 export const SinglePost = gql`
   query SinglePost($slug: ID!) {
     post(id: $slug, idType: URI) {
@@ -159,6 +192,12 @@ export const SinglePost = gql`
 export const PostByTags = gql`
   query PostByTags($slug: ID!) {
     tag(id: $slug, idType: SLUG) {
+      name
+    postTagFields {
+      bannerImage {
+        mediaItemUrl
+      }
+    }
       posts {
         nodes {
           title
@@ -185,7 +224,7 @@ export const PostByTags = gql`
 
 export const AllJobs = gql`
 query AllJobs {
-  jobs {
+  jobs(first: 10000) {
     nodes {
       slug
       seo {

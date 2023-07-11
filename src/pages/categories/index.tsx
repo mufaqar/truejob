@@ -24,6 +24,7 @@ const CategoriesPage = ({categoriesPost}:any) => {
       <PageBanner
         title="Categories"
         image="/assets/images/contat.jpg"
+        rounded={true}
       />
       <div className="mb-28">
         <section className="my-28 flex justify-center md:justify-center space-x-5 flex-wrap gap-8">
@@ -69,7 +70,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const categoriesPost = Response.data.categories.nodes;
   return {
     props: {
-      categoriesPost
+      categoriesPost,
     },
   };
 }

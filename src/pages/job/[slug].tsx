@@ -5,47 +5,28 @@ import PageBanner from "@/components/page-banner/banner";
 import PostDesign2 from "@/components/post-design/post-design-2";
 import Loader from "@/components/preLoader/loader";
 import { AllJobs, AllPosts, SingleJob, SinglePost } from "@/config/queries";
-import { useQuery } from "@apollo/client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import {
   FaFacebookF,
   FaLinkedinIn,
-  FaBehance,
   FaRegCommentAlt,
   FaTwitter,
 } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
 import dateFormat from "dateformat";
-import NotFoundPage from "../404";
-import { useRouter } from "next/router";
 import { Helmet } from 'react-helmet';
 import { capitalizedFirstLetter } from "@/utils";
 import MetaTags from "../../utils/MetaTags";
 import Bio from "@/components/bio";
+import { GetStaticPaths, GetStaticProps } from "next";
+import apolloClient from "@/config/client";
+import { useRouter } from "next/router";
 
-const Slug = () => {
-  const router = useRouter()
-  const { slug } = router.query;
+const Slug = ({SingleJobData, allposts}:any) => {
 
-    var { loading, error, data }: any = useQuery(SingleJob,
-      {
-        variables: {
-          slug: slug,
-        },
-      }
-    );
-    
-
-  const getallPosts = useQuery(AllPosts);
-
-  if (loading) return <Loader />;
-  if (error) return <p>Error: {error.message}</p>;
-  if (!data?.job) return <NotFoundPage />
-
-  const metaObjects = MetaTags(data?.job?.seo.fullHead);
-
+  const metaObjects = MetaTags(SingleJobData?.seo.fullHead);
   const {
     title,
     featuredImage,
@@ -57,8 +38,8 @@ const Slug = () => {
     content,
     tags,
     seo
-  } = data?.job
-
+  } = SingleJobData
+  const router = useRouter()
 
   return (
     <>
@@ -162,7 +143,7 @@ const Slug = () => {
             </div>
             <SideBarHeading long={true}> Related Post </SideBarHeading>
             <section className="my-12">
-              <PostDesign2 data={getallPosts?.data?.posts?.nodes} lgpost={2} />
+              <PostDesign2 data={allposts} lgpost={2} />
             </section>
             <SideBarHeading long={true}> Comments </SideBarHeading>
             {comments?.nodes?.map((item: any, idx: number) => {
@@ -183,7 +164,7 @@ const Slug = () => {
             navigaiton={true}
             social={true}
             newsletter={true}
-            latestPost={getallPosts?.data?.posts?.nodes}
+            latestPost={allposts}
             tags={tags?.nodes}
             advertisement={true}
           />
@@ -322,3 +303,36 @@ const FaqsList = ({ data }: any) => {
     </>
   );
 };
+
+
+
+export const getStaticProps: GetStaticProps = async (context) => {  
+  const slug = context.params?.slug
+  const SingleJobsResponse = await apolloClient.query({
+    query: SingleJob,
+    variables: {
+      slug
+    },
+  });
+  const postsResponse = await apolloClient.query({
+    query: AllPosts,
+  });
+
+  const SingleJobData = SingleJobsResponse.data.job;
+  const allposts = postsResponse.data.posts.nodes;
+
+  return {
+    props: {
+      SingleJobData,
+      allposts
+    },
+  };
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths:any = [];
+  return {
+    paths,
+    fallback: 'blocking',
+  };
+}

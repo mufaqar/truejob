@@ -3,105 +3,41 @@ import PageBanner from "@/components/page-banner/banner";
 import PostDesign from "@/components/post-design/post-design";
 import Button from "@/components/ui/button";
 import { PostByTags } from "@/config/queries";
-import { useQuery } from "@apollo/client";
 import Link from "next/link";
-import dateFormat from "dateformat";
 import React, { useState } from "react";
 import {
-  AiOutlinePlusCircle,
   AiOutlineClockCircle,
   AiOutlineEye,
 } from "react-icons/ai";
-import Loader from "@/components/preLoader/loader";
-import { useRouter } from "next/router";
 import { Helmet } from "react-helmet";
 import { capitalizedFirstLetter } from "@/utils";
+import { GetStaticPaths, GetStaticProps } from "next";
+import apolloClient from "@/config/client";
+import Pagination from "@/components/Pagination/Pagination";
 
 
-const Blog = () => {
-  const router = useRouter()
-  const { products } = router.query;
+const Blog = ({TagData}:any) => {
+  console.log("🚀 ~ file: [products].tsx:20 ~ Blog ~ TagData:", TagData)
+  const TagPosts = TagData.posts.nodes
+ 
   const [pData, setPData] = useState<any>()
   const PaginatedData = (res: any) => {
     setPData(res)
   }
 
-  const { loading, error, data } = useQuery(PostByTags , {
-    variables: {
-      slug: products,
-    },
-  });
-
-  if (loading) return <Loader/>;
-  if (error) return <p>Error: {error.message}</p>;
-
-  const changeRoute = (path:any) => {
-    window.location.href = path
-  }
 
   return (
     <>
        <Helmet>
-        <title>{capitalizedFirstLetter(data?.tag?.name)}</title>
+        <title>{capitalizedFirstLetter(TagData?.name)}</title>
       </Helmet>
       <PageBanner
-        title={data?.tag?.name}
-        image={data?.tag?.postTagFields?.bannerImage?.mediaItemUrl}
+        title={TagData?.name}
+        image={TagData.postTagFields?.bannerImage?.mediaItemUrl}
         rounded={true}
       />
       <Layout>
-        <section className="my-24">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {data?.tag?.posts?.nodes.slice(0, 4).map((item:any, idx:number) => {
-              const {date, featuredImage, excerpt, title, slug} = item
-              return (
-                <div key={idx}>
-                  <figure className="relative group overflow-hidden">
-                    <img
-                      src={featuredImage?.node?.mediaItemUrl}
-                      alt={featuredImage?.node?.altText}
-                      className="h-40 sm:h-60 group-hover:scale-110 xl:h-72 w-full object-cover transition-all duration-200 ease-in-out"
-                    />
-                    <div className="absolute inset-0 bg-black/40 hidden group-hover:block">
-                      <div className="flex flex-col justify-center items-center h-full text-yellow">
-                        <AiOutlinePlusCircle
-                          size={30}
-                          className="group-hover:scale-110 transition-all duration ease-in-out"
-                        />
-                        <span className="text-sm md:text-base">View More</span>
-                      </div>
-                      <Link
-                        href={slug}
-                        className="text-white flex gap-5 text-sm md:text-base justify-center item-center absolute bottom-2 pt-2 md:bottom-4 w-full border-t-[1px] border-gray-300 md:pt-4"
-                      >
-                        <span className="flex items-center gap-1">
-                          <i>
-                            <AiOutlineClockCircle />
-                          </i>
-                          2 .
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <i>
-                            <AiOutlineEye className="text-lg" />
-                          </i>
-                          1.3k
-                        </span>
-                      </Link>
-                    </div>
-                  </figure>
-                  <p className="mt-3 text-center font-poppins uppercase font-light text-gray-400">
-                    {dateFormat(date, "dddd, mmmm dS, yyyy")}
-                  </p>
-                  
-                    <h2 className="text-center font-poppins cursor-pointer text-lg" onClick={()=>changeRoute(`/${slug}`)}>
-                      {title}
-                    </h2>
-                  
-                </div>
-              );
-            })}
-          </div>
-        </section>
+      
         <div className="pt-[1px] bg-border" />
         <section className="my-24">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-8">
@@ -148,7 +84,7 @@ const Blog = () => {
               }
             })}
           </div>
-
+          <Pagination data={TagPosts} PaginatedData={PaginatedData} perpage={11} />
         </section>
       </Layout>
   
@@ -157,3 +93,31 @@ const Blog = () => {
 };
 
 export default Blog;
+
+
+export const getStaticProps: GetStaticProps = async (context) => {  
+  const slug = context.params?.products
+  const response = await apolloClient.query({
+    query: PostByTags,
+    variables: {
+      slug
+    },
+  });
+  
+
+  const TagData = response.data.tag;
+
+  return {
+    props: {
+      TagData,
+    },
+  };
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths:any = [];
+  return {
+    paths,
+    fallback: 'blocking',
+  };
+}

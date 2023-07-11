@@ -1,11 +1,8 @@
-"use client";
-
 import Layout from "@/components/Layout/Layout";
 import PageBanner from "@/components/page-banner/banner";
 import PostDesign from "@/components/post-design/post-design";
 import Button from "@/components/ui/button";
-import { PostsByCategory } from "@/config/queries";
-import { useQuery } from "@apollo/client";
+import { GetAllPostByCategory, PostsByCategory } from "@/config/queries";
 import Link from "next/link";
 import dateFormat from "dateformat";
 import React, { useState } from "react";
@@ -14,47 +11,41 @@ import {
   AiOutlineClockCircle,
   AiOutlineEye,
 } from "react-icons/ai";
-import Loader from "@/components/preLoader/loader";
-import { useRouter } from "next/router";
 import { capitalizedFirstLetter } from "@/utils";
 import { Helmet } from "react-helmet";
+import { GetStaticProps, GetStaticPaths } from 'next'
+import apolloClient from '../../config/client'
+import Pagination from "@/components/Pagination/Pagination";
 
 
-const Blog = () => {
-  const router = useRouter()
-  const {products}  = router.query;
+const Blog = ({CategoryData}:any) => {
+
+  const PostByCategory = CategoryData.posts.nodes
+  const PostSelect = CategoryData.posts.nodes.slice(4)
+
   const [pData, setPData] = useState<any>()
-
   const PaginatedData = (res: any) => {
     setPData(res)
   }
-  const { loading, error, data } = useQuery(PostsByCategory , {
-    variables: {
-      slug: products,
-    },
-  });
-
-  if (loading) return <Loader/>;
-  if (error) return <p>Error: {error.message}</p>;
+  
   const changeRoute = (path:any) => {
     window.location.href = path
   }
-  
 
   return (
     <>
       <Helmet>
-        <title>{capitalizedFirstLetter(data?.category?.name)}</title>
+        <title>{capitalizedFirstLetter(CategoryData?.name)}</title>
       </Helmet>
       <PageBanner
-        title={data?.category?.name}
-        image={data?.category?.postCategoryFields?.bannerImage?.mediaItemUrl}
+        title={CategoryData?.name}
+        image={CategoryData?.postCategoryFields?.bannerImage?.mediaItemUrl}
         rounded={true}
       />
       <Layout>
         <section className="my-24">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {data?.category?.posts?.nodes.slice(0, 4).map((item:any, idx:number) => {
+            {PostByCategory.slice(0, 4).map((item:any, idx:number) => {
               const {date, featuredImage, excerpt, title, slug} = item
               return (
                 <div key={idx}>
@@ -148,7 +139,7 @@ const Blog = () => {
               }
             })}
           </div>
-
+          <Pagination data={PostSelect} PaginatedData={PaginatedData} perpage={11} />
         </section>
       </Layout>
      
@@ -157,3 +148,31 @@ const Blog = () => {
 };
 
 export default Blog;
+
+
+export const getStaticProps: GetStaticProps = async (context) => {  
+  const slug = context.params?.products
+  const response = await apolloClient.query({
+    query: GetAllPostByCategory,
+    variables: {
+      slug
+    },
+  });
+  
+
+  const CategoryData = response.data.categories.nodes[0];
+
+  return {
+    props: {
+      CategoryData,
+    },
+  };
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths:any = [];
+  return {
+    paths,
+    fallback: 'blocking',
+  };
+}
