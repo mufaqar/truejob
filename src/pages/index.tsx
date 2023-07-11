@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { useQuery } from '@apollo/client';
 import { AllCategories, AllJobs, AllPosts, PostsByCategory } from "../config/queries";
 //import Slider2 from "@/components/Slider/SliderComponent";
 import PostDesign2 from "@/components/post-design/post-design-2";
@@ -7,9 +6,7 @@ import Layout from "@/components/Layout/Layout";
 import Link from "next/link";
 import PostDesign from "@/components/post-design/post-design";
 import { BsArrowRight } from "react-icons/bs";
-import Loader from "@/components/preLoader/loader";
 import Button from "@/components/ui/button";
-import Head from 'next/head';
 import { Helmet } from 'react-helmet';
 import SliderComponent from '@/components/Slider/Slider';
 import apolloClient from '../config/client'
@@ -140,7 +137,7 @@ export default function Home({categories, allposts, scholorshipPosts, RemoteJobs
                   Join our newsletter
                 </h1>
                 <p className="text-xl font-medium text-center max-w-[700px]">
-                Explore and Exchange Diverse Perspectives on a Wide Range of Topics. Embrace an Inclusive Community for Thoughtful Discussions.
+                 Explore and Exchange Diverse Perspectives on a Wide Range of Topics. Embrace an Inclusive Community for Thoughtful Discussions.
                 </p>
                 <div className="mt-5">
                   <div className="relative h-12 w-full max-w-[400px] lg:w-[400px] border border-border rounded-full">

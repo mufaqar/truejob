@@ -200,7 +200,9 @@ html{
     font-family: poppins;
     color: #181818;
 }
-
+.siglePost h5, .siglePost h4{
+    text-align: left;
+}
 .siglePost ul{
     list-style: disc;
     padding-left: 1rem;
