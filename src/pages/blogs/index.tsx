@@ -42,7 +42,7 @@ console.log("🚀 ~ file: index.tsx:24 ~ Blog2 ~ PostsData:", PostsData)
       <Layout>
         <section className="my-24">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {pData?.slice(0, 4).map((item:any, idx:number) => {
+            {pData?.slice(0, 4)?.map((item:any, idx:number) => {
               const {date, excerpt, featuredImage, slug, title, categories, comments} = item
               return (
                 <div key={idx}>
@@ -81,7 +81,7 @@ console.log("🚀 ~ file: index.tsx:24 ~ Blog2 ~ PostsData:", PostsData)
         <div className="pt-[1px] bg-border" />
         <section className="my-24">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-8">
-            {pData?.slice(4).map((post: any, idx: number) => {
+            {pData?.slice(4)?.map((post: any, idx: number) => {
               const {date, excerpt, featuredImage, slug, title, categories, comments} = post
               if (idx === 2) {
                 return (
