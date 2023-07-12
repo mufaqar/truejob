@@ -1,6 +1,4 @@
 const fs = require('fs');
-
-
 const query = `
   query AllData {
     posts(first: 100000) {
