@@ -74,7 +74,7 @@ async function generateSitemap() {
         <url>
           <loc>${SITE_URI}/jobs/${item.slug}</loc>
           <lastmod>${item.date}+00:00</lastmod>
-          <priority>0.80</priority>
+          <priority>0.75</priority>
         </url>
       `
         )
@@ -84,8 +84,8 @@ async function generateSitemap() {
             (item) => `
           <url>
             <loc>${SITE_URI}/category/${item.slug}</loc>
-            <lastmod>${item.date}+00:00</lastmod>
-            <priority>2023-05-11T19:00:11+00:00</priority>
+            <lastmod>2023-05-11T19:00:11+00:00</lastmod>
+            <priority>1.00</priority>
           </url>
         `
           )
