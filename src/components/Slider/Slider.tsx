@@ -38,10 +38,10 @@ const SliderComponent = ({ data }: any) => {
               />
               </Link>
               <div className="bg-black/10 absolute inset-0" />           
-              <div className="absolute max-w-[700px] px-16 md:px-0 p-4 w-full top-1/2 flex flex-col justify-center right-1/2 items-center transform -translate-y-1/2 translate-x-1/2">
+              <div className="absolute  max-w-[850px] px-16 md:px-0 p-4 w-full top-1/2 flex flex-col justify-center right-1/2 items-center transform -translate-y-1/2 translate-x-1/2 bottom-0">
                </div>
-              <Link className="bg-yellow text-white hidden md:block py-[2px] px-6 rounded-2xl uppercase absolute left-1/2 bottom-20 transform -translate-x-1/2" href={slug}>
-               Read More </Link>
+              <Link className="bg-yellow text-white hidden md:block py-[3px] px-3 rounded-xl  absolute  bottom-[45px]  transform " href={slug}>
+               {title} </Link>
 
             </div>
           );
