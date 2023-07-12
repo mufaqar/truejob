@@ -19,7 +19,7 @@ export default function Home({categories, allposts, scholorshipPosts, RemoteJobs
       <Helmet>      
         <title>Discover Scholarships, Remote Jobs &amp; ePaper Listings - Find Your TrueJob Today</title>
         <meta name="description" content="Discover a wide range of scholarship opportunities, remote jobs, and ePaper job listings. Find your perfect TrueJob today and kickstart your career." />
-        <meta name="robots" content="nofollow, noindex" />
+  
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Discover Scholarships, Remote Jobs &amp; ePaper Listings - Find Your TrueJob Today" />
