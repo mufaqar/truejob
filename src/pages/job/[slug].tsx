@@ -7,7 +7,7 @@ import Loader from "@/components/preLoader/loader";
 import { AllJobs, AllPosts, SingleJob, SinglePost } from "@/config/queries";
 import Image from "next/image";
 import Link from "next/link";
-import React, {useState } from "react";
+import React, { useState } from "react";
 import {
   FaFacebookF,
   FaLinkedinIn,
@@ -24,7 +24,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import apolloClient from "@/config/client";
 import { useRouter } from "next/router";
 
-const Slug = ({SingleJobData, allposts}:any) => {
+const Slug = ({ SingleJobData, allposts }: any) => {
 
   const metaObjects = MetaTags(SingleJobData?.seo.fullHead);
   const {
@@ -50,12 +50,12 @@ const Slug = ({SingleJobData, allposts}:any) => {
       </Helmet>
 
       <PageBanner
-          title="Newspapper Job Ads"
-          subTitle="Daily Newspaper Ads for Getting Jobs. These advertisements encompass a wide range of job openings in both the private and public sectors."
-          image="/assets/images/contat.jpg"
-       
-          rounded={true}
-        />
+        title="Newspapper Job Ads"
+        subTitle="Daily Newspaper Ads for Getting Jobs. These advertisements encompass a wide range of job openings in both the private and public sectors."
+        image="/assets/images/contat.jpg"
+
+        rounded={true}
+      />
 
       <Layout>
         <section className="lg:flex gap-10 my-10">
@@ -71,10 +71,10 @@ const Slug = ({SingleJobData, allposts}:any) => {
             </h1>
             <div className="pt-[1px] bg-border my-6" />
             <section className="content">
-            <img
+              <img
                 src={featuredImage?.node?.mediaItemUrl}
                 className="mt-[82px]"
-                alt="Feature Image"            
+                alt="Feature Image"
               />
               <div
                 className="mt-8 text-text leading-8 tracking-wide text-justify siglePost "
@@ -132,12 +132,12 @@ const Slug = ({SingleJobData, allposts}:any) => {
                       <FaLinkedinIn />
                     </Link>
                   </li>
-                 
+
                 </ul>
               </div>
             </div>
             <div className="my-10 sm:flex items-center gap-6 justify-start">
-             <Bio />
+              <Bio />
 
             </div>
             <SideBarHeading long={true}> Related Post </SideBarHeading>
@@ -155,8 +155,8 @@ const Slug = ({SingleJobData, allposts}:any) => {
                 />
               );
             })}
-
-            <SideBarHeading long={true}> Comment </SideBarHeading>
+            <br />
+            <SideBarHeading long={true}> Submit Comment </SideBarHeading>
             <CommentForm />
           </section>
           <Aside
@@ -169,7 +169,7 @@ const Slug = ({SingleJobData, allposts}:any) => {
           />
         </section>
       </Layout>
-  
+
 
     </>
   );
@@ -305,7 +305,7 @@ const FaqsList = ({ data }: any) => {
 
 
 
-export const getStaticProps: GetStaticProps = async (context) => {  
+export const getStaticProps: GetStaticProps = async (context) => {
   const slug = context.params?.slug
   const SingleJobsResponse = await apolloClient.query({
     query: SingleJob,
@@ -329,7 +329,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths:any = [];
+  const paths: any = [];
   return {
     paths,
     fallback: 'blocking',

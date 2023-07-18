@@ -30,8 +30,8 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 
 
 
-const Slug = ({SinglePostData, allposts}:any) => {
-  
+const Slug = ({ SinglePostData, allposts }: any) => {
+
   const router = useRouter()
   const metaObjects = MetaTags(SinglePostData?.seo.fullHead);
 
@@ -59,8 +59,8 @@ const Slug = ({SinglePostData, allposts}:any) => {
       </Helmet>
 
       <div className="relative container mx-auto">
-          <div className={` absolute top-0 p-4 flex flex-col justify-center text-white items-center right-0 bottom-0 left-0 md:rounded-[20px]  bg-black/10 `} > </div>       
-          <img src={postFields?.banner?.mediaItemUrl.length > 10 ? postFields?.banner?.mediaItemUrl : featuredImage?.node?.mediaItemUrl} alt={postFields?.banner?.altText} className=" md:mt-20 md:rounded-[20px] " />
+        <div className={` absolute top-0 p-4 flex flex-col justify-center text-white items-center right-0 bottom-0 left-0 md:rounded-[20px]  bg-black/10 `} > </div>
+        <img src={postFields?.banner?.mediaItemUrl.length > 10 ? postFields?.banner?.mediaItemUrl : featuredImage?.node?.mediaItemUrl} alt={postFields?.banner?.altText} className=" md:mt-20 md:rounded-[20px] " />
       </div>
       <Layout>
         <section className="lg:flex gap-10 my-10">
@@ -83,11 +83,11 @@ const Slug = ({SinglePostData, allposts}:any) => {
                 }}
               />
             </section>
-            
+
             {postFields?.faqs?.length > 0 && <>
               <h1 className="text-xl md:text-4xl pt-3 mb-4 font-bold font-oswald underline capitalize">
-              Faq's
-            </h1>
+                Faq's
+              </h1>
               <FaqsList data={postFields?.faqs} />
             </>}
             <div className="mt-8 flex gap-2 flex-wrap">
@@ -123,12 +123,12 @@ const Slug = ({SinglePostData, allposts}:any) => {
                 </div>
                 <ul className="flex items-center gap-4 text-dark-gray dark:text-white">
                   <li className="hover:text-yellow text-lg">
-                  <Link href="https://www.linkedin.com/in/mufaqar">
+                    <Link href="https://www.linkedin.com/in/mufaqar">
                       <FaFacebookF />
                     </Link>
                   </li>
                   <li className="hover:text-yellow text-lg">
-                  <Link href="https://www.twitter.com/mufaqar">
+                    <Link href="https://www.twitter.com/mufaqar">
                       <FaTwitter />
                     </Link>
                   </li>
@@ -146,12 +146,12 @@ const Slug = ({SinglePostData, allposts}:any) => {
               </div>
             </div>
             <div className="my-10 sm:flex items-center gap-6 justify-start">
-              
+
               <Bio />
             </div>
             <SideBarHeading long={true}> Related Post </SideBarHeading>
             <section className="my-12">
-              <PostDesign2 data={allposts} lgpost={2}  />
+              <PostDesign2 data={allposts} lgpost={2} />
             </section>
             <SideBarHeading long={true}> Comments </SideBarHeading>
             {comments?.nodes?.map((item: any, idx: number) => {
@@ -165,7 +165,8 @@ const Slug = ({SinglePostData, allposts}:any) => {
               );
             })}
 
-            <SideBarHeading long={true}> Comment </SideBarHeading>
+            <br />
+            <SideBarHeading long={true}> Submit Comment </SideBarHeading>
             <CommentForm />
           </section>
           <Aside
@@ -178,7 +179,7 @@ const Slug = ({SinglePostData, allposts}:any) => {
           />
         </section>
       </Layout>
-  
+
 
     </>
   );
@@ -316,7 +317,7 @@ const FaqsList = ({ data }: any) => {
 
 
 
-export const getStaticProps: GetStaticProps = async (context) => {  
+export const getStaticProps: GetStaticProps = async (context) => {
   const slug = context.params?.slug
   const SinglePostResponse = await apolloClient.query({
     query: SinglePost,
@@ -340,7 +341,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths:any = [];
+  const paths: any = [];
   return {
     paths,
     fallback: 'blocking',
