@@ -10,8 +10,9 @@ import {
   FaPinterestP,
 } from "react-icons/fa";
 import Input from "../controlls/input";
-import {FiCalendar} from 'react-icons/fi'
+import { FiCalendar } from 'react-icons/fi'
 import { useRouter } from 'next/navigation'
+import dateFormat from "dateformat";
 
 interface ISidebar {
   navigaiton: any;
@@ -48,33 +49,33 @@ const SocialSection = () => {
   return (
     <>
       <div className="pt-[1px] bg-border my-6 mt-10 " />
-        <div className="flex text-2xl px-7 justify-between">
-          <Link
-            href="https://www.facebook.com/sharer/sharer.php?u=https://www.truejob.online/"
-            className="hover:text-yellow hover:scale-110 transition-all duration-200 ease-in-out"
-          >
-            <FaFacebookF size={20}/>
-          </Link>
-          
-          <Link
-            href="https://twitter.com/intent/tweet?url=https://www.truejob.online/&text="
-            className="hover:text-yellow hover:scale-110 transition-all duration-200 ease-in-out"
-          >
-            <FaTwitter size={20}/>
-          </Link>
-          <Link
-            href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.truejob.online/"
-            className="hover:text-yellow hover:scale-110 transition-all duration-200 ease-in-out"
-          >
-            <FaLinkedinIn size={20}/>
-          </Link>
-          <Link
-            href="https://pinterest.com/pin/create/button/?url=https://www.truejob.online/&media=&description="
-            className="hover:text-yellow hover:scale-110 transition-all duration-200 ease-in-out"
-          >
-            <FaPinterestP size={20}/>
-          </Link>
-        </div>
+      <div className="flex text-2xl px-7 justify-between">
+        <Link
+          href="https://www.facebook.com/sharer/sharer.php?u=https://www.truejob.online/"
+          className="hover:text-yellow hover:scale-110 transition-all duration-200 ease-in-out"
+        >
+          <FaFacebookF size={20} />
+        </Link>
+
+        <Link
+          href="https://twitter.com/intent/tweet?url=https://www.truejob.online/&text="
+          className="hover:text-yellow hover:scale-110 transition-all duration-200 ease-in-out"
+        >
+          <FaTwitter size={20} />
+        </Link>
+        <Link
+          href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.truejob.online/"
+          className="hover:text-yellow hover:scale-110 transition-all duration-200 ease-in-out"
+        >
+          <FaLinkedinIn size={20} />
+        </Link>
+        <Link
+          href="https://pinterest.com/pin/create/button/?url=https://www.truejob.online/&media=&description="
+          className="hover:text-yellow hover:scale-110 transition-all duration-200 ease-in-out"
+        >
+          <FaPinterestP size={20} />
+        </Link>
+      </div>
       <div className="pt-[1px] bg-border my-6 mb-16" />
     </>
   );
@@ -110,7 +111,7 @@ const NewsLetterSection = () => {
       <SideBarHeading> Subscribe Newsletter </SideBarHeading>
       <section className="bg-yellow p-4 py-6 mt-6">
         <p className="text-dark-gray mb-4 text-center ">
-        Read and share new perspectives on just about any topic.
+          Read and share new perspectives on just about any topic.
         </p>
         <Input
           searchValue={searchValue}
@@ -131,22 +132,22 @@ const LatestPostSection = ({ posts }: any) => {
     <div className="mt-10 px-7">
       <SideBarHeading> latest posts </SideBarHeading>
       <div className="mt-8 flex flex-col gap-4">
-        {posts.slice(0, 5).map((p:any, idx:number) => {
+        {posts.slice(0, 5).map((p: any, idx: number) => {
           return (
-            <Link href={p?.slug} className="flex gap-4 items-center group " key={idx}>
+            <Link href={`/${p?.slug}`} className="flex gap-4 items-center group " key={idx}>
 
               <figure className="h-24 min-w-[6rem] overflow-hidden">
-              <img
-                src={p?.featuredImage?.node?.mediaItemUrl}
-                alt={p?.featuredImage?.node?.altText}
-                className="h-24 _img object-cover group-hover:scale-110 group-hover:rotate-6 transition-all duration-200"
-              />
+                <img
+                  src={p?.featuredImage?.node?.mediaItemUrl}
+                  alt={p?.featuredImage?.node?.altText}
+                  className="h-24 _img object-cover group-hover:scale-110 group-hover:rotate-6 transition-all duration-200"
+                />
               </figure>
               <div>
                 <h2 className="uppercase  text-sm text-pure cursor-pointer group-hover:underline">
                   {p.title}
                 </h2>
-                <span className="text-light-blue flex item-center gap-1 mt-2 text-sm"> <FiCalendar size={17}/> <span className="-mt-[2px]">22 DECEMBER</span></span>
+                <span className="text-light-blue flex item-center gap-1 mt-2 text-sm"> <FiCalendar size={17} /> <span className="-mt-[2px]"> {dateFormat(p?.date, "mmmm d, yyyy")}</span></span>
               </div>
             </Link>
           );
@@ -163,12 +164,12 @@ const LatestCategories = ({ posts }: any) => {
       <div className="mt-10 px-7">
         <SideBarHeading> Tags </SideBarHeading>
         <div className="mt-8 flex gap-2 flex-wrap">
-          {posts?.map((p:any, idx:number) => {
+          {posts?.map((p: any, idx: number) => {
             return (
               <div
                 className="flex border border-border rounded-full group justify-between text-sm hover:bg-yellow hover:border-transparent hover:text-black text-gray-400 capitalize cursor-pointer p-2 "
                 key={idx}
-                onClick={()=>router.push(`tag/${p?.slug}`)}
+                onClick={() => router.push(`tag/${p?.slug}`)}
               >
                 {p?.name}
               </div>
@@ -185,7 +186,7 @@ const Advertisement = () => {
   return (
     <div className="px-7">
       <Link href='/win-scholarships-in-usa-in-2023' >
-      <img src="/assets/images/win-scholarships.jpg" alt="" className="mt-8"/>
+        <img src="/assets/images/win-scholarships.jpg" alt="" className="mt-8" />
       </Link>
     </div>
   );
