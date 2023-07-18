@@ -124,9 +124,9 @@ export default function Home({ categories, allposts, scholorshipPosts, RemoteJob
           <Link href="/category/earn-money-online" className="mt-10 flex justify-center"><Button variants="primary" size="medium" rounded={true}>More About Money Online </Button></Link>
 
 
-          <h2 className="text-3xl mt-10 md:mt-20 uppercase text-center font-oswald">
+          <h3 className="text-3xl mt-10 md:mt-20 uppercase text-center font-oswald">
             Newspapper Job Ads 🎈
-          </h2>
+          </h3>
           <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-20">
             {alljobs?.slice(0, 3).map((post: any, idx: number) => {
               return (
@@ -140,9 +140,9 @@ export default function Home({ categories, allposts, scholorshipPosts, RemoteJob
       <section className="mt-20 py-16 bg-dark-gray">
         <div className=" items-center gap-6 px-10 text-light-gray">
           <div className="flex flex-col justify-center items-center">
-            <h1 className="mb-5 text-5xl font-bold text-center">
+            <h3 className="mb-5 text-5xl font-bold text-center">
               Join our newsletter
-            </h1>
+            </h3>
             <p className="text-xl font-medium text-center max-w-[700px]">
               Explore and Exchange Diverse Perspectives on a Wide Range of Topics. Embrace an Inclusive Community for Thoughtful Discussions.
             </p>
