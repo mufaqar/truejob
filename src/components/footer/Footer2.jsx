@@ -9,39 +9,54 @@ const Footer2 = () => {
         <div className="p-4 py-6 mx-auto max-w-screen-xl md:p-8 lg:p-10">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5">
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h6 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 Top Skilled Jobs
-              </h2>
+              </h6>
               <ul className="text-gray-500 dark:text-gray-400">
                 <li className="mb-4">
-                  <Link href="/find-out-how-you-can-get-more-web-developer-jobs" className=" hover:underline">
+                  <Link
+                    href="/find-out-how-you-can-get-more-web-developer-jobs"
+                    className=" hover:underline"
+                  >
                     Programming & Tech
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="/graphic-design-jobs-as-a-freelancer" className="hover:underline">
+                  <Link
+                    href="/graphic-design-jobs-as-a-freelancer"
+                    className="hover:underline"
+                  >
                     Graphics & Design
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="/top-15-freelancing-jobs-in-2023#SEO_Consulting" className="hover:underline">
+                  <Link
+                    href="/top-15-freelancing-jobs-in-2023#SEO_Consulting"
+                    className="hover:underline"
+                  >
                     Digital Marketing
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="/content-writing-jobs-as-a-freelancer" className="hover:underline">
+                  <Link
+                    href="/content-writing-jobs-as-a-freelancer"
+                    className="hover:underline"
+                  >
                     Writing & Translation
                   </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h6 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 Work From Home
-              </h2>
+              </h6>
               <ul className="text-gray-500 dark:text-gray-400">
                 <li className="mb-4">
-                  <Link href="/top-15-freelancing-jobs-in-2023" className="hover:underline">
+                  <Link
+                    href="/top-15-freelancing-jobs-in-2023"
+                    className="hover:underline"
+                  >
                     Freelancing Job
                   </Link>
                 </li>
@@ -51,28 +66,34 @@ const Footer2 = () => {
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="/category/remote-jobs" className="hover:underline">
+                  <Link
+                    href="/category/remote-jobs"
+                    className="hover:underline"
+                  >
                     Part Time Jobs
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="/top-15-freelancing-jobs-in-2023#SEO_Consulting" className="hover:underline">
+                  <Link
+                    href="/top-15-freelancing-jobs-in-2023#SEO_Consulting"
+                    className="hover:underline"
+                  >
                     Fresh Jobs
                   </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-              scholarships
-              </h2>
+              <h6 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                scholarships
+              </h6>
               <ul className="text-gray-500 dark:text-gray-400">
                 <li className="mb-4">
                   <Link
                     href="/win-scholarships-in-usa-in-2023"
                     className="hover:underline"
                   >
-                   Scholarships In USA
+                    Scholarships In USA
                   </Link>
                 </li>
                 <li className="mb-4">
@@ -88,7 +109,7 @@ const Footer2 = () => {
                     href="/win-scholarships-in-france-in-2023"
                     className="hover:underline"
                   >
-                   Scholarships In France
+                    Scholarships In France
                   </Link>
                 </li>
                 <li className="mb-4">
@@ -96,18 +117,21 @@ const Footer2 = () => {
                     href="/eligibility-criteria-for-a-scholarship"
                     className="hover:underline"
                   >
-                   Criteria For Scholarships
+                    Criteria For Scholarships
                   </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h6 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 Local Jobs
-              </h2>
+              </h6>
               <ul className="text-gray-500 dark:text-gray-400">
                 <li className="mb-4">
-                  <Link href="/local-govt-jobs-data-entry-skilled" className=" hover:underline">
+                  <Link
+                    href="/local-govt-jobs-data-entry-skilled"
+                    className=" hover:underline"
+                  >
                     Govt Jobs
                   </Link>
                 </li>
@@ -129,9 +153,9 @@ const Footer2 = () => {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h6 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 Earn Money Online
-              </h2>
+              </h6>
               <ul className="text-gray-500 dark:text-gray-400">
                 <li className="mb-4">
                   <Link href="/" className="hover:underline">
@@ -149,7 +173,10 @@ const Footer2 = () => {
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="/online-teaching-jobs-in-pakistan" className="hover:underline">
+                  <Link
+                    href="/online-teaching-jobs-in-pakistan"
+                    className="hover:underline"
+                  >
                     Online tutoring or teaching
                   </Link>
                 </li>
@@ -162,9 +189,12 @@ const Footer2 = () => {
             <span className="block text-sm text-center text-gray-500 dark:text-gray-400 md:mt-0 mt-4">
               © 2023
               <Link href="/" className="hover:underline">
-                TrueJob
+                TrueJob.
               </Link>
-              . All Rights Reserved.
+              All Rights Reserved.
+              <a href="http://mufaqar.com" target="_blank">
+                Developed By Mufaqar
+              </a>
             </span>
           </div>
         </div>
