@@ -15,7 +15,7 @@ const Footer2 = () => {
               <ul className="text-gray-500 dark:text-gray-400">
                 <li className="mb-4">
                   <Link
-                    href="/find-out-how-you-can-get-more-web-developer-jobs"
+                    href="/you-can-get-more-web-developer-jobs"
                     className=" hover:underline"
                   >
                     Programming & Tech
