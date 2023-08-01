@@ -91,9 +91,9 @@ const Header2 = () => {
                 <SlArrowDown />
               </div>
               <SubMenu>
+                <Route to="/win-scholarships-in-france-in-2023">Win Scholarships In France</Route>
                 <Route to="/scholarship-in-australia">Scholarship in Australia</Route>
                 <Route to="/win-a-netherlands-scholarship">Scholarship in Netherlands</Route>
-                <Route to="/win-scholarships-in-france-in-2023">Win Scholarships In France</Route>
                 <Route to="/get-a-turkey-scholarship-from-pakistan">Turkey Scholarship From Pakistan</Route>
                 <Route to="/get-china-scholarships-from-pakistan">China Scholarships From Pakistan</Route>
                 <Route to="/get-scholarships-in-united-kingdom">Get Scholarships In United Kingdom</Route>
@@ -116,18 +116,18 @@ const Header2 = () => {
                 <Route to="/top-15-freelancing-jobs-in-2023">Freelancing Jobs Are Most In Demand</Route>
               </SubMenu>
             </li>
-            
+
             <li className="">
               <Link href="/category/earn-money-online" className="uppercase dark:text-white text-black ">
-              EARN MONEY ONLINE
+                EARN MONEY ONLINE
               </Link>
-              </li>
+            </li>
 
             <li className="">
               <Link href="/paper-jobs" className="uppercase dark:text-white text-black ">
                 Paper Job Ads
               </Link>
-              </li>
+            </li>
             <li className="">
               <Link href="/contact-us" className="uppercase dark:text-white text-black ">
                 Contact
