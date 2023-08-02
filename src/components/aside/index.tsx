@@ -130,7 +130,7 @@ const NewsLetterSection = () => {
 const LatestPostSection = ({ posts }: any) => {
   return (
     <div className="mt-10 px-7">
-      <SideBarHeading> latest posts </SideBarHeading>
+      <SideBarHeading> Latest Posts </SideBarHeading>
       <div className="mt-8 flex flex-col gap-4">
         {posts.slice(0, 5).map((p: any, idx: number) => {
           return (
