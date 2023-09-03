@@ -57,12 +57,12 @@ const Footer2 = () => {
                     href="/top-15-freelancing-jobs-in-2023"
                     className="hover:underline"
                   >
-                    Freelancing Job
+                    Freelancing Jobs
                   </Link>
                 </li>
                 <li className="mb-4">
                   <Link href="/paper-jobs" className="hover:underline">
-                    Full time Jobs
+                    Full Time Jobs
                   </Link>
                 </li>
                 <li className="mb-4">
