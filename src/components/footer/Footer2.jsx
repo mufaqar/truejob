@@ -147,7 +147,7 @@ const Footer2 = () => {
                 </li>
                 <li className="mb-4">
                   <Link href="/paper-jobs" className="hover:underline">
-                    Jobs By Departments
+                    Jobs In Pakistan
                   </Link>
                 </li>
               </ul>
