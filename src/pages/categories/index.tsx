@@ -6,7 +6,7 @@ import { AllCategories } from "@/config/queries";
 import Pagination from "@/components/Pagination/Pagination";
 import PageBanner from "@/components/page-banner/banner";
 import { Helmet } from "react-helmet";
-import { GetStaticProps } from "next";
+import { GetServerSideProps, GetStaticProps } from "next";
 import apolloClient from "@/config/client";
 
 const CategoriesPage = ({categoriesPost}:any) => {
@@ -62,7 +62,7 @@ export default CategoriesPage;
 
 
 
-export const getStaticProps: GetStaticProps = async () => {  
+export const getServerSideProps: GetServerSideProps = async () => {  
   const Response = await apolloClient.query({
     query: AllCategories,
   });

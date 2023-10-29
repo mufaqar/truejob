@@ -3,7 +3,7 @@ import Layout from "@/components/Layout/Layout";
 import PostDesign from "@/components/post-design/post-design";
 import { Helmet } from 'react-helmet';
 import PageBanner from "@/components/page-banner/banner";
-import { GetStaticProps } from 'next';
+import { GetServerSideProps, GetStaticProps } from 'next';
 import apolloClient from '@/config/client';
 import Pagination from "@/components/Pagination/Pagination";
 import { useState } from "react";
@@ -51,7 +51,7 @@ export default function PaperJobs({JobsData}:any) {
 }
 
 
-export const getStaticProps: GetStaticProps = async () => {  
+export const getServerSideProps: GetServerSideProps = async () => {  
   const response = await apolloClient.query({
     query: AllJobs,
   });

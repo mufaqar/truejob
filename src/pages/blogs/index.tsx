@@ -8,7 +8,7 @@ import apolloClient from "@/config/client";
 import { AllPosts } from "@/config/queries";
 import { capitalizedFirstLetter } from "@/utils";
 import { useQuery } from "@apollo/client";
-import { GetStaticProps } from "next";
+import { GetServerSideProps, GetStaticProps } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -33,6 +33,7 @@ console.log("🚀 ~ file: index.tsx:24 ~ Blog2 ~ PostsData:", PostsData)
       <Helmet>
         <title>Blogs</title>
       </Helmet>
+      
       <PageBanner
           title="Blogs"
           subTitle="Lorem ipsum dolor sit amet consectetur adipisicing elit"
@@ -137,7 +138,7 @@ export default Blog2;
 
 
 
-export const getStaticProps: GetStaticProps = async () => {  
+export const getServerSideProps: GetServerSideProps = async () => {  
   const response = await apolloClient.query({
     query: AllPosts,
   });
