@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout/Layout";
 import Insta from "@/components/insta";
 import GoogleMap from "@/components/map/googleMap";
+import SeoHead from "@/components/metas/pagesmeta";
 import PageBanner from "@/components/page-banner/banner";
 import Button from "@/components/ui/button";
 import Image from "next/image";
@@ -10,17 +11,13 @@ import { Helmet } from "react-helmet";
 const ContactUs = () => {
   return (
     <>
-      <Helmet>
-      <title>Contact Us | True Jobs</title>
-        <meta name="description" content="Stay informed and inspired as TrueJob delivers high-quality content to help you navigate the ever-changing job market and enhance your skills." />
-        <meta name="keywords" content="contact us , job ads , govt job ,private jobs" />
-     
-           </Helmet>
+
+      <SeoHead title="Contact Us | True Jobs" url="https://www.truejob.online/contact-us" description="Stay informed and inspired as TrueJob delivers high-quality content to help you navigate the ever-changing job market and enhance your skills." keywords="contact us , job ads , govt job ,private jobs" />
       <PageBanner
         title="Contact Us"
         subTitle="Connect with TrueJob for Scholarship Opportunities, Remote Jobs, and ePaper Job Listings"
         image="/assets/images/contactus.jpg"
-       
+
         rounded={true}
       />
       <Layout>
@@ -63,7 +60,7 @@ const ContactUs = () => {
             <h4 className="text-xl mt-6 text-dark-gray">Say Hello</h4>
             <div className="p-[2px] w-32 bg-gray-100 my-5" />
             <p>Telephone: 302.6006.280</p>
-     
+
             <p>hello@truejob.online</p>
           </div>
           <div className="flex flex-col text-gray-500 gap-1 items-center">
@@ -76,7 +73,7 @@ const ContactUs = () => {
             <h4 className="text-xl mt-6 text-dark-gray">Location</h4>
             <div className="p-[2px] w-32 bg-gray-100 my-5" />
             <p className="max-w-[250px] text-center">
-             Suit 134 B AHS Multan Road Lahore
+              Suit 134 B AHS Multan Road Lahore
             </p>
           </div>
           <div className="flex flex-col text-gray-500  gap-1 items-center">
@@ -96,7 +93,7 @@ const ContactUs = () => {
 
       </Layout>
 
-   
+
     </>
   );
 };
