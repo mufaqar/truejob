@@ -153,7 +153,7 @@ const Slug = ({ SinglePostData, allposts }: any) => {
             <section className="my-12">
               <PostDesign2 data={allposts} lgpost={2} />
             </section>
-            <SideBarHeading long={true}> Comments </SideBarHeading>
+            {/* <SideBarHeading long={true}> Comments </SideBarHeading> */}
             {comments?.nodes?.map((item: any, idx: number) => {
               return (
                 <CommentDesign
@@ -166,8 +166,8 @@ const Slug = ({ SinglePostData, allposts }: any) => {
             })}
 
             <br />
-            <SideBarHeading long={true}> Submit Comment </SideBarHeading>
-            <CommentForm />
+            {/* <SideBarHeading long={true}> Submit Comment </SideBarHeading> */}
+            {/* <CommentForm /> */}
           </section>
           <Aside
             navigaiton={true}
