@@ -27,6 +27,7 @@ import MetaTags from "../utils/MetaTags";
 import Bio from "@/components/bio";
 import apolloClient from '../config/client'
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
+import SeoHead from "@/components/metas/pagesmeta";
 
 
 
@@ -51,12 +52,9 @@ const Slug = ({ SinglePostData, allposts }: any) => {
 
   return (
     <>
-      <Helmet>
-        <title>{capitalizedFirstLetter(title)}</title>
-        {metaObjects.map((metaObject: any, index: number) => (
-          <meta {...metaObject} key={index} />
-        ))}
-      </Helmet>
+      
+      <SeoHead title={SinglePostData?.seo.title} url={`https://www.truejob.online/${SinglePostData?.slug}`} description={SinglePostData?.seo.description} keywords={SinglePostData?.seo.focusKeywords} updatedTime={SinglePostData?.seo.openGraph.updatedTime} />
+     
 
       <div className="relative container mx-auto">
         <div className={` absolute top-0 p-4 flex flex-col justify-center text-white items-center right-0 bottom-0 left-0 md:rounded-[20px]  bg-black/10 `} > </div>
@@ -289,7 +287,7 @@ const FaqsList = ({ data }: any) => {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                     clip-rule="evenodd"
                   ></path>

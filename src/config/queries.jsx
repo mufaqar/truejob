@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 export const AllPosts = gql`
   query AllPosts {
@@ -13,6 +13,10 @@ export const AllPosts = gql`
           }
         }
         seo {
+          canonicalUrl
+          description
+          focusKeywords
+          title
           fullHead
         }
         title
@@ -34,7 +38,7 @@ export const AllPosts = gql`
             name
           }
         }
-        postFields {          
+        postFields {
           banner {
             altText
             mediaItemUrl
@@ -44,8 +48,6 @@ export const AllPosts = gql`
     }
   }
 `;
-
-
 
 export const AllCategories = gql`
   query AllCategories {
@@ -120,25 +122,24 @@ export const GetAllPostByCategory = gql`
         posts(first: 10000) {
           nodes {
             date
-        excerpt
-        featuredImage {
-          node {
-            mediaItemUrl
-            altText
-          }
-        }
-        seo {
-          fullHead
-        }
-        title
-        slug
+            excerpt
+            featuredImage {
+              node {
+                mediaItemUrl
+                altText
+              }
+            }
+            seo {
+              fullHead
+            }
+            title
+            slug
           }
         }
       }
     }
   }
 `;
-
 
 export const SinglePost = gql`
   query SinglePost($slug: ID!) {
@@ -153,7 +154,15 @@ export const SinglePost = gql`
         }
       }
       seo {
-        fullHead
+      
+        canonicalUrl
+          description
+          focusKeywords
+          title
+          fullHead
+          openGraph {
+            updatedTime
+          }
       }
       title
       slug
@@ -193,11 +202,11 @@ export const PostByTags = gql`
   query PostByTags($slug: ID!) {
     tag(id: $slug, idType: SLUG) {
       name
-    postTagFields {
-      bannerImage {
-        mediaItemUrl
+      postTagFields {
+        bannerImage {
+          mediaItemUrl
+        }
       }
-    }
       posts {
         nodes {
           title
@@ -221,24 +230,24 @@ export const PostByTags = gql`
   }
 `;
 
-
 export const AllJobs = gql`
-query AllJobs {
-  jobs(first: 10000) {
-    nodes {
-      slug
-      seo {
-        fullHead
-      }
-      title
-      featuredImage {
-        node {
-          mediaItemUrl
+  query AllJobs {
+    jobs(first: 10000) {
+      nodes {
+        slug
+        seo {
+          fullHead
+        }
+        title
+        featuredImage {
+          node {
+            mediaItemUrl
+          }
         }
       }
     }
   }
-}`
+`;
 
 export const SingleJob = gql`
   query SingleJob($slug: ID!) {
@@ -269,4 +278,5 @@ export const SingleJob = gql`
         }
       }
     }
-  }`
+  }
+`;

@@ -1,7 +1,7 @@
 
 import Head from 'next/head';
 
-const SeoHead = ({ title, description , url , keywords }: any) => {
+const SeoHead = ({ title, description , url , keywords , updatedTime = "2023-10-06T22:58:46+00:00" }: any) => {
     return (
         <Head>
             <title>{title}</title>
@@ -15,7 +15,7 @@ const SeoHead = ({ title, description , url , keywords }: any) => {
             <meta property="og:url" content={url} />
             <meta property="og:site_name" content="truejob.online" />
             <meta property="article:publisher" content="https://www.facebook.com/truejobonline" />
-            <meta property="article:modified_time" content="2023-10-06T22:58:46+00:00" />
+            <meta property="article:modified_time" content={updatedTime} />
             <meta property="og:image" content="https://www.truejob.online/logo.png" />
             <meta property="og:image:width" content="256" />
             <meta property="og:image:height" content="55" />
