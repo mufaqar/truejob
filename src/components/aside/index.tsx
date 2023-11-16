@@ -188,7 +188,7 @@ const Advertisement = () => {
   return (
     <div className="px-7">
       <Link href='/win-scholarships-in-usa-in-2023' >
-        <img src="/assets/images/win-scholarships.jpg" alt="" className="mt-8" />
+        <Image src="/assets/images/win-scholarships.jpg" alt="win-scholarships-in-usa-in-2023" className="mt-8" width={316} height={632} />
       </Link>
     </div>
   );

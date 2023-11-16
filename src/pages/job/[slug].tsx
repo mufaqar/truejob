@@ -71,10 +71,12 @@ const Slug = ({ SingleJobData, allposts }: any) => {
             </h1>
             <div className="pt-[1px] bg-border my-6" />
             <section className="content">
-              <img
+              <Image
                 src={featuredImage?.node?.mediaItemUrl}
-                className="mt-[82px]"
+                className="mt-[82px] w-full"
                 alt="Feature Image"
+                width={1024}
+                height={700}
               />
               <div
                 className="mt-8 text-text leading-8 tracking-wide text-justify siglePost "

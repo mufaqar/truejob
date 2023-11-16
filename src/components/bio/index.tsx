@@ -17,8 +17,8 @@ const Bio = () => {
                 <Image
                   src="/assets/images/mufaqar.jpg"
                   alt="Mufaqar Author"
-                  width={200}
-                  height={200}
+                  width={160}
+                  height={160}
                   className="w-40 h-40 rounded-full"
                   style={{ minWidth: "10rem" }}
                 />
