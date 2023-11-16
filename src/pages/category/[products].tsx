@@ -16,34 +16,30 @@ import { Helmet } from "react-helmet";
 import { GetServerSideProps } from 'next'
 import apolloClient from '../../config/client'
 import Pagination from "@/components/Pagination/Pagination";
+import PageHead from "@/components/metas/pagesmeta";
 
 
-const Blog = ({CategoryData}:any) => {
-
+const Blog = ({ CategoryData, slug }: any) => {
   const PostByCategory = CategoryData.posts.nodes
   const PostSelect = CategoryData.posts.nodes;
-
   const [pData, setPData] = useState<any>()
   const PaginatedData = (res: any) => {
     setPData(res)
   }
-  
-  const changeRoute = (path:any) => {
+  const changeRoute = (path: any) => {
     window.location.href = path
   }
-
   return (
     <>
-      <Helmet>
-        <title>{capitalizedFirstLetter(CategoryData?.name)}</title>
-      </Helmet>
+      <PageHead title={`${capitalizedFirstLetter(CategoryData?.name)} | True Jobs `} description={CategoryData?.description} url={`https://www.truejob.online/category/${slug}`} />
       <PageBanner
         title={CategoryData?.name}
+        subTitle={CategoryData?.description}
         image={CategoryData?.postCategoryFields?.bannerImage?.mediaItemUrl}
         rounded={true}
       />
       <Layout>
-        
+
         <div className="pt-[1px] bg-border" />
         <section className="my-24">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-8">
@@ -51,14 +47,14 @@ const Blog = ({CategoryData}:any) => {
               return (
                 <><PostDesign post={post} idx={idx} layout={1} key={idx} /></>
               )
-              
-              
+
+
             })}
           </div>
           <Pagination data={PostByCategory} PaginatedData={PaginatedData} perpage={11} />
         </section>
       </Layout>
-     
+
     </>
   );
 };
@@ -66,7 +62,7 @@ const Blog = ({CategoryData}:any) => {
 export default Blog;
 
 
-export const getServerSideProps: GetServerSideProps = async (context) => {  
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const slug = context.params?.products
   const response = await apolloClient.query({
     query: GetAllPostByCategory,
@@ -74,13 +70,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       slug
     },
   });
-  
+
 
   const CategoryData = response.data.categories.nodes[0];
 
   return {
     props: {
       CategoryData,
+      slug
     },
   };
 }

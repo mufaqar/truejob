@@ -18,7 +18,9 @@ export default function Home({ categories, allposts, scholorshipPosts, RemoteJob
   return (
     <>
      
-      <PageHead title="Discover Scholarships, Remote Jobs &amp; ePaper Listings - Find Your TrueJob Today" description="Discover a wide range of scholarship opportunities, remote jobs, and ePaper job listings. Find your perfect TrueJob today and kickstart your career." url="https://truejob.online" />
+      <PageHead title={`Daily Newspaper Ads for Getting Jobs | ePaper Listings | True Job`} url="https://www.truejob.online/paper-job" description="Discover a wide range of scholarship opportunities, remote jobs, and ePaper job listings. Find your perfect TrueJob today and kickstart your career."  />
+     
+      
       <SliderComponent data={allposts?.slice(0, 4)} />
       <div className="my-16">
         <Layout>

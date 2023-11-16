@@ -7,6 +7,7 @@ import { GetServerSideProps, GetStaticProps } from 'next';
 import apolloClient from '@/config/client';
 import Pagination from "@/components/Pagination/Pagination";
 import { useState } from "react";
+import PageHead from "@/components/metas/pagesmeta";
 
 
 export default function PaperJobs({JobsData}:any) {
@@ -17,16 +18,11 @@ export default function PaperJobs({JobsData}:any) {
   }
 
   return (
-    <>
-      <Helmet>       
-        <title>Newspapper Job Ads | True Jobs</title>
-        <meta name="description" content="Daily Newspaper Ads for Getting Jobs. These advertisements encompass a wide range of job openings in both the private and public sectors." />
-        <meta name="keywords" content="Newspapper , job ads , govt job ,private jobs" />
-      
-      </Helmet>
+    <>      
+      <PageHead title={`Daily Newspaper Ads for Getting Jobs | ePaper Listings | True Job`} url="https://www.truejob.online/paper-job" description="Daily Newspaper Ads for Getting Jobs. These advertisements encompass a wide range of job openings in both the private and public sectors."  />
       <PageBanner
-        title=" Newspapper Job Ads"
-        subTitle="Daily Newspaper Ads for Getting Jobs.  These advertisements encompass a wide range of job openings in both the private and public sectors.  "
+        title=" Newspapper Job Ads | True Jobs"
+        subTitle="Daily Newspaper Ads for Getting Jobs. These advertisements encompass a wide range of job openings in both the private and public sectors. "
         image="/assets/images/paper-jobs.jpg"     
         rounded={true}
       />     

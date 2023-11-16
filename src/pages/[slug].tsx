@@ -28,6 +28,7 @@ import Bio from "@/components/bio";
 import apolloClient from '../config/client'
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 import SeoHead from "@/components/metas/pagesmeta";
+import PageHead from "@/components/metas/pagesmeta";
 
 
 
@@ -53,9 +54,7 @@ const Slug = ({ SinglePostData, allposts }: any) => {
   return (
     <>
       
-      <SeoHead title={SinglePostData?.seo.title} url={`https://www.truejob.online/${SinglePostData?.slug}`} description={SinglePostData?.seo.description} keywords={SinglePostData?.seo.focusKeywords} updatedTime={SinglePostData?.seo.openGraph.updatedTime} />
-     
-
+      <PageHead title={`${SinglePostData?.seo.title} | True Job`} url={`https://www.truejob.online/${SinglePostData?.slug}`} description={SinglePostData?.seo.description} keywords={SinglePostData?.seo.focusKeywords} updatedTime={SinglePostData?.seo.openGraph.updatedTime} />
       <div className="relative container mx-auto">
         <div className={` absolute top-0 p-4 flex flex-col justify-center text-white items-center right-0 bottom-0 left-0 md:rounded-[20px]  bg-black/10 `} > </div>
         <img src={postFields?.banner?.mediaItemUrl.length > 10 ? postFields?.banner?.mediaItemUrl : featuredImage?.node?.mediaItemUrl} alt={postFields?.banner?.altText} className=" md:mt-20 md:rounded-[20px] " />

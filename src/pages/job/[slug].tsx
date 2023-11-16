@@ -23,8 +23,9 @@ import Bio from "@/components/bio";
 import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
 import apolloClient from "@/config/client";
 import { useRouter } from "next/router";
+import PageHead from "@/components/metas/pagesmeta";
 
-const Slug = ({ SingleJobData, allposts }: any) => {
+const Slug = ({ SingleJobData, allposts , slug }: any) => {
 
   const metaObjects = MetaTags(SingleJobData?.seo.fullHead);
   const {
@@ -42,15 +43,14 @@ const Slug = ({ SingleJobData, allposts }: any) => {
 
   return (
     <>
-      <Helmet>
-        <title>{capitalizedFirstLetter(title)}</title>
-        {metaObjects.map((metaObject: any, index: number) => (
-          <meta {...metaObject} key={index} />
-        ))}
-      </Helmet>
+      
+
+      <PageHead title={`${capitalizedFirstLetter(title)} | True Job`} url={`https://www.truejob.online/${slug}`} description={SingleJobData?.seo.description} keywords={SingleJobData?.seo.focusKeywords} updatedTime={SingleJobData?.seo.openGraph.updatedTime} />
+     
+
 
       <PageBanner
-        title="Newspapper Job Ads"
+        title="Newspapper Job Ads 123"
         subTitle="Daily Newspaper Ads for Getting Jobs. These advertisements encompass a wide range of job openings in both the private and public sectors."
         image="/assets/images/contat.jpg"
 
@@ -325,7 +325,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       SingleJobData,
-      allposts
+      allposts,
+      slug
     },
   };
 }

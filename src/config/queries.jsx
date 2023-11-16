@@ -114,6 +114,7 @@ export const GetAllPostByCategory = gql`
     categories(where: { slug: $slug }) {
       nodes {
         name
+        description
         postCategoryFields {
           bannerImage {
             mediaItemUrl
@@ -130,7 +131,10 @@ export const GetAllPostByCategory = gql`
               }
             }
             seo {
-              fullHead
+              description
+          focusKeywords
+          title
+          fullHead
             }
             title
             slug
