@@ -51,9 +51,6 @@ export default function Home({ categories, allposts, scholorshipPosts, RemoteJob
             Discover Scholarships, Remote Jobs &amp; ePaper Listings - Find Your TrueJob Today
           </h1>
           <p className=" md:mb-16  text-center ">TrueJob  is a valuable resource for individuals seeking the latest scholarships, profitable remote jobs, recent ePaper jobs, and the latest news. We understand the significance of education and financial obstacles, so we provide extensive scholarships to help students overcome financial barriers. Additionally, we offer a range of profitable remote job opportunities that allow individuals to work on their terms. Moreover, we keep you informed about recent ePaper jobs and provide the latest news updates, ensuring you stay up-to-date with current events. We aim to assist you in finding these valuable resources and empowering you to achieve your goals.</p>
-
-
-
           <h2 className="text-3xl -mt-8 md:mt-0 mb-8 md:mb-16 uppercase text-center font-oswald">
             Top trending Jobs Articles
           </h2>
