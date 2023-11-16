@@ -137,10 +137,12 @@ const LatestPostSection = ({ posts }: any) => {
             <Link href={`/${p?.slug}`} className="flex gap-4 items-center group " key={idx}>
 
               <figure className="h-24 min-w-[6rem] overflow-hidden">
-                <img
+                <Image
                   src={p?.featuredImage?.node?.mediaItemUrl}
                   alt={p?.featuredImage?.node?.altText}
                   className="h-24 _img object-cover group-hover:scale-110 group-hover:rotate-6 transition-all duration-200"
+                  width={96}
+                  height={96}
                 />
               </figure>
               <div>

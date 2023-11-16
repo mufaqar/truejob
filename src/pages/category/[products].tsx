@@ -64,7 +64,7 @@ const Blog = ({CategoryData}:any) => {
                         <span className="text-sm md:text-base">View More</span>
                       </div>
                       <Link
-                        href={slug}
+                        href={`/${slug}`}
                         className="text-white flex gap-5 text-sm md:text-base justify-center item-center absolute bottom-2 pt-2 md:bottom-4 w-full border-t-[1px] border-gray-300 md:pt-4"
                       >
                         <span className="flex items-center gap-1">
@@ -126,7 +126,7 @@ const Blog = ({CategoryData}:any) => {
                           1.3k
                         </span>
                       </div>
-                      <Link href={`blogs/${post?.title}`} className="flex justify-center">
+                      <Link href={`/blogs/${post?.title}`} className="flex justify-center">
                         <Button variants="primary" size="medium">View More</Button>
                       </Link>
                     </div>
