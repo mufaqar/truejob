@@ -25,7 +25,7 @@ const PostDesign = ({ post, layout, home, rounded, to }: any) => {
             alt=""
             width={700}
             height={700}
-            className={`w-full group-hover:scale-110 transition-all duration-300 ease-in-out object-cover rounded-xl ${
+            className={`w-full group-hover:scale-110 transition-all duration-300 ease-in-out object-cover  ${
               layout === 2 ? "h-[240px]" : "h-[250px] sm:h-[300px]"
             }
             ${layout === 3 && home ? "sm:h-[240px]" : "sm:h-[340px]"}
@@ -42,9 +42,9 @@ const PostDesign = ({ post, layout, home, rounded, to }: any) => {
       >
         <div className={`${layout === 3 && "flex flex-col-reverse"}`}>
           <p className="capitalize text-light-blue text-sm">
-            By Mufaqar -
+      
             <span className="uppercase">
-              {dateFormat(date, "mmmm d, yyyy")}
+               {dateFormat(date, "mmmm d, yyyy")}
             </span>
           </p>
           <Link href={`${to ? to : ''}/${slug}`}>

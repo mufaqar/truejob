@@ -49,7 +49,7 @@ const Blog = ({CategoryData}:any) => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-8">
             {pData?.map((post: any, idx: number) => {
               return (
-                <><PostDesign post={post} idx={idx} layout={3} key={idx} /></>
+                <><PostDesign post={post} idx={idx} layout={1} key={idx} /></>
               )
               
               
