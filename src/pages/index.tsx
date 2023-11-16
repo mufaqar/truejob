@@ -11,39 +11,14 @@ import { Helmet } from 'react-helmet';
 import SliderComponent from '@/components/Slider/Slider';
 import apolloClient from '../config/client'
 import { GetServerSideProps, GetStaticProps } from 'next'
+import PageHead from '@/components/metas/pagesmeta';
 
 
 export default function Home({ categories, allposts, scholorshipPosts, RemoteJobs, EarnMoneyOnline, alljobs }: any) {
   return (
     <>
-      <Helmet>
-        <title>Discover Scholarships, Remote Jobs &amp; ePaper Listings - Find Your TrueJob Today</title>
-        <meta name="description" content="Discover a wide range of scholarship opportunities, remote jobs, and ePaper job listings. Find your perfect TrueJob today and kickstart your career." />
-
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Discover Scholarships, Remote Jobs &amp; ePaper Listings - Find Your TrueJob Today" />
-        <meta property="og:description" content="Discover a wide range of scholarship opportunities, remote jobs, and ePaper job listings. Find your perfect TrueJob today and kickstart your career." />
-        <meta property="og:url" content="https://truejob.designercrunch.net/" />
-        <meta property="og:site_name" content="TrueJob" />
-        <meta property="og:updated_time" content="2023-07-07T11:04:23+00:00" />
-        <meta property="og:image" content="https://truejob.designercrunch.net/wp-content/uploads/2023/06/Graphic-Design-jobs-2560-×-840-px-1024x336.jpg" />
-        <meta property="og:image:secure_url" content="https://truejob.designercrunch.net/wp-content/uploads/2023/06/Graphic-Design-jobs-2560-×-840-px-1024x336.jpg" />
-        <meta property="og:image:width" content="1024" />
-        <meta property="og:image:height" content="336" />
-        <meta property="og:image:alt" content="truejob" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="article:published_time" content="2023-06-05T14:56:53+00:00" />
-        <meta property="article:modified_time" content="2023-07-07T11:04:23+00:00" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Discover Scholarships, Remote Jobs &amp; ePaper Listings - Find Your TrueJob Today" />
-        <meta name="twitter:description" content="Discover a wide range of scholarship opportunities, remote jobs, and ePaper job listings. Find your perfect TrueJob today and kickstart your career." />
-        <meta name="twitter:image" content="https://truejob.designercrunch.net/wp-content/uploads/2023/06/Graphic-Design-jobs-2560-×-840-px-1024x336.jpg" />
-        <meta name="twitter:label1" content="Written by" />
-        <meta name="twitter:data1" content="truejob" />
-        <meta name="twitter:label2" content="Time to read" />
-        <meta name="twitter:data2" content="Less than a 5 minute" />
-      </Helmet>
+     
+      <PageHead title="Discover Scholarships, Remote Jobs &amp; ePaper Listings - Find Your TrueJob Today" description="Discover a wide range of scholarship opportunities, remote jobs, and ePaper job listings. Find your perfect TrueJob today and kickstart your career." url="https://truejob.online" />
       <SliderComponent data={allposts?.slice(0, 4)} />
       <div className="my-16">
         <Layout>

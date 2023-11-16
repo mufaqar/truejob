@@ -21,7 +21,7 @@ const query = `
   }
 `;
 
-const SITE_URI = 'https://truejob.online';
+const SITE_URI = 'https://www.truejob.online';
 
 async function fetchData() {
   const response = await fetch('https://truejob.designercrunch.net/graphql', {

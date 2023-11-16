@@ -1,18 +1,23 @@
 import Layout from "@/components/Layout/Layout";
 import Insta from "@/components/insta";
 import GoogleMap from "@/components/map/googleMap";
+import PageHead from "@/components/metas/pagesmeta";
 import SeoHead from "@/components/metas/pagesmeta";
 import PageBanner from "@/components/page-banner/banner";
 import Button from "@/components/ui/button";
 import Image from "next/image";
 import React from "react";
-import { Helmet } from "react-helmet";
+
 
 const ContactUs = () => {
   return (
     <>
 
-      <SeoHead title="Contact Us | True Jobs" url="https://www.truejob.online/contact-us" description="Stay informed and inspired as TrueJob delivers high-quality content to help you navigate the ever-changing job market and enhance your skills." keywords="contact us , job ads , govt job ,private jobs" />
+
+
+      <PageHead title="Contact Us for Scholarship Opportunities, Remote Jobs | True Jobs" description="Stay informed and inspired as TrueJob delivers high-quality content to help you navigate the ever-changing job market and enhance your skills." keywords="contact us , job ads , govt job ,private jobs" url="https://www.truejob.online/contact-us" />
+
+
       <PageBanner
         title="Contact Us"
         subTitle="Connect with TrueJob for Scholarship Opportunities, Remote Jobs, and ePaper Job Listings"
