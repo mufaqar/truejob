@@ -20,7 +20,7 @@ import { Helmet } from 'react-helmet';
 import { capitalizedFirstLetter } from "@/utils";
 import MetaTags from "../../utils/MetaTags";
 import Bio from "@/components/bio";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
 import apolloClient from "@/config/client";
 import { useRouter } from "next/router";
 
@@ -305,7 +305,7 @@ const FaqsList = ({ data }: any) => {
 
 
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const slug = context.params?.slug
   const SingleJobsResponse = await apolloClient.query({
     query: SingleJob,
@@ -328,10 +328,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths: any = [];
-  return {
-    paths,
-    fallback: 'blocking',
-  };
-}
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   const paths: any = [];
+//   return {
+//     paths,
+//     fallback: 'blocking',
+//   };
+// }

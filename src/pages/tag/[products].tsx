@@ -11,7 +11,7 @@ import {
 } from "react-icons/ai";
 import { Helmet } from "react-helmet";
 import { capitalizedFirstLetter } from "@/utils";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
 import apolloClient from "@/config/client";
 import Pagination from "@/components/Pagination/Pagination";
 
@@ -95,7 +95,7 @@ const Blog = ({TagData}:any) => {
 export default Blog;
 
 
-export const getStaticProps: GetStaticProps = async (context) => {  
+export const getServerSideProps: GetServerSideProps = async (context) => {  
   const slug = context.params?.products
   const response = await apolloClient.query({
     query: PostByTags,
@@ -114,10 +114,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths:any = [];
-  return {
-    paths,
-    fallback: 'blocking',
-  };
-}
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   const paths:any = [];
+//   return {
+//     paths,
+//     fallback: 'blocking',
+//   };
+// }

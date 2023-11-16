@@ -21,7 +21,6 @@ import {
 
 
 const Blog2 = ({PostsData}:any) => {
-console.log("🚀 ~ file: index.tsx:24 ~ Blog2 ~ PostsData:", PostsData)
 
   const [pData, setPData] = useState<any>()
   const PaginatedData = (res: any) => {

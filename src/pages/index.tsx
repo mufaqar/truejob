@@ -10,7 +10,7 @@ import Button from "@/components/ui/button";
 import { Helmet } from 'react-helmet';
 import SliderComponent from '@/components/Slider/Slider';
 import apolloClient from '../config/client'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps, GetStaticProps } from 'next'
 
 
 export default function Home({ categories, allposts, scholorshipPosts, RemoteJobs, EarnMoneyOnline, alljobs }: any) {
@@ -167,7 +167,7 @@ export default function Home({ categories, allposts, scholorshipPosts, RemoteJob
 
 
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const [categoriesResponse, jobsResponse, postsResponse, scholarshipResponse, remoteJobsResponse, earnMoneyOnlineResponse] = await Promise.all([
     apolloClient.query({ query: AllCategories }),
     apolloClient.query({ query: AllJobs }),
