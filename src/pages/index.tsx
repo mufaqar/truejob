@@ -7,7 +7,6 @@ import Link from "next/link";
 import PostDesign from "@/components/post-design/post-design";
 import { BsArrowRight } from "react-icons/bs";
 import Button from "@/components/ui/button";
-import { Helmet } from 'react-helmet';
 import SliderComponent from '@/components/Slider/Slider';
 import apolloClient from '../config/client'
 import { GetServerSideProps, GetStaticProps } from 'next'
@@ -17,10 +16,10 @@ import PageHead from '@/components/metas/pagesmeta';
 export default function Home({ categories, allposts, scholorshipPosts, RemoteJobs, EarnMoneyOnline, alljobs }: any) {
   return (
     <>
-     
-      <PageHead title={`Daily Newspaper Ads for Getting Jobs | ePaper Listings | True Job`} url="https://www.truejob.online/paper-job" description="Discover a wide range of scholarship opportunities, remote jobs, and ePaper job listings. Find your perfect TrueJob today and kickstart your career."  />
-     
-      
+
+      <PageHead title={` Discover Scholarships, Remote Jobs & ePaper Listings | Find Your TrueJob Today`} url="https://www.truejob.online" description="Discover a wide range of scholarship opportunities, remote jobs, and ePaper job listings. Find your perfect TrueJob today and kickstart your career." />
+
+
       <SliderComponent data={allposts?.slice(0, 4)} />
       <div className="my-16">
         <Layout>
