@@ -1,0 +1,7 @@
+{
+     "functions": {
+          "pages/api/**/*.{ts,tsx,js,jsx}": {
+               "maxDuration": 60
+          }
+     }
+}
