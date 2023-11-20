@@ -91,14 +91,16 @@ const Header2 = () => {
                 <SlArrowDown />
               </div>
               <SubMenu>
+              <Route to="/china-scholarship-for-pakistani-student">China Scholarship For Pakistani Students For 2024-2025</Route>
                 <Route to="/win-scholarships-in-france-in-2023">Win Scholarships In France</Route>
                 <Route to="/scholarship-in-australia">Scholarship in Australia</Route>
                 <Route to="/win-a-netherlands-scholarship">Scholarship in Netherlands</Route>
                 <Route to="/get-a-turkey-scholarship-from-pakistan">Turkey Scholarship From Pakistan</Route>
                 <Route to="/get-china-scholarships-from-pakistan">China Scholarships From Pakistan</Route>
                 <Route to="/get-scholarships-in-united-kingdom">Get Scholarships In United Kingdom</Route>
-                <Route to="/top-23-scholarship-countries-for-2023">Top 23 Scholarship Countries Of 2023</Route>
+                <Route to="/scholarships-for-pakistani-students">Find The Best Scholarships in 2024-2025</Route>
                 <Route to="/eligibility-criteria-for-a-scholarship">Eligibility Criteria For Scholarships</Route>
+               
                 <Route to="/understanding-scholarship-requirements">Scholarship Requirements</Route>
               </SubMenu>
             </li>
