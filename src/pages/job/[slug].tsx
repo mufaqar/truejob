@@ -45,7 +45,7 @@ const Slug = ({ SingleJobData, allposts , slug }: any) => {
     <>
       
 
-      <PageHead title={`${capitalizedFirstLetter(title)} | True Job`} url={`https://www.truejob.online/${slug}`} description={SingleJobData?.seo.description} keywords={SingleJobData?.seo.focusKeywords} updatedTime={SingleJobData?.seo.openGraph.updatedTime} />
+      <PageHead title={`${capitalizedFirstLetter(title)} | True Job`} url={`https://www.truejob.online/${slug}`} description={SingleJobData?.seo.description} keywords={SingleJobData?.seo.focusKeywords} updatedTime={SingleJobData?.seo?.openGraph?.updatedTime} />
      
 
 

@@ -56,7 +56,14 @@ export const AllCategories = gql`
         name
         slug
         seo {
+          canonicalUrl
+          description
+          focusKeywords
+          title
           fullHead
+          openGraph {
+            updatedTime
+          }
         }
         description
         postCategoryFields {
@@ -79,8 +86,14 @@ export const PostsByCategory = gql`
       slug
       description
       seo {
-        fullHead
+        canonicalUrl
+        description
+        focusKeywords
         title
+        fullHead
+        openGraph {
+          updatedTime
+        }
       }
       posts {
         nodes {
@@ -240,7 +253,14 @@ export const AllJobs = gql`
       nodes {
         slug
         seo {
+          canonicalUrl
+          description
+          focusKeywords
+          title
           fullHead
+          openGraph {
+            updatedTime
+          }
         }
         title
         featuredImage {
@@ -257,7 +277,14 @@ export const SingleJob = gql`
   query SingleJob($slug: ID!) {
     job(id: $slug, idType: URI) {
       seo {
-        fullHead
+        canonicalUrl
+          description
+          focusKeywords
+          title
+          fullHead
+          openGraph {
+            updatedTime
+          }
       }
       excerpt
       title
