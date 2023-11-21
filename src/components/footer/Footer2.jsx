@@ -191,9 +191,9 @@ const Footer2 = () => {
               <Link href="/" className="hover:underline">
                 TrueJob.
               </Link>
-              All Rights Reserved.
+                All Rights Reserved.
               <a href="http://mufaqar.com" target="_blank">
-                Developed By Mufaqar
+                 Developed By Mufaqar
               </a>
             </span>
           </div>

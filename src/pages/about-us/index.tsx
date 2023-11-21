@@ -9,7 +9,7 @@ const Page = () => {
   return (
     <>
 
-      <SeoHead title="About Us| True Jobs" url="https://www.truejob.online/about-us" description="Stay informed and inspired as TrueJob for Scholarship Opportunities, Remote Jobs, and ePaper Job Listings" keywords="about us , job ads , govt job ,private jobs" />
+      <SeoHead title="Stay informed and inspired as TrueJob  | True Jobs" url="https://www.truejob.online/about-us" description="Stay informed and inspired as TrueJob for Scholarship Opportunities, Remote Jobs, and ePaper Job Listings" keywords="about us , job ads , govt job ,private jobs" />
 
       <PageBanner
         title="About Us"
