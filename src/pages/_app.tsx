@@ -15,8 +15,7 @@ import Loader from '@/components/preLoader/loader'
 export default function App({ Component, pageProps }: AppProps) {
 
   const [isLoading, setIsLoading] = useState(false);
-  console.log("🚀 ~ file: _app.tsx:18 ~ App ~ isLoading:", isLoading)
-
+ 
   useEffect(() => {
     Router.events.on("routeChangeStart", (url) => {
       setIsLoading(true)
