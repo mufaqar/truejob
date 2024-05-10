@@ -187,7 +187,7 @@ const Footer2 = () => {
           <div className="text-center flex flex-col md:flex-row justify-between items-center">
             <Logo />
             <span className="block text-sm text-center text-gray-500 dark:text-gray-400 md:mt-0 mt-4">
-              © 2023
+              © 2023-2025
               <Link href="/" className="hover:underline">
                 TrueJob.
               </Link>

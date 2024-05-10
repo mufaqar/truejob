@@ -8,8 +8,6 @@ import Link from "next/link";
 
 
 const SliderComponent = ({ data }: any) => {
-  console.log('data', data);
-  
   const settings = {
     dots: true,
     infinite: true,
