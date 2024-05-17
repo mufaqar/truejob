@@ -2,7 +2,7 @@ import React from "react";
 
 const Loader = () => {
   return (
-   <div className="flex flex-col items-center justify-center hscreen">
+   <div className="fixed flex flex-col w-full h-screen z-[10000] bg-white/90 !top-0 items-center justify-center hscreen">
      <div className="pl">
       <svg className="pl__rings" viewBox="0 0 128 128" width="128px" height="128px">
         <g fill="none" strokeLinecap="round" strokeWidth="4">

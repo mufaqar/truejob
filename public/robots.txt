@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+Disallow: /node_modules/
+Sitemap: https://www.truejob.online/sitemap.xml

@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 export const AllPosts = gql`
   query AllPosts {
@@ -13,6 +13,10 @@ export const AllPosts = gql`
           }
         }
         seo {
+          canonicalUrl
+          description
+          focusKeywords
+          title
           fullHead
         }
         title
@@ -28,6 +32,18 @@ export const AllPosts = gql`
             content
           }
         }
+        tags {
+          nodes {
+            slug
+            name
+          }
+        }
+        postFields {
+          banner {
+            altText
+            mediaItemUrl
+          }
+        }
       }
     }
   }
@@ -40,7 +56,14 @@ export const AllCategories = gql`
         name
         slug
         seo {
+          canonicalUrl
+          description
+          focusKeywords
+          title
           fullHead
+          openGraph {
+            updatedTime
+          }
         }
         description
         postCategoryFields {
@@ -63,8 +86,14 @@ export const PostsByCategory = gql`
       slug
       description
       seo {
-        fullHead
+        canonicalUrl
+        description
+        focusKeywords
         title
+        fullHead
+        openGraph {
+          updatedTime
+        }
       }
       posts {
         nodes {
@@ -93,12 +122,45 @@ export const PostsByCategory = gql`
   }
 `;
 
+export const GetAllPostByCategory = gql`
+  query GetAllPostByCategory($slug: [String]!) {
+    categories(where: { slug: $slug }) {
+      nodes {
+        name
+        description
+        postCategoryFields {
+          bannerImage {
+            mediaItemUrl
+          }
+        }
+        posts(first: 10000) {
+          nodes {
+            date
+            excerpt
+            featuredImage {
+              node {
+                mediaItemUrl
+                altText
+              }
+            }
+            seo {
+              description
+          focusKeywords
+          title
+          fullHead
+            }
+            title
+            slug
+          }
+        }
+      }
+    }
+  }
+`;
+
 export const SinglePost = gql`
   query SinglePost($slug: ID!) {
-    post(
-      id: $slug
-      idType: URI
-    ) {
+    post(id: $slug, idType: URI) {
       date
       excerpt
       content
@@ -109,7 +171,15 @@ export const SinglePost = gql`
         }
       }
       seo {
-        fullHead
+      
+        canonicalUrl
+          description
+          focusKeywords
+          title
+          fullHead
+          openGraph {
+            updatedTime
+          }
       }
       title
       slug
@@ -123,6 +193,119 @@ export const SinglePost = gql`
         nodes {
           content
           date
+        }
+      }
+      postFields {
+        faqs {
+          answer
+          question
+        }
+        banner {
+          altText
+          mediaItemUrl
+        }
+      }
+      tags {
+        nodes {
+          slug
+          name
+        }
+      }
+    }
+  }
+`;
+
+export const PostByTags = gql`
+  query PostByTags($slug: ID!) {
+    tag(id: $slug, idType: SLUG) {
+      name
+      postTagFields {
+        bannerImage {
+          mediaItemUrl
+        }
+      }
+      posts {
+        nodes {
+          title
+          slug
+          date
+          featuredImage {
+            node {
+              mediaItemUrl
+            }
+          }
+          excerpt
+        }
+      }
+      name
+      postTagFields {
+        bannerImage {
+          mediaItemUrl
+        }
+      }
+    }
+  }
+`;
+
+export const AllJobs = gql`
+  query AllJobs {
+    jobs(first: 10000) {
+      nodes {
+        slug
+        seo {
+          canonicalUrl
+          description
+          focusKeywords
+          title
+          fullHead
+          openGraph {
+            updatedTime
+          }
+        }
+        title
+        featuredImage {
+          node {
+            mediaItemUrl
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const SingleJob = gql`
+  query SingleJob($slug: ID!) {
+    job(id: $slug, idType: URI) {
+      seo {
+        canonicalUrl
+          description
+          focusKeywords
+          title
+          fullHead
+          openGraph {
+            updatedTime
+          }
+      }
+      excerpt
+      title
+      slug
+      featuredImage {
+        node {
+          mediaItemUrl
+        }
+      }
+      postFields {
+        faqs {
+          answer
+          question
+        }
+      }
+      date
+      content
+      categories {
+        nodes {
+          slug
+          name
         }
       }
     }
